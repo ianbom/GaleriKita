@@ -19,7 +19,19 @@ class GaleriKitaThemeTest extends TestCase
             $this->assertDoesNotMatchRegularExpression('/gk-(?:compact|small|mobile|mobile-wide):/', $source, $file);
             $this->assertStringNotContainsString('[&', $source, $file);
             $this->assertStringNotContainsString('style=', $source, $file);
+            $this->assertStringNotContainsString('gk-', $source, $file);
+            $this->assertStringNotContainsString('[@media(width<550px)]', $source, $file);
         }
+    }
+
+    public function test_landing_uses_readable_spacing_utilities(): void
+    {
+        $source = file_get_contents(resource_path('js/components/galerikita/community.tsx'));
+        $this->assertStringContainsString('min-h-145', $source);
+        $this->assertStringContainsString('scroll-mt-6', $source);
+        $this->assertStringContainsString('pt-7', $source);
+        $this->assertStringContainsString('pb-3', $source);
+        $this->assertStringNotContainsString('min-h-[580px]', $source);
     }
 
     public function test_global_theme_has_no_alternative_modes(): void

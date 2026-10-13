@@ -1,0 +1,21 @@
+import { cn } from '@/admin/lib/utils';
+type MainProps = React.HTMLAttributes<HTMLDivElement> & {
+    fixed?: boolean;
+    fluid?: boolean;
+    ref?: React.Ref<HTMLDivElement>;
+};
+export function Main({ fixed, className, fluid, ...props }: MainProps) {
+    return (
+        <div
+            data-layout={fixed ? 'fixed' : 'auto'}
+            className={cn(
+                'min-h-0 min-w-0 px-4 py-6',
+                fixed && 'flex grow flex-col overflow-hidden',
+                !fluid &&
+                    '@7xl/content:mx-auto @7xl/content:w-full @7xl/content:max-w-7xl',
+                className,
+            )}
+            {...props}
+        />
+    );
+}

@@ -14,13 +14,13 @@ function Quantity({
     onChange: (value: number) => void;
 }) {
     return (
-        <div className="gk-quantity">
-            <span className="mb-[14px] block text-[12px] text-muted-foreground [@media(width<550px)]:text-[10px] min-[769px]:[@media(width<=1100px)]:text-[10px] min-[550px]:[@media(width<=768px)]:text-[10px]">
+        <div>
+            <span className="mb-3.5 block text-[12px] text-muted-foreground min-[769px]:[@media(width<=1100px)]:text-[10px] [@media(width<=768px)]:text-[10px]">
                 {label}
             </span>
-            <div className="grid h-[60px] grid-cols-[44px_1fr_44px] overflow-hidden rounded-[9px] border border-[#3b3b40] bg-[#222225] [@media(width<550px)]:h-[48px] [@media(width<550px)]:grid-cols-[44px_1fr_44px] min-[769px]:[@media(width<=1100px)]:grid-cols-[30px_1fr_30px] min-[550px]:[@media(width<=768px)]:h-[48px] min-[550px]:[@media(width<=768px)]:grid-cols-[44px_1fr_44px] [@media(width>1100px)]:[@media(width<=1300px)]:grid-cols-[36px_1fr_36px]">
+            <div className="grid h-15 grid-cols-[44px_1fr_44px] overflow-hidden rounded-[9px] border border-[#3b3b40] bg-[#222225] [@media(1100px<width<=1300px)]:grid-cols-[36px_1fr_36px] min-[769px]:[@media(width<=1100px)]:grid-cols-[30px_1fr_30px] [@media(width<=768px)]:h-12 [@media(width<=768px)]:grid-cols-[44px_1fr_44px]">
                 <button
-                    className="flex cursor-pointer items-center justify-center bg-[#ffffff02] hover:enabled:bg-[#ffffff0c] disabled:cursor-default disabled:opacity-[0.35]"
+                    className="flex cursor-pointer items-center justify-center bg-[#ffffff02] hover:enabled:bg-[#ffffff0c] disabled:cursor-default disabled:opacity-35"
                     type="button"
                     aria-label={`Kurangi ${label.toLowerCase()}`}
                     disabled={value <= 1}
@@ -29,13 +29,13 @@ function Quantity({
                     <Minus size={16} />
                 </button>
                 <output
-                    className="flex min-w-[0] items-center justify-center border-x border-x-[#3b3b40] px-[4px] text-[19px] font-semibold wrap-anywhere [@media(width<550px)]:text-[16px] min-[550px]:[@media(width<=768px)]:text-[16px]"
+                    className="flex min-w-0 items-center justify-center border-x border-x-[#3b3b40] px-1 text-[19px] font-semibold wrap-anywhere [@media(width<=768px)]:text-[16px]"
                     aria-label={label}
                 >
                     {value}
                 </output>
                 <button
-                    className="flex cursor-pointer items-center justify-center bg-[#ffffff02] hover:enabled:bg-[#ffffff0c] disabled:cursor-default disabled:opacity-[0.35]"
+                    className="flex cursor-pointer items-center justify-center bg-[#ffffff02] hover:enabled:bg-[#ffffff0c] disabled:cursor-default disabled:opacity-35"
                     type="button"
                     aria-label={`Tambah ${label.toLowerCase()}`}
                     disabled={value >= maximum}
@@ -54,12 +54,12 @@ export function PricingSection() {
     return (
         <section
             id="harga"
-            className="gk-pricing gk-section relative min-h-[214px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[22px_0_18px] [@media(width<550px)]:p-[32px_0] min-[550px]:[@media(width<=768px)]:p-[32px_0]"
+            className="relative min-h-53.5 scroll-mt-6 border-b border-b-[#ffffff0b] pt-5.5 pb-4.5 [@media(width<=768px)]:py-8"
         >
-            <div className="gk-container gk-pricing-layout relative mx-[auto] grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.78fr_1fr] items-center gap-[43px] [@media(width<550px)]:w-[calc(100%_-_40px)] [@media(width<550px)]:grid-cols-[1fr] [@media(width<550px)]:gap-[25px] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_80px)] min-[769px]:[@media(width<=1100px)]:grid-cols-[0.72fr_1fr] min-[769px]:[@media(width<=1100px)]:gap-[25px] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr] min-[550px]:[@media(width<=768px)]:gap-[25px] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width>1100px)]:[@media(width<=1300px)]:grid-cols-[0.8fr_1fr] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[25px]">
+            <div className="relative mx-auto grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.78fr_1fr] items-center gap-10.75 [@media(1100px<width<=1300px)]:grid-cols-[0.8fr_1fr] min-[769px]:[@media(width<=1100px)]:grid-cols-[0.72fr_1fr] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] min-[769px]:[@media(width<=1300px)]:gap-6.25 [@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width<=768px)]:grid-cols-1 [@media(width<=768px)]:gap-6.25">
                 <SectionHeading
-                    descriptionClassName="mt-[12px] min-[769px]:[@media(width<=1100px)]:text-[15px]"
-                    headingClassName="m-[0] font-serif text-[58px] leading-[0.86] font-normal tracking-[-0.6px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[40px] min-[769px]:[@media(width<=1100px)]:text-[33px] [@media(width<550px)]:text-[40px] min-[550px]:[@media(width<=768px)]:text-[40px] [@media(width<550px)]:tracking-[-1.3px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]"
+                    descriptionClassName="mt-3 min-[769px]:[@media(width<=1100px)]:text-[15px]"
+                    headingClassName="text-[58px] leading-[0.86] [@media(1100px<width<=1300px)]:text-[40px] min-[769px]:[@media(width<=1100px)]:text-[33px] [@media(width<=768px)]:text-[40px]"
                     label="HARGA"
                     description="Harga menyesuaikan kapasitas."
                 >
@@ -67,7 +67,7 @@ export function PricingSection() {
                     <br />
                     Sesuaikan kebutuhanmu.
                 </SectionHeading>
-                <div className="gk-pricing-panel grid grid-cols-[1fr_1fr_1fr] gap-[30px] rounded-[10px] border border-border bg-[linear-gradient(130deg,_#18181a,_#101012)] p-[27px_26px_19px] [@media(width<550px)]:grid-cols-[1fr_1fr] [@media(width<550px)]:gap-[22px_15px] [@media(width<550px)]:p-[20px_17px] min-[769px]:[@media(width<=1100px)]:gap-[10px] min-[769px]:[@media(width<=1100px)]:p-[20px_12px] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr_1fr] min-[550px]:[@media(width<=768px)]:gap-[22px_15px] min-[550px]:[@media(width<=768px)]:p-[20px_17px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[15px] [@media(width>1100px)]:[@media(width<=1300px)]:px-[18px]">
+                <div className="grid grid-cols-3 gap-7.5 rounded-[10px] border border-border bg-[linear-gradient(130deg,_#18181a,_#101012)] px-6.5 pt-6.75 pb-4.75 [@media(1100px<width<=1300px)]:gap-3.75 [@media(1100px<width<=1300px)]:px-4.5 min-[769px]:[@media(width<=1100px)]:gap-2.5 min-[769px]:[@media(width<=1100px)]:px-3 min-[769px]:[@media(width<=1100px)]:py-5 [@media(width<=768px)]:grid-cols-2 [@media(width<=768px)]:gap-x-3.75 [@media(width<=768px)]:gap-y-5.5 [@media(width<=768px)]:px-4.25 [@media(width<=768px)]:py-5">
                     <Quantity
                         label="Jumlah Fotografer"
                         value={photographers}
@@ -82,19 +82,19 @@ export function PricingSection() {
                         )}
                         onChange={setPhotos}
                     />
-                    <div className="gk-capacity border-l border-l-[#29292d] pl-[20px] [@media(width<550px)]:relative [@media(width<550px)]:col-[span_2] [@media(width<550px)]:border-t [@media(width<550px)]:border-l-0 [@media(width<550px)]:border-t-border [@media(width<550px)]:p-[16px_0_0] min-[769px]:[@media(width<=1100px)]:pl-[12px] min-[550px]:[@media(width<=768px)]:relative min-[550px]:[@media(width<=768px)]:col-[span_2] min-[550px]:[@media(width<=768px)]:border-t min-[550px]:[@media(width<=768px)]:border-l-0 min-[550px]:[@media(width<=768px)]:border-t-border min-[550px]:[@media(width<=768px)]:p-[16px_0_0] [@media(width>1100px)]:[@media(width<=1300px)]:pl-[12px]">
-                        <span className="mb-[0] block text-[12px] text-muted-foreground min-[769px]:[@media(width<=1100px)]:text-[10px]">
+                    <div className="border-l border-l-[#29292d] pl-5 min-[769px]:[@media(width<=1300px)]:pl-3 [@media(width<=768px)]:relative [@media(width<=768px)]:col-span-2 [@media(width<=768px)]:border-t [@media(width<=768px)]:border-l-0 [@media(width<=768px)]:border-t-border [@media(width<=768px)]:p-0 [@media(width<=768px)]:pt-4">
+                        <span className="mb-0 block text-[12px] text-muted-foreground min-[769px]:[@media(width<=1100px)]:text-[10px]">
                             Estimasi Kapasitas
                         </span>
                         <output
-                            className="mb-[13px] block text-[23px] font-semibold whitespace-nowrap [@media(width<550px)]:mb-[0] min-[769px]:[@media(width<=1100px)]:text-[20px] min-[550px]:[@media(width<=768px)]:mb-[0] [@media(width>1100px)]:[@media(width<=1300px)]:text-[20px]"
+                            className="mb-3.25 block text-[23px] font-semibold whitespace-nowrap min-[769px]:[@media(width<=1300px)]:text-[20px] [@media(width<=768px)]:mb-0"
                             data-capacity
                             aria-live="polite"
                         >
                             {(photographers * photos).toLocaleString('en-US')}{' '}
                             foto
                         </output>
-                        <EventLink className="min-h-[42px] w-[100%] rounded-[7px] p-[8px_15px] [@media(width<550px)]:absolute [@media(width<550px)]:right-[0] [@media(width<550px)]:bottom-[0] [@media(width<550px)]:min-h-[44px] [@media(width<550px)]:w-[auto] min-[769px]:[@media(width<=1100px)]:px-[8px] min-[769px]:[@media(width<=1100px)]:text-[12px] min-[550px]:[@media(width<=768px)]:absolute min-[550px]:[@media(width<=768px)]:right-[0] min-[550px]:[@media(width<=768px)]:bottom-[0] min-[550px]:[@media(width<=768px)]:min-h-[44px] min-[550px]:[@media(width<=768px)]:w-[auto]">
+                        <EventLink className="min-h-10.5 w-full rounded-[7px] px-3.75 py-2 min-[769px]:[@media(width<=1100px)]:px-2 min-[769px]:[@media(width<=1100px)]:text-[12px] [@media(width<=768px)]:absolute [@media(width<=768px)]:right-0 [@media(width<=768px)]:bottom-0 [@media(width<=768px)]:min-h-11 [@media(width<=768px)]:w-auto">
                             Lanjutkan
                         </EventLink>
                     </div>
@@ -132,11 +132,11 @@ export function FaqSection() {
     return (
         <section
             id="faq"
-            className="gk-faq gk-section relative min-h-[230px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[22px_0] [@media(width<550px)]:p-[33px_0] min-[550px]:[@media(width<=768px)]:p-[33px_0]"
+            className="relative min-h-57.5 scroll-mt-6 border-b border-b-[#ffffff0b] py-5.5 [@media(width<=768px)]:py-8.25"
         >
-            <div className="gk-container gk-faq-layout relative mx-[auto] grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.88fr_1fr] gap-[76px] [@media(width<550px)]:w-[calc(100%_-_40px)] [@media(width<550px)]:grid-cols-[1fr] [@media(width<550px)]:gap-[30px] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_80px)] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr] min-[550px]:[@media(width<=768px)]:gap-[30px] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_80px)]">
+            <div className="relative mx-auto grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.88fr_1fr] gap-19 min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width<=768px)]:grid-cols-1 [@media(width<=768px)]:gap-7.5">
                 <SectionHeading
-                    headingClassName="m-[0] font-serif text-[58px] leading-[0.88] font-normal tracking-[-0.6px] min-[769px]:[@media(width<=1100px)]:text-[56px] [@media(width<550px)]:text-[47px] min-[550px]:[@media(width<=768px)]:text-[47px] [@media(width<550px)]:tracking-[-1.3px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]"
+                    headingClassName="text-[58px] leading-[0.88] [@media(width<=768px)]:text-[47px]"
                     label="FAQ"
                 >
                     Pertanyaan yang
@@ -144,19 +144,19 @@ export function FaqSection() {
                     {'sering '}
                     <em className="font-serif font-normal">ditanyakan.</em>
                 </SectionHeading>
-                <div className="gk-faq-list mt-[-7px]">
+                <div className="-mt-1.75">
                     {questions.map(([question, answer], index) => (
                         <div
                             key={question}
-                            className="gk-faq-item border-b border-b-border"
+                            className="border-b border-b-border"
                         >
                             <h3>
                                 <button
-                                    className="flex w-[100%] cursor-pointer items-center justify-between gap-[18px] p-[9px_0] text-left text-[14px] text-muted-foreground hover:text-foreground disabled:cursor-default disabled:opacity-[0.35] [@media(width<550px)]:min-h-[48px] [@media(width<550px)]:py-[13px] [@media(width<550px)]:text-[12px] min-[550px]:[@media(width<=768px)]:min-h-[48px] min-[550px]:[@media(width<=768px)]:py-[13px] min-[550px]:[@media(width<=768px)]:text-[12px]"
-                                    id={`gk-question-${index}`}
+                                    className="flex w-full cursor-pointer items-center justify-between gap-4.5 px-0 py-2.25 text-left text-[14px] text-muted-foreground hover:text-foreground disabled:cursor-default disabled:opacity-35 [@media(width<=768px)]:min-h-12 [@media(width<=768px)]:py-3.25 [@media(width<=768px)]:text-[12px]"
+                                    id={`faq-question-${index}`}
                                     type="button"
                                     aria-expanded={opened === index}
-                                    aria-controls={`gk-answer-${index}`}
+                                    aria-controls={`faq-answer-${index}`}
                                     onClick={() =>
                                         setOpened(
                                             opened === index ? null : index,
@@ -168,7 +168,7 @@ export function FaqSection() {
                                         <Minus size={16} aria-hidden="true" />
                                     ) : (
                                         <Plus
-                                            className="shrink-[0]"
+                                            className="shrink-0"
                                             size={16}
                                             aria-hidden="true"
                                         />
@@ -176,12 +176,12 @@ export function FaqSection() {
                                 </button>
                             </h3>
                             <div
-                                id={`gk-answer-${index}`}
+                                id={`faq-answer-${index}`}
                                 role="region"
-                                aria-labelledby={`gk-question-${index}`}
+                                aria-labelledby={`faq-question-${index}`}
                                 hidden={opened !== index}
                             >
-                                <p className="p-[0_24px_17px_0] text-[14px] leading-[1.6] text-muted-foreground [@media(width<550px)]:text-[13px] min-[550px]:[@media(width<=768px)]:text-[13px]">
+                                <p className="pt-0 pr-6 pb-4.25 pl-0 text-[14px] leading-[1.6] text-muted-foreground [@media(width<=768px)]:text-[13px]">
                                     {answer}
                                 </p>
                             </div>

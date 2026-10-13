@@ -17,11 +17,11 @@ export function Brand() {
     return (
         <a
             href="#beranda"
-            className="gk-brand inline-flex items-center gap-2 text-[27px] font-semibold tracking-[-1px] whitespace-nowrap [@media(width<550px)]:text-[23px] min-[550px]:[@media(width<=768px)]:text-[23px]"
+            className="inline-flex items-center gap-2 text-[27px] font-semibold tracking-[-1px] whitespace-nowrap [@media(width<=768px)]:text-[23px]"
             aria-label="GaleriKita beranda"
         >
             <Aperture
-                className="h-[31px] w-[31px] text-[#e3e8b4] [@media(width<550px)]:h-[27px] [@media(width<550px)]:w-[27px] min-[550px]:[@media(width<=768px)]:h-[27px] min-[550px]:[@media(width<=768px)]:w-[27px]"
+                className="h-7.75 w-7.75 text-[#e3e8b4] [@media(width<=768px)]:h-6.75 [@media(width<=768px)]:w-6.75"
                 aria-hidden="true"
             />
             <span>GaleriKita.</span>
@@ -44,7 +44,7 @@ export function EventLink({
             data-create-event
             href={auth.user ? dashboard() : register()}
             className={cn(
-                `gk-button inline-flex min-h-[54px] items-center justify-center gap-2 rounded-[999px] border border-transparent bg-primary p-[14px_28px] text-[15px] font-bold whitespace-nowrap text-[#171b08] transition-[background,border-color] duration-150 ease-[ease] hover:bg-[#cbe85a]`,
+                'inline-flex min-h-13.5 items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-7 py-3.5 text-[15px] font-bold whitespace-nowrap text-primary-foreground transition-[background,border-color] duration-150 ease-[ease] hover:bg-[#cbe85a]',
                 className,
             )}
         >
@@ -74,10 +74,7 @@ export function Photo({
             src={src}
             alt=""
             data-photo={name}
-            className={cn(
-                `gk-photo block h-[100%] w-[100%] object-cover`,
-                className,
-            )}
+            className={cn('block h-full w-full object-cover', className)}
             loading={eager ? 'eager' : 'lazy'}
             decoding="async"
             width={800}
@@ -95,7 +92,7 @@ export function Print({
     return (
         <div
             className={cn(
-                `gk-print border border-[#b2b2ab] bg-[#e0dfd7] p-[5px_5px_26px] shadow-[0_8px_24px_#0000003d]`,
+                'border border-[#b2b2ab] bg-[#e0dfd7] p-1.25 pb-6.5 shadow-[0_8px_24px_#0000003d]',
                 className,
             )}
         >
@@ -120,10 +117,10 @@ export function SectionHeading({
     eyebrowClassName?: string;
 }) {
     return (
-        <div className="gk-section-heading">
+        <div>
             <p
                 className={cn(
-                    'gk-eyebrow mb-[14px]! text-[12px] font-bold tracking-[2px] text-muted-foreground [@media(width<550px)]:text-[10px] [@media(width<550px)]:tracking-[1.6px] min-[550px]:[@media(width<=768px)]:text-[10px] min-[550px]:[@media(width<=768px)]:tracking-[1.6px]',
+                    'mb-3.5! text-[12px] font-bold tracking-[2px] text-muted-foreground [@media(width<=768px)]:text-[10px] [@media(width<=768px)]:tracking-[1.6px]',
                     eyebrowClassName,
                 )}
             >
@@ -131,7 +128,7 @@ export function SectionHeading({
             </p>
             <h2
                 className={cn(
-                    'm-[0] font-serif text-[70px] leading-[0.9] font-normal tracking-[-0.6px] [@media(width<550px)]:text-[49px] [@media(width<550px)]:tracking-[-1.3px] min-[769px]:[@media(width<=1100px)]:text-[56px] min-[550px]:[@media(width<=768px)]:text-[49px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]',
+                    'm-0 font-serif text-[70px] leading-[0.9] font-normal tracking-[-0.6px] min-[769px]:[@media(width<=1100px)]:text-[56px] [@media(width<=768px)]:text-[49px] [@media(width<=768px)]:tracking-[-1.3px]',
                     headingClassName,
                 )}
             >
@@ -140,7 +137,7 @@ export function SectionHeading({
             {description && (
                 <p
                     className={cn(
-                        'gk-description mt-[16px] text-[18px] leading-[1.45] text-muted-foreground [@media(width<550px)]:text-[15px] min-[550px]:[@media(width<=768px)]:text-[15px]',
+                        'mt-4 text-[18px] leading-[1.45] text-muted-foreground [@media(width<=768px)]:text-[15px]',
                         descriptionClassName,
                     )}
                 >
@@ -189,10 +186,7 @@ export function QrIllustration({ className = '' }: { className?: string }) {
     };
     return (
         <svg
-            className={cn(
-                'gk-qr block aspect-[1] h-[auto] w-[100%]',
-                className,
-            )}
+            className={cn('block aspect-square h-auto w-full', className)}
             viewBox="-2 -2 33 33"
             aria-hidden="true"
         >
@@ -225,7 +219,9 @@ export function Invitation({
     return (
         <div
             className={cn(
-                `gk-invitation h-[355px] w-[232px] transform-[rotate(-4deg)] rounded-[12px] border border-[#434347] bg-[linear-gradient(150deg,_#1a1a1d,_#101012)] p-[27px_21px] text-center ${compact ? 'gk-invitation-compact absolute top-[23px] left-[47px] h-[219px] w-[168px] transform-[rotate(-7deg)] p-[21px_15px] [@media(width<550px)]:left-[30px] min-[769px]:[@media(width<=1100px)]:left-[24px] min-[550px]:[@media(width<=768px)]:left-[30px] [@media(width>1100px)]:[@media(width<=1300px)]:left-[24px]' : ''}`,
+                'h-88.75 w-58 transform-[rotate(-4deg)] rounded-[12px] border border-[#434347] bg-[linear-gradient(150deg,_#1a1a1d,_#101012)] px-5.25 py-6.75 text-center',
+                compact &&
+                    'absolute top-5.75 left-11.75 h-54.75 w-42 transform-[rotate(-7deg)] px-3.75 py-5.25 min-[769px]:[@media(width<=1300px)]:left-6 [@media(width<=768px)]:left-7.5',
                 className,
             )}
             aria-hidden="true"
@@ -233,7 +229,7 @@ export function Invitation({
             {!compact && (
                 <>
                     <small className="text-[10px] text-[#81816f]">Event</small>
-                    <strong className="m-[8px_0_4px] block text-[15px] font-medium">
+                    <strong className="mx-0 mt-2 mb-1 block text-[15px] font-medium">
                         Pernikahan Andi &amp; Sari
                     </strong>
                     <span className="text-[12px]">14 Juni 2025</span>
@@ -241,9 +237,9 @@ export function Invitation({
             )}
             <QrIllustration
                 className={cn(
-                    'm-[25px_auto_15px] w-[155px] rounded-[5px] [@media(width<550px)]:w-[135px] min-[550px]:[@media(width<=768px)]:w-[135px]',
+                    'mx-auto mt-6.25 mb-3.75 w-38.75 rounded-[5px] [@media(width<=768px)]:w-33.75',
                     compact &&
-                        'm-[8px_auto_12px] w-[99px] [@media(width<550px)]:w-[99px] min-[550px]:[@media(width<=768px)]:w-[99px]',
+                        'mx-auto mt-2 mb-3 w-24.75 [@media(width<=768px)]:w-24.75',
                 )}
             />
             <p
@@ -294,21 +290,21 @@ export function Phone({
     return (
         <div
             className={cn(
-                `gk-phone relative h-[391px] w-[195px] shrink-[0] overflow-hidden rounded-[29px] border-[2px] border-[#a6a6a8] bg-[#111113] p-[9px] shadow-[inset_0_0_0_4px_#050506,_0_0_0_2px_#28282a]`,
+                'relative h-97.75 w-48.75 shrink-0 overflow-hidden rounded-[29px] border-2 border-[#a6a6a8] bg-[#111113] p-2.25 shadow-[inset_0_0_0_4px_#050506,_0_0_0_2px_#28282a]',
                 className,
             )}
             aria-hidden="true"
         >
             <div
                 className={cn(
-                    'gk-phone-top flex h-[20px] items-center justify-between p-[0_9px] text-[8px]',
+                    'flex h-5 items-center justify-between px-2.25 py-0 text-[8px]',
                     phoneTopClassName,
                 )}
             >
                 <span>9:41</span>
                 <i
                     className={cn(
-                        'h-[12px] w-[55px] rounded-[20px] bg-[#050506]',
+                        'h-3 w-13.75 rounded-[20px] bg-[#050506]',
                         notchClassName,
                     )}
                 />
@@ -320,14 +316,14 @@ export function Phone({
                         src={camera}
                         name={name ?? 'camera'}
                         className={cn(
-                            'gk-camera-image mt-[5px] h-[281px] rounded-[4px]',
-                            '[@media(width<550px)]:h-[250px] min-[550px]:[@media(width<=768px)]:h-[250px]',
+                            'mt-1.25 h-70.25 rounded-[4px]',
+                            '[@media(width<=768px)]:h-62.5',
                             photoClassName,
                         )}
                     />
                     <div
                         className={cn(
-                            'gk-camera-tools mt-[8px] flex justify-center gap-[17px] text-[7px] text-[#aaa]',
+                            'mt-2 flex justify-center gap-4.25 text-[7px] text-[#aaa]',
                             cameraToolsClassName,
                         )}
                     >
@@ -337,14 +333,14 @@ export function Phone({
                     </div>
                     <div
                         className={cn(
-                            'gk-shutter-row flex items-center justify-between p-[9px_6px_0]',
+                            'flex items-center justify-between px-1.5 pt-2.25 pb-0',
                             shutterRowClassName,
                         )}
                     >
                         <Image size={18} />
                         <i
                             className={cn(
-                                'gk-shutter h-[37px] w-[37px] rounded-[50%] border-[3px] border-[#111] bg-[#eeeee9] outline-[1px] outline-[#ccc] outline-solid',
+                                'h-9.25 w-9.25 rounded-[50%] border-3 border-[#111] bg-[#eeeee9] outline-1 outline-[#ccc] outline-solid',
                                 shutterClassName,
                             )}
                         />
@@ -353,16 +349,11 @@ export function Phone({
                 </>
             ) : (
                 <>
-                    <div className="gk-phone-url mt-[5px] flex h-[22px] items-center gap-1 rounded-[10px] bg-[#242427] pl-[8px] text-[8px] text-[#aaa]">
+                    <div className="mt-1.25 flex h-5.5 items-center gap-1 rounded-[10px] bg-[#242427] pl-2 text-[8px] text-[#aaa]">
                         <LockKeyhole size={8} /> galerikita.join
                     </div>
-                    <div
-                        className={cn(
-                            'gk-join mt-[38px] text-center',
-                            joinClassName,
-                        )}
-                    >
-                        <Aperture className="m-[0_auto_18px] h-[34px] w-[34px] text-primary" />
+                    <div className={cn('mt-9.5 text-center', joinClassName)}>
+                        <Aperture className="mx-auto mt-0 mb-4.5 h-8.5 w-8.5 text-primary" />
                         <strong
                             className={cn(
                                 'text-[15px] font-medium',
@@ -371,15 +362,15 @@ export function Phone({
                         >
                             Gabung ke Galeri
                         </strong>
-                        <p className="mt-[8px] text-[10px] leading-[1.4] text-[#b1b1b8]">
+                        <p className="mt-2 text-[10px] leading-[1.4] text-[#b1b1b8]">
                             Masukkan nama kamu
                             <br />
                             untuk mulai berbagi foto.
                         </p>
-                        <div className="gk-name-input mt-[23px] rounded-[5px] border border-[#505054] bg-[#202023] p-[12px_8px] text-left text-[10px] text-[#b1b1b8]">
+                        <div className="mt-5.75 rounded-[5px] border border-[#505054] bg-[#202023] px-2 py-3 text-left text-[10px] text-[#b1b1b8]">
                             Nama kamu
                         </div>
-                        <div className="gk-join-button mt-[9px] rounded-[5px] bg-primary p-[11px_5px] text-[10px] font-bold text-[#121506]">
+                        <div className="mt-2.25 rounded-[5px] bg-primary px-1.25 py-2.75 text-[10px] font-bold text-[#121506]">
                             Gabung Sekarang
                         </div>
                     </div>
@@ -401,14 +392,14 @@ export function GalleryPreview({
     return (
         <div
             className={cn(
-                'gk-gallery-preview absolute top-[5px] right-[0] h-[383px] w-[198px] rounded-[12px] border border-[#333] bg-[#161618] p-[16px_10px_10px]',
+                'absolute top-1.25 right-0 h-95.75 w-49.5 rounded-[12px] border border-[#333] bg-[#161618] p-2.5 pt-4',
                 className,
             )}
             aria-hidden="true"
         >
             <strong className="text-[12px] font-semibold">Galeri Acara</strong>
-            <div className="gk-gallery-tabs m-[16px_0] flex gap-5 text-[10px]">
-                <span className="first:border-b first:border-b-primary first:pb-[4px] first:text-primary">
+            <div className="mx-0 my-4 flex gap-5 text-[10px]">
+                <span className="first:border-b first:border-b-primary first:pb-1 first:text-primary">
                     Semua
                 </span>
                 <span>Foto</span>
@@ -416,7 +407,7 @@ export function GalleryPreview({
             </div>
             <div
                 className={cn(
-                    'gk-preview-grid grid h-[287px] grid-cols-[1fr_1fr] grid-rows-[repeat(3,_1fr)] gap-[5px]',
+                    'grid h-71.75 grid-cols-2 grid-rows-[repeat(3,_1fr)] gap-1.25',
                     previewGridClassName,
                 )}
             >
@@ -435,50 +426,50 @@ export function GalleryPreview({
 export function PrivacyPreview() {
     return (
         <div
-            className="gk-privacy p-[28px_20px_20px] [@media(width<550px)]:pt-[12px] min-[550px]:[@media(width<=768px)]:pt-[12px]"
+            className="p-5 pt-7 [@media(width<=768px)]:pt-3"
             aria-hidden="true"
         >
-            <div className="gk-privacy-options rounded-[10px] border border-border p-[12px_20px]">
-                <div className="flex items-center gap-[18px] p-[8px_0]">
+            <div className="rounded-[10px] border border-border px-5 py-3">
+                <div className="flex items-center gap-4.5 px-0 py-2">
                     <LockKeyhole size={22} />
                     <p>
                         <strong className="block text-[13px] font-semibold">
                             Private
                         </strong>
-                        <span className="mt-[4px] block text-[11px] text-muted-foreground">
+                        <span className="mt-1 block text-[11px] text-muted-foreground">
                             Hanya undangan yang bisa melihat
                         </span>
                     </p>
                 </div>
-                <div className="flex items-center gap-[18px] p-[8px_0]">
+                <div className="flex items-center gap-4.5 px-0 py-2">
                     <Check
-                        className="rounded-[50%] bg-primary fill-primary p-[3px] text-[#101207]"
+                        className="rounded-[50%] bg-primary fill-primary p-0.75 text-[#101207]"
                         size={22}
                     />
                     <p>
                         <strong className="block text-[13px] font-semibold">
                             Public
                         </strong>
-                        <span className="mt-[4px] block text-[11px] text-muted-foreground">
+                        <span className="mt-1 block text-[11px] text-muted-foreground">
                             Siapa saja dengan link dapat melihat
                         </span>
                     </p>
                 </div>
             </div>
-            <div className="gk-timing-options mt-[15px] grid grid-cols-[1fr_1fr] gap-[13px]">
-                <div className="rounded-[7px] border border-border p-[10px_13px] first:bg-primary first:text-[#171b08]">
+            <div className="mt-3.75 grid grid-cols-2 gap-3.25">
+                <div className="rounded-[7px] border border-border px-3.25 py-2.5 first:bg-primary first:text-primary-foreground">
                     <strong className="block text-[13px] font-semibold">
                         Instant
                     </strong>
-                    <span className="mt-[4px] block text-[11px] text-[#333c11]">
+                    <span className="mt-1 block text-[11px] text-[#333c11]">
                         Langsung ditampilkan
                     </span>
                 </div>
-                <div className="rounded-[7px] border border-border p-[10px_13px]">
+                <div className="rounded-[7px] border border-border px-3.25 py-2.5">
                     <strong className="block text-[13px] font-semibold">
                         After Event
                     </strong>
-                    <span className="mt-[4px] block text-[11px] text-muted-foreground">
+                    <span className="mt-1 block text-[11px] text-muted-foreground">
                         Ditampilkan setelah acara
                     </span>
                 </div>
@@ -489,14 +480,14 @@ export function PrivacyPreview() {
 
 export function DirectionIcons() {
     return (
-        <div className="gk-directions flex gap-3" aria-hidden="true">
-            <span className="flex h-[46px] w-[46px] items-center justify-center rounded-[50%] border border-[#49494d] text-foreground first:border-[#29292d] first:text-[#73737b] [@media(width<550px)]:h-[38px] [@media(width<550px)]:w-[38px] min-[550px]:[@media(width<=768px)]:h-[38px] min-[550px]:[@media(width<=768px)]:w-[38px]">
+        <div className="flex gap-3" aria-hidden="true">
+            <span className="flex h-11.5 w-11.5 items-center justify-center rounded-[50%] border border-[#49494d] text-foreground first:border-border first:text-[#73737b] [@media(width<=768px)]:h-9.5 [@media(width<=768px)]:w-9.5">
                 <ChevronRight
-                    className="gk-back-arrow transform-[rotate(180deg)]"
+                    className="transform-[rotate(180deg)]"
                     size={18}
                 />
             </span>
-            <span className="flex h-[46px] w-[46px] items-center justify-center rounded-[50%] border border-[#49494d] text-foreground [@media(width<550px)]:h-[38px] [@media(width<550px)]:w-[38px] min-[550px]:[@media(width<=768px)]:h-[38px] min-[550px]:[@media(width<=768px)]:w-[38px]">
+            <span className="flex h-11.5 w-11.5 items-center justify-center rounded-[50%] border border-[#49494d] text-foreground [@media(width<=768px)]:h-9.5 [@media(width<=768px)]:w-9.5">
                 <ChevronRight size={18} />
             </span>
         </div>

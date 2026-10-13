@@ -14,9 +14,9 @@ cdp('Page.addScriptToEvaluateOnNewDocument', source='window.__gkErrors=[];window
 cdp('Page.reload')
 wait_for_load()
 time.sleep(2)
-assert js('document.querySelector(".gk-page") !== null'), 'Landing page missing'
+assert js('document.querySelector("[data-landing]") !== null'), 'Landing page missing'
 assert js('Array.from(document.querySelectorAll("link[rel=stylesheet]")).every(link=>new URL(link.href).pathname.startsWith("/build/"))'), 'Production assets required'
-assert js('document.querySelectorAll(".gk-page header, .gk-page main > section, .gk-page footer").length') == 10
+assert js('document.querySelectorAll("[data-landing] header, [data-landing] main > section, [data-landing] footer").length') == 10
 
 def click_named(name, repeats=1):
     nodes = cdp('Accessibility.getFullAXTree')['nodes']
@@ -42,7 +42,7 @@ click_named('Kurangi foto per fotografer')
 click_named('Kurangi jumlah fotografer', 49)
 click_named('Kurangi foto per fotografer', 99)
 assert js('document.querySelector("[data-capacity]").textContent.trim()') == '1 foto'
-assert js('Array.from(document.querySelectorAll(".gk-quantity button:first-child")).every(button=>button.disabled)')
+assert js('Array.from(document.querySelectorAll("button[aria-label]")).filter(button=>button.getAttribute("aria-label").startsWith("Kurangi ")).every(button=>button.disabled)')
 cdp('Page.reload')
 wait_for_load()
 time.sleep(1)
@@ -76,15 +76,15 @@ assert js('window.__gkErrors') == [], js('window.__gkErrors')
 cdp('Emulation.setDeviceMetricsOverride', width=1440, height=1000, deviceScaleFactor=1, mobile=False)
 cdp('CSS.enable')
 document_node = cdp('DOM.getDocument')['root']['nodeId']
-button_node = cdp('DOM.querySelector', nodeId=document_node, selector='.gk-hero .gk-button')['nodeId']
+button_node = cdp('DOM.querySelector', nodeId=document_node, selector='#beranda [data-create-event]')['nodeId']
 cdp('CSS.forcePseudoState', nodeId=button_node, forcedPseudoClasses=['hover','focus','focus-visible'])
 time.sleep(.3)
-assert js('getComputedStyle(document.querySelector(".gk-hero .gk-button")).backgroundColor') == 'rgb(203, 232, 90)'
-assert js('getComputedStyle(document.querySelector(".gk-hero .gk-button")).outlineColor') == 'rgb(221, 247, 106)'
-assert js('getComputedStyle(document.querySelector(".gk-hero .gk-button")).outlineStyle') == 'solid'
+assert js('getComputedStyle(document.querySelector("#beranda [data-create-event]")).backgroundColor') == 'rgb(203, 232, 90)'
+assert js('getComputedStyle(document.querySelector("#beranda [data-create-event]")).outlineColor') == 'rgb(221, 247, 106)'
+assert js('getComputedStyle(document.querySelector("#beranda [data-create-event]")).outlineStyle') == 'solid'
 cdp('CSS.forcePseudoState', nodeId=button_node, forcedPseudoClasses=[])
 cdp('Emulation.setEmulatedMedia', features=[{'name':'prefers-reduced-motion','value':'reduce'}])
-assert js('getComputedStyle(document.querySelector(".gk-hero .gk-button")).transitionProperty') == 'none'
+assert js('getComputedStyle(document.querySelector("#beranda [data-create-event]")).transitionProperty') == 'none'
 assert js('getComputedStyle(document.documentElement).scrollBehavior') == 'auto'
 cdp('Emulation.setEmulatedMedia', features=[])
 saved = js('({appearance:localStorage.getItem("appearance"),cookie:document.cookie.split("; ").find(value=>value.startsWith("appearance=")) ?? null})')
