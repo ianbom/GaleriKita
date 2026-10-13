@@ -1,10 +1,18 @@
 # Landing page GaleriKita
 
 Route `/` menggunakan halaman Inertia `welcome`. Komponen berada di
-`resources/js/components/galerikita/`, styling khusus di
-`resources/css/galerikita.css`. Halaman auth/dashboard tetap memakai styling lama.
+`resources/js/components/galerikita/`, styling memakai utility Tailwind langsung
+di JSX. Satu stylesheet global: `resources/css/app.css`; tidak ada stylesheet
+GaleriKita terpisah. Token warna/font dan variant responsif landing berada di
+stylesheet global tersebut. Tema landing tetap terbatas pada `.gk-page`, sehingga
+halaman auth/dashboard tetap memakai styling lama.
 Plus Jakarta Sans dan Instrument Serif dimuat melalui provider font Vite yang
 sudah terpasang; build menyimpan font secara lokal.
+
+Variant Tailwind mempertahankan breakpoint lama: `gk-compact` untuk 769-1300px,
+`gk-small` untuk 769-1100px, `gk-mobile` untuk maksimal 768px, dan
+`gk-mobile-wide` untuk 550-768px. Class `gk-*` tetap menjadi penanda DOM untuk
+selector utility kontekstual dan tes, bukan class komponen CSS terpisah.
 
 ## Mengganti foto
 
@@ -72,6 +80,24 @@ overflow pada 1440, 1280, 1024, 768, 390, dan 375px. Screenshot full-page disimp
 di `storage/app/galerikita-qa/`. Tes Laravel memakai SQLite in-memory sesuai
 `phpunit.xml`, bukan database aktif.
 
+Tes regresi visual: ambil baseline dari versi sebelum migrasi, lalu bandingkan
+dengan build setelah migrasi. Jangan merekam baseline dari versi yang sedang
+diuji. Artefak lokal tersimpan di `storage/app/galerikita-tailwind-qa/`.
+
+```powershell
+$env:GK_VISUAL_MODE='capture'
+$env:GK_URL='http://127.0.0.1:8014' # Server versi sebelum migrasi
+Get-Content tests/galerikita-visual.py -Raw | browser-harness
+Remove-Item Env:GK_VISUAL_MODE
+$env:GK_URL='http://127.0.0.1:8013' # Server versi setelah migrasi
+Get-Content tests/galerikita-visual.py -Raw | browser-harness
+```
+
+Tes membandingkan geometry, computed style, pseudo-element, dan seluruh pixel
+screenshot pada 12 lebar (375, 390, 550, 768, 769, 1024, 1100, 1101, 1280,
+1300, 1301, 1440px), serta login/register light/dark. Transisi tema ditunggu,
+fokus input dilepas agar caret tidak berkedip, dan nonce script tidak dibandingkan.
+
 Desktop mengikuti kedua referensi; mobile adalah interpretasi responsif.
 Placeholder sengaja berbeda dari foto final. Detail QR, handwriting, ikon
 logo, dan chrome mockup dibuat ulang, bukan screenshot asli; jangan menganggap
@@ -79,6 +105,9 @@ hasilnya pixel-perfect tanpa meninjau screenshot.
 
 ## Hasil validasi implementasi
 
+- Migrasi Tailwind mempertahankan geometry, computed style, pseudo-element, dan
+  screenshot (nol selisih pixel) pada 12 lebar landing serta login/register
+  light/dark, dibandingkan build versi asli sebelum migrasi.
 - Build produksi berhasil; lint dan format seluruh file landing berhasil.
 - Dua tes Laravel berhasil, 20 assertions; Pint file tes berhasil.
 - Browser produksi berhasil pada enam ukuran yang ditentukan. Tidak ada

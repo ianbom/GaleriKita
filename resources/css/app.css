@@ -141,3 +141,42 @@
         @apply bg-background text-foreground;
     }
 }
+
+@theme {
+    --color-gk-background: #09090b;
+    --color-gk-surface: #141416;
+    --color-gk-border: #29292d;
+    --color-gk-text: #f5f4ef;
+    --color-gk-secondary: #b1b1b8;
+    --color-gk-accent: #ddf76a;
+    --font-gk-ui: 'Plus Jakarta Sans', sans-serif;
+    --font-gk-display: 'Instrument Serif', serif;
+}
+
+@custom-variant gk-compact {
+    @media (min-width: 769px) and (max-width: 1300px) {
+        @slot;
+    }
+}
+
+@custom-variant gk-small {
+    @media (min-width: 769px) and (max-width: 1100px) {
+        @slot;
+    }
+}
+
+@custom-variant gk-mobile {
+    @media (max-width: 768px) {
+        @slot;
+    }
+}
+
+@custom-variant gk-mobile-wide {
+    @media (min-width: 550px) and (max-width: 768px) {
+        @slot;
+    }
+}
+
+html:has(.gk-page) {
+    @apply scroll-smooth bg-gk-background motion-reduce:scroll-auto;
+}
