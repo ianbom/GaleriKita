@@ -37,47 +37,51 @@ export function CommunitySection() {
     return (
         <section
             id="galeri"
-            className="gk-community gk-section relative min-h-[580px] scroll-mt-[24px] p-[28px_0_12px] [border-bottom:1px_solid_#ffffff0b] gk-mobile:min-h-[0] gk-mobile:p-[34px_0_26px] [&_.gk-description]:mt-[8px] [&_.gk-eyebrow]:mb-[8px]! [&_.gk-heading-row]:mb-[16px] gk-mobile:[&_.gk-heading-row]:mb-[20px] [&_.gk-inset-heading]:px-[44px] gk-compact:[&_.gk-inset-heading]:px-[24px] gk-mobile:[&_.gk-inset-heading]:px-[0] [&_h2]:m-[0] [&_h2]:font-gk-display [&_h2]:text-[60px] [&_h2]:leading-[0.84] [&_h2]:font-normal [&_h2]:tracking-[-0.6px] gk-small:[&_h2]:text-[56px] gk-mobile:[&_h2]:text-[49px] gk-mobile:[&_h2]:tracking-[-1.3px]"
+            className="gk-community gk-section relative min-h-[580px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[28px_0_12px] [@media(width<550px)]:min-h-[0] [@media(width<550px)]:p-[34px_0_26px] min-[550px]:[@media(width<=768px)]:min-h-[0] min-[550px]:[@media(width<=768px)]:p-[34px_0_26px]"
         >
-            <div className="gk-container gk-container-gallery relative mx-[auto] w-[min(100%_-_40px,_1400px)] gk-compact:w-[calc(100%_-_32px)] gk-mobile:w-[calc(100%_-_40px)]">
-                <div className="gk-heading-row gk-inset-heading flex items-end justify-between gap-[24px] px-[20px] gk-mobile:flex-col gk-mobile:[align-items:start] gk-mobile:gap-[20px] gk-mobile:px-[0]">
+            <div className="gk-container gk-container-gallery relative mx-[auto] w-[min(100%_-_40px,_1400px)] [@media(width<550px)]:w-[calc(100%_-_40px)] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_32px)] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_32px)]">
+                <div className="gk-heading-row gk-inset-heading mb-[16px] flex items-end justify-between gap-[24px] px-[44px] [@media(width<550px)]:mb-[20px] [@media(width<550px)]:flex-col [@media(width<550px)]:items-start [@media(width<550px)]:gap-[20px] [@media(width<550px)]:px-[0] min-[769px]:[@media(width<=1100px)]:px-[24px] min-[550px]:[@media(width<=768px)]:mb-[20px] min-[550px]:[@media(width<=768px)]:flex-col min-[550px]:[@media(width<=768px)]:items-start min-[550px]:[@media(width<=768px)]:gap-[20px] min-[550px]:[@media(width<=768px)]:px-[0] [@media(width>1100px)]:[@media(width<=1300px)]:px-[24px]">
                     <SectionHeading
+                        eyebrowClassName="mb-[8px]!"
+                        descriptionClassName="mt-[8px]"
+                        headingClassName="m-[0] font-serif text-[60px] leading-[0.84] font-normal tracking-[-0.6px] min-[769px]:[@media(width<=1100px)]:text-[56px] [@media(width<550px)]:text-[49px] min-[550px]:[@media(width<=768px)]:text-[49px] [@media(width<550px)]:tracking-[-1.3px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]"
                         label="GALERI BERSAMA"
                         description="Dan setiap sudut pandang menyimpan cerita yang berbeda."
                     >
                         Setiap orang punya
                         <br />
-                        <em className="font-gk-display font-normal">
+                        <em className="font-serif font-normal">
                             sudut pandangnya.
                         </em>
                     </SectionHeading>
-                    <div className="gk-heading-aside flex items-center gap-[56px] pb-[12px] text-[16px] text-gk-secondary gk-compact:gap-[28px] gk-compact:text-[14px] gk-mobile:w-[100%] gk-mobile:justify-between gk-mobile:gap-[15px] gk-mobile:p-[0] gk-mobile:text-[13px] gk-mobile:[&_br]:hidden">
+                    <div className="gk-heading-aside flex items-center gap-[56px] pb-[12px] text-[16px] text-muted-foreground [@media(width<550px)]:w-[100%] [@media(width<550px)]:justify-between [@media(width<550px)]:gap-[15px] [@media(width<550px)]:p-[0] [@media(width<550px)]:text-[13px] min-[769px]:[@media(width<=1100px)]:gap-[28px] min-[769px]:[@media(width<=1100px)]:text-[14px] min-[550px]:[@media(width<=768px)]:w-[100%] min-[550px]:[@media(width<=768px)]:justify-between min-[550px]:[@media(width<=768px)]:gap-[15px] min-[550px]:[@media(width<=768px)]:p-[0] min-[550px]:[@media(width<=768px)]:text-[13px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[28px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[14px]">
                         <p>
                             Momen nyata
-                            <br />
+                            <br className="[@media(width<550px)]:hidden min-[550px]:[@media(width<=768px)]:hidden" />
                             dari pengguna
-                            <br />
+                            <br className="[@media(width<550px)]:hidden min-[550px]:[@media(width<=768px)]:hidden" />
                             GaleriKita.
                         </p>
                         <DirectionIcons />
                     </div>
                 </div>
                 <div
-                    className="gk-masonry grid h-[380px] grid-cols-[1.25fr_0.88fr_1.06fr_0.99fr_1.13fr] gap-[12px] gk-mobile:h-[auto] gk-mobile:grid-cols-[1fr_1fr] gk-mobile:gap-[10px] gk-mobile-wide:grid-cols-[repeat(3,_minmax(0,_1fr))] [&_>_.gk-gallery-column-2]:grid-rows-[49%_1fr] [&_>_.gk-gallery-column-3]:grid-rows-[70%_1fr] [&_>_.gk-gallery-column-4]:grid-rows-[54%_1fr] gk-mobile:[&_>_.gk-gallery-column-4]:[grid-column:1] gk-mobile:[&_>_.gk-gallery-column-4]:h-[270px]"
+                    className="gk-masonry grid h-[380px] grid-cols-[1.25fr_0.88fr_1.06fr_0.99fr_1.13fr] gap-[12px] [@media(width<550px)]:h-[auto] [@media(width<550px)]:grid-cols-[1fr_1fr] [@media(width<550px)]:gap-[10px] min-[550px]:[@media(width<=768px)]:h-[auto] min-[550px]:[@media(width<=768px)]:grid-cols-[repeat(3,_minmax(0,_1fr))] min-[550px]:[@media(width<=768px)]:gap-[10px]"
                     aria-label="Contoh komposisi galeri, foto masih placeholder"
                 >
                     {galleryColumns.map((column, index) => (
                         <div
                             key={index}
                             className={cn(
-                                `gk-gallery-column grid min-w-[0] grid-cols-[1fr_1fr] grid-rows-[58%_1fr] gap-[10px] gk-mobile:h-[290px] gk-mobile:gap-[7px] [&:first-child]:block gk-mobile:[&:first-child]:[grid-row:span_2] gk-mobile:[&:first-child]:h-[590px] gk-mobile-wide:[&:first-child]:[grid-row:auto] gk-mobile-wide:[&:first-child]:h-[290px] [&:last-child]:block gk-mobile:[&:last-child]:[grid-column:2] gk-mobile:[&:last-child]:h-[270px] gk-mobile-wide:[&:last-child]:[grid-column:3] gk-mobile-wide:[&:last-child]:h-[270px] gk-gallery-column-${index + 1}`,
+                                `gk-gallery-column grid min-w-[0] grid-cols-[1fr_1fr] grid-rows-[58%_1fr] gap-[10px] first:block last:block [@media(width<550px)]:h-[290px] [@media(width<550px)]:gap-[7px] [@media(width<550px)]:first:row-[span_2] [@media(width<550px)]:first:h-[590px] [@media(width<550px)]:last:col-[2] [@media(width<550px)]:last:h-[270px] min-[550px]:[@media(width<=768px)]:h-[290px] min-[550px]:[@media(width<=768px)]:gap-[7px] min-[550px]:[@media(width<=768px)]:first:row-[auto] min-[550px]:[@media(width<=768px)]:first:h-[290px] min-[550px]:[@media(width<=768px)]:last:col-[3] min-[550px]:[@media(width<=768px)]:last:h-[270px] gk-gallery-column-${index + 1}`,
+                                'nth-[2]:grid-rows-[49%_1fr] nth-[3]:grid-rows-[70%_1fr] nth-[4]:grid-rows-[54%_1fr] [@media(width<550px)]:nth-[4]:col-[1] [@media(width<550px)]:nth-[4]:h-[270px] min-[550px]:[@media(width<=768px)]:nth-[4]:col-[1] min-[550px]:[@media(width<=768px)]:nth-[4]:h-[270px]',
                             )}
                         >
                             {column.map((photo) => (
                                 <figure
                                     key={photo.key}
                                     className={cn(
-                                        `gk-gallery-photo relative h-[100%] min-h-[0] overflow-hidden rounded-[5px] [&_figcaption]:absolute [&_figcaption]:right-[0] [&_figcaption]:bottom-[0] [&_figcaption]:left-[0] [&_figcaption]:flex [&_figcaption]:items-end [&_figcaption]:justify-between [&_figcaption]:p-[30px_10px_10px] [&_figcaption]:text-[11px] [&_figcaption]:[background:linear-gradient(transparent,_#050506d9)] gk-mobile:[&_figcaption]:px-[8px] gk-mobile:[&_figcaption]:text-[9px] [&_figcaption_span:last-child]:flex [&_figcaption_span:last-child]:items-center [&_figcaption_span:last-child]:gap-2 [&_figcaption_span:last-child]:text-[#ddd] ${photo.user ? 'gk-gallery-main-photo [grid-column:span_2]' : ''}`,
+                                        `gk-gallery-photo relative h-[100%] min-h-[0] overflow-hidden rounded-[5px] ${photo.user ? 'gk-gallery-main-photo col-[span_2]' : ''}`,
                                     )}
                                 >
                                     <Photo
@@ -85,9 +89,9 @@ export function CommunitySection() {
                                         name={`gallery.${photo.key}`}
                                     />
                                     {'user' in photo && (
-                                        <figcaption>
+                                        <figcaption className="absolute right-[0] bottom-[0] left-[0] flex items-end justify-between bg-[linear-gradient(transparent,_#050506d9)] p-[30px_10px_10px] text-[11px] [@media(width<550px)]:px-[8px] [@media(width<550px)]:text-[9px] min-[550px]:[@media(width<=768px)]:px-[8px] min-[550px]:[@media(width<=768px)]:text-[9px]">
                                             <span>{photo.user}</span>
-                                            <span>
+                                            <span className="last:flex last:items-center last:gap-2 last:text-[#ddd]">
                                                 <Heart
                                                     size={15}
                                                     aria-hidden="true"
@@ -119,37 +123,40 @@ export function CategoriesSection() {
     return (
         <section
             id="momen"
-            className="gk-moments gk-section relative min-h-[380px] scroll-mt-[24px] p-[24px_0_17px] [border-bottom:1px_solid_#ffffff0b] gk-small:min-h-[330px] gk-mobile:min-h-[0] gk-mobile:p-[30px_0] [&_.gk-eyebrow]:mb-[8px]! [&_h2]:m-[0] [&_h2]:font-gk-display [&_h2]:text-[58px] [&_h2]:leading-[0.82] [&_h2]:font-normal [&_h2]:tracking-[-0.6px] gk-small:[&_h2]:text-[44px] gk-mobile:[&_h2]:text-[45px] gk-mobile:[&_h2]:tracking-[-1.3px]"
+            className="gk-moments gk-section relative min-h-[380px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[24px_0_17px] [@media(width<550px)]:min-h-[0] [@media(width<550px)]:p-[30px_0] min-[769px]:[@media(width<=1100px)]:min-h-[330px] min-[550px]:[@media(width<=768px)]:min-h-[0] min-[550px]:[@media(width<=768px)]:p-[30px_0]"
         >
-            <div className="gk-container gk-container-wide relative mx-[auto] w-[min(100%_-_88px,_1352px)] gk-compact:w-[calc(100%_-_48px)] gk-mobile:w-[calc(100%_-_40px)]">
-                <div className="gk-heading-row gk-inset-heading flex items-end justify-between gap-[24px] px-[20px] gk-mobile:flex-col gk-mobile:[align-items:start] gk-mobile:gap-[20px] gk-mobile:px-[0]">
-                    <SectionHeading label="UNTUK SETIAP MOMEN">
+            <div className="gk-container gk-container-wide relative mx-[auto] w-[min(100%_-_88px,_1352px)] [@media(width<550px)]:w-[calc(100%_-_40px)] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_48px)] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_48px)]">
+                <div className="gk-heading-row gk-inset-heading flex items-end justify-between gap-[24px] px-[20px] [@media(width<550px)]:flex-col [@media(width<550px)]:items-start [@media(width<550px)]:gap-[20px] [@media(width<550px)]:px-[0] min-[550px]:[@media(width<=768px)]:flex-col min-[550px]:[@media(width<=768px)]:items-start min-[550px]:[@media(width<=768px)]:gap-[20px] min-[550px]:[@media(width<=768px)]:px-[0]">
+                    <SectionHeading
+                        eyebrowClassName="mb-[8px]!"
+                        headingClassName="m-[0] font-serif text-[58px] leading-[0.82] font-normal tracking-[-0.6px] min-[769px]:[@media(width<=1100px)]:text-[44px] [@media(width<550px)]:text-[45px] min-[550px]:[@media(width<=768px)]:text-[45px] [@media(width<550px)]:tracking-[-1.3px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]"
+                        label="UNTUK SETIAP MOMEN"
+                    >
                         Untuk setiap
                         <br />
-                        <em className="font-gk-display font-normal">
-                            <span className="gk-accent text-gk-accent">
-                                momen
-                            </span>
+                        <em className="font-serif font-normal">
+                            <span className="primary text-primary">momen</span>
                         </em>{' '}
                         yang berarti.
                     </SectionHeading>
-                    <p className="gk-category-description pb-[20px] text-[16px] text-gk-secondary gk-mobile:p-[0] gk-mobile:text-[13px] gk-mobile:[&_br]:hidden">
+                    <p className="gk-category-description pb-[20px] text-[16px] text-muted-foreground [@media(width<550px)]:p-[0] [@media(width<550px)]:text-[13px] min-[550px]:[@media(width<=768px)]:p-[0] min-[550px]:[@media(width<=768px)]:text-[13px]">
                         Dari hari spesial hingga petualangan bersama,
-                        <br />
+                        <br className="[@media(width<550px)]:hidden min-[550px]:[@media(width<=768px)]:hidden" />
                         GaleriKita hadir untuk semua jenis acara.
                     </p>
                 </div>
-                <div className="gk-categories mt-[19px] grid grid-cols-[repeat(6,_minmax(0,_1fr))] gap-[12px] gk-mobile:mt-[22px] gk-mobile:grid-cols-[repeat(2,_minmax(0,_1fr))] gk-mobile:gap-[10px] gk-mobile-wide:grid-cols-[repeat(3,_minmax(0,_1fr))]">
+                <div className="gk-categories mt-[19px] grid grid-cols-[repeat(6,_minmax(0,_1fr))] gap-[12px] [@media(width<550px)]:mt-[22px] [@media(width<550px)]:grid-cols-[repeat(2,_minmax(0,_1fr))] [@media(width<550px)]:gap-[10px] min-[550px]:[@media(width<=768px)]:mt-[22px] min-[550px]:[@media(width<=768px)]:grid-cols-[repeat(3,_minmax(0,_1fr))] min-[550px]:[@media(width<=768px)]:gap-[10px]">
                     {categories.map(([key, title]) => (
                         <EventLink
+                            iconClassName="hidden"
                             key={key}
-                            className="gk-category relative block h-[208px] min-w-[0] overflow-hidden rounded-[8px] p-[0] [background:#202023] [border:1px_solid_#444449] gk-small:h-[170px] gk-mobile:h-[170px] [&_>_span]:absolute [&_>_span]:[inset:auto_0_0] [&_>_span]:flex [&_>_span]:items-center [&_>_span]:gap-3 [&_>_span]:p-[38px_21px_17px] [&_>_span]:text-[16px] [&_>_span]:font-normal [&_>_span]:text-gk-text [&_>_span]:[background:linear-gradient(transparent,_#09090be6)] gk-compact:[&_>_span]:gap-[5px] gk-compact:[&_>_span]:px-[13px] gk-compact:[&_>_span]:text-[13px] gk-small:[&_>_span]:px-[10px] gk-small:[&_>_span]:text-[11px] gk-mobile:[&_>_span]:gap-[7px] gk-mobile:[&_>_span]:p-[30px_13px_13px] gk-mobile:[&_>_span]:text-[13px] [&_>_svg]:hidden [&:hover]:border-gk-accent [&:hover]:[background:#202023]"
+                            className="gk-category relative block h-[208px] min-w-[0] overflow-hidden rounded-[8px] border border-[#444449] bg-[#202023] p-[0] hover:border-primary hover:bg-[#202023] [@media(width<550px)]:h-[170px] min-[769px]:[@media(width<=1100px)]:h-[170px] min-[550px]:[@media(width<=768px)]:h-[170px]"
                         >
                             <Photo
                                 src={assets.categories[key]}
                                 name={`categories.${key}`}
                             />
-                            <span>
+                            <span className="absolute inset-x-0 top-auto bottom-0 flex items-center gap-3 bg-[linear-gradient(transparent,_#09090be6)] p-[38px_21px_17px] text-[16px] font-normal text-foreground [@media(width<550px)]:gap-[7px] [@media(width<550px)]:p-[30px_13px_13px] [@media(width<550px)]:text-[13px] min-[769px]:[@media(width<=1100px)]:gap-[5px] min-[769px]:[@media(width<=1100px)]:px-[10px] min-[769px]:[@media(width<=1100px)]:text-[11px] min-[550px]:[@media(width<=768px)]:gap-[7px] min-[550px]:[@media(width<=768px)]:p-[30px_13px_13px] min-[550px]:[@media(width<=768px)]:text-[13px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[5px] [@media(width>1100px)]:[@media(width<=1300px)]:px-[13px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[13px]">
                                 {title}
                                 <ArrowRight size={16} aria-hidden="true" />
                             </span>
@@ -165,10 +172,10 @@ export function ClosingSection() {
     return (
         <section
             id="mulai"
-            className="gk-closing gk-section relative grid min-h-[318px] scroll-mt-[24px] place-items-center overflow-hidden [border-bottom:1px_solid_#ffffff0b] gk-mobile:min-h-[330px] [&_h2]:m-[0] [&_h2]:font-gk-display [&_h2]:text-[73px] [&_h2]:leading-[0.9] [&_h2]:font-normal [&_h2]:tracking-[-2px] gk-small:[&_h2]:text-[56px] gk-mobile:[&_h2]:text-[51px] gk-mobile:[&_h2]:tracking-[-1.3px] [&_h2_em]:text-gk-accent"
+            className="gk-closing gk-section relative grid min-h-[318px] scroll-mt-[24px] place-items-center overflow-hidden border-b border-b-[#ffffff0b] [@media(width<550px)]:min-h-[330px] min-[550px]:[@media(width<=768px)]:min-h-[330px]"
         >
             <div
-                className="gk-closing-photos absolute [inset:0] [&_.gk-print]:absolute [&_.gk-print]:h-[213px] [&_.gk-print]:w-[264px] [&_.gk-print]:pb-[15px] [&_.gk-print]:[opacity:0.32] gk-mobile:[&_.gk-print]:h-[145px] gk-mobile:[&_.gk-print]:w-[155px] gk-mobile:[&_.gk-print]:[opacity:0.2] [&_>_.gk-closing-left01]:top-[51px] [&_>_.gk-closing-left01]:left-[-43px] [&_>_.gk-closing-left01]:[transform:rotate(-20deg)] gk-mobile:[&_>_.gk-closing-left01]:left-[-75px] [&_>_.gk-closing-left02]:top-[-71px] [&_>_.gk-closing-left02]:left-[199px] [&_>_.gk-closing-left02]:[transform:rotate(9deg)] gk-mobile:[&_>_.gk-closing-left02]:left-[70px] [&_>_.gk-closing-left03]:top-[124px] [&_>_.gk-closing-left03]:left-[121px] [&_>_.gk-closing-left03]:[transform:rotate(-11deg)] gk-mobile:[&_>_.gk-closing-left03]:top-[220px] gk-mobile:[&_>_.gk-closing-left03]:left-[-50px] [&_>_.gk-closing-left04]:top-[35px] [&_>_.gk-closing-left04]:left-[349px] [&_>_.gk-closing-left04]:[transform:rotate(-6deg)] gk-mobile:[&_>_.gk-closing-left04]:left-[28px] [&_>_.gk-closing-right01]:top-[-51px] [&_>_.gk-closing-right01]:right-[-8px] [&_>_.gk-closing-right01]:[transform:rotate(18deg)] gk-mobile:[&_>_.gk-closing-right01]:right-[-50px] [&_>_.gk-closing-right02]:top-[-11px] [&_>_.gk-closing-right02]:right-[165px] [&_>_.gk-closing-right02]:[transform:rotate(6deg)] gk-mobile:[&_>_.gk-closing-right02]:right-[50px] [&_>_.gk-closing-right03]:top-[124px] [&_>_.gk-closing-right03]:right-[40px] [&_>_.gk-closing-right03]:[transform:rotate(12deg)] gk-mobile:[&_>_.gk-closing-right03]:top-[210px] gk-mobile:[&_>_.gk-closing-right03]:right-[-70px] [&_>_.gk-closing-right04]:top-[127px] [&_>_.gk-closing-right04]:right-[342px] [&_>_.gk-closing-right04]:[transform:rotate(-14deg)] gk-mobile:[&_>_.gk-closing-right04]:top-[260px] gk-mobile:[&_>_.gk-closing-right04]:right-[40px] [&::after]:absolute [&::after]:[inset:0] [&::after]:z-[1] [&::after]:[content:''] [&::after]:[background:linear-gradient(_90deg,_#09090b20,_#09090bf5_38%,_#09090bf5_62%,_#09090b20_),_linear-gradient(#09090b50,_transparent_60%,_#09090b40)] gk-mobile:[&::after]:[background:linear-gradient(_90deg,_#09090b20,_#09090bbb_30%,_#09090bbb_70%,_#09090b20_)]"
+                className="gk-closing-photos absolute inset-[0] after:absolute after:inset-[0] after:z-[1] after:bg-[image:linear-gradient(_90deg,_#09090b20,_#09090bf5_38%,_#09090bf5_62%,_#09090b20_),_linear-gradient(#09090b50,_transparent_60%,_#09090b40)] after:content-[''] [@media(width<550px)]:after:bg-[linear-gradient(_90deg,_#09090b20,_#09090bbb_30%,_#09090bbb_70%,_#09090b20_)] min-[550px]:[@media(width<=768px)]:after:bg-[linear-gradient(_90deg,_#09090b20,_#09090bbb_30%,_#09090bbb_70%,_#09090b20_)]"
                 aria-hidden="true"
             >
                 {Object.entries(assets.closing).map(([key, src]) => (
@@ -176,23 +183,26 @@ export function ClosingSection() {
                         key={key}
                         src={src}
                         name={`closing.${key}`}
-                        className={`gk-closing-${key}`}
+                        className={cn(
+                            `gk-closing-${key}`,
+                            'absolute h-[213px] w-[264px] pb-[15px] opacity-[0.32] nth-[1]:top-[51px] nth-[1]:left-[-43px] nth-[1]:transform-[rotate(-20deg)] nth-[2]:top-[-71px] nth-[2]:left-[199px] nth-[2]:transform-[rotate(9deg)] nth-[3]:top-[124px] nth-[3]:left-[121px] nth-[3]:transform-[rotate(-11deg)] nth-[4]:top-[35px] nth-[4]:left-[349px] nth-[4]:transform-[rotate(-6deg)] nth-[5]:top-[-51px] nth-[5]:right-[-8px] nth-[5]:transform-[rotate(18deg)] nth-[6]:top-[-11px] nth-[6]:right-[165px] nth-[6]:transform-[rotate(6deg)] nth-[7]:top-[124px] nth-[7]:right-[40px] nth-[7]:transform-[rotate(12deg)] nth-[8]:top-[127px] nth-[8]:right-[342px] nth-[8]:transform-[rotate(-14deg)] [@media(width<550px)]:h-[145px] [@media(width<550px)]:w-[155px] [@media(width<550px)]:opacity-[0.2] [@media(width<550px)]:nth-[1]:left-[-75px] [@media(width<550px)]:nth-[2]:left-[70px] [@media(width<550px)]:nth-[3]:top-[220px] [@media(width<550px)]:nth-[3]:left-[-50px] [@media(width<550px)]:nth-[4]:left-[28px] [@media(width<550px)]:nth-[5]:right-[-50px] [@media(width<550px)]:nth-[6]:right-[50px] [@media(width<550px)]:nth-[7]:top-[210px] [@media(width<550px)]:nth-[7]:right-[-70px] [@media(width<550px)]:nth-[8]:top-[260px] [@media(width<550px)]:nth-[8]:right-[40px] min-[550px]:[@media(width<=768px)]:h-[145px] min-[550px]:[@media(width<=768px)]:w-[155px] min-[550px]:[@media(width<=768px)]:opacity-[0.2] min-[550px]:[@media(width<=768px)]:nth-[1]:left-[-75px] min-[550px]:[@media(width<=768px)]:nth-[2]:left-[70px] min-[550px]:[@media(width<=768px)]:nth-[3]:top-[220px] min-[550px]:[@media(width<=768px)]:nth-[3]:left-[-50px] min-[550px]:[@media(width<=768px)]:nth-[4]:left-[28px] min-[550px]:[@media(width<=768px)]:nth-[5]:right-[-50px] min-[550px]:[@media(width<=768px)]:nth-[6]:right-[50px] min-[550px]:[@media(width<=768px)]:nth-[7]:top-[210px] min-[550px]:[@media(width<=768px)]:nth-[7]:right-[-70px] min-[550px]:[@media(width<=768px)]:nth-[8]:top-[260px] min-[550px]:[@media(width<=768px)]:nth-[8]:right-[40px]',
+                        )}
                     />
                 ))}
             </div>
-            <div className="gk-closing-content relative z-[2] p-[35px_20px] text-center [&_.gk-button]:min-h-[48px] [&_.gk-button]:px-[35px] [&_p]:m-[18px_0_20px] [&_p]:text-[16px] gk-mobile:[&_p]:m-[20px_auto] gk-mobile:[&_p]:max-w-[360px] gk-mobile:[&_p]:text-[13px]">
-                <h2 className="m-[0] font-gk-display text-[70px] leading-[0.9] font-normal tracking-[-0.6px] gk-small:text-[56px] gk-mobile:text-[49px] gk-mobile:tracking-[-1.3px]">
+            <div className="gk-closing-content relative z-[2] p-[35px_20px] text-center">
+                <h2 className="m-[0] font-serif text-[73px] leading-[0.9] font-normal tracking-[-2px] [@media(width<550px)]:text-[51px] [@media(width<550px)]:tracking-[-1.3px] min-[769px]:[@media(width<=1100px)]:text-[56px] min-[550px]:[@media(width<=768px)]:text-[51px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]">
                     Momen berlalu.
                     <br />
-                    <em className="font-gk-display font-normal">
+                    <em className="font-serif font-normal text-primary">
                         Cerita tetap bersama.
                     </em>
                 </h2>
-                <p>
+                <p className="m-[18px_0_20px] text-[16px] [@media(width<550px)]:m-[20px_auto] [@media(width<550px)]:max-w-[360px] [@media(width<550px)]:text-[13px] min-[550px]:[@media(width<=768px)]:m-[20px_auto] min-[550px]:[@media(width<=768px)]:max-w-[360px] min-[550px]:[@media(width<=768px)]:text-[13px]">
                     Mulai kumpulkan setiap sudut pandang dalam satu galeri
                     bersama GaleriKita.
                 </p>
-                <EventLink />
+                <EventLink className="min-h-[48px] px-[35px]" />
             </div>
         </section>
     );

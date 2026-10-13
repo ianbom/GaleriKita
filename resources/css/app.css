@@ -5,13 +5,9 @@
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
-    --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Instrument Serif', serif;
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -62,74 +58,39 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    --background: #09090b;
+    --foreground: #f5f4ef;
+    --card: #141416;
+    --card-foreground: #f5f4ef;
+    --popover: #141416;
+    --popover-foreground: #f5f4ef;
+    --primary: #ddf76a;
+    --primary-foreground: #171b08;
+    --secondary: #222225;
+    --secondary-foreground: #f5f4ef;
+    --muted: #141416;
+    --muted-foreground: #b1b1b8;
+    --accent: #ddf76a;
+    --accent-foreground: #171b08;
     --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.87 0 0);
-    --chart-1: oklch(0.646 0.222 41.116);
-    --chart-2: oklch(0.6 0.118 184.704);
-    --chart-3: oklch(0.398 0.07 227.392);
-    --chart-4: oklch(0.828 0.189 84.429);
-    --chart-5: oklch(0.769 0.188 70.08);
+    --destructive-foreground: #f5f4ef;
+    --border: #29292d;
+    --input: #29292d;
+    --ring: #ddf76a;
+    --chart-1: #ddf76a;
+    --chart-2: #cbe85a;
+    --chart-3: #afbf52;
+    --chart-4: #b1b1b8;
+    --chart-5: #73737b;
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.87 0 0);
-}
-
-.dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.396 0.141 25.723);
-    --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: oklch(0.269 0 0);
-    --input: oklch(0.269 0 0);
-    --ring: oklch(0.439 0 0);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.985 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(0.269 0 0);
-    --sidebar-ring: oklch(0.439 0 0);
+    --sidebar: #141416;
+    --sidebar-foreground: #f5f4ef;
+    --sidebar-primary: #ddf76a;
+    --sidebar-primary-foreground: #171b08;
+    --sidebar-accent: #222225;
+    --sidebar-accent-foreground: #f5f4ef;
+    --sidebar-border: #29292d;
+    --sidebar-ring: #ddf76a;
 }
 
 @layer base {
@@ -140,43 +101,4 @@
     body {
         @apply bg-background text-foreground;
     }
-}
-
-@theme {
-    --color-gk-background: #09090b;
-    --color-gk-surface: #141416;
-    --color-gk-border: #29292d;
-    --color-gk-text: #f5f4ef;
-    --color-gk-secondary: #b1b1b8;
-    --color-gk-accent: #ddf76a;
-    --font-gk-ui: 'Plus Jakarta Sans', sans-serif;
-    --font-gk-display: 'Instrument Serif', serif;
-}
-
-@custom-variant gk-compact {
-    @media (min-width: 769px) and (max-width: 1300px) {
-        @slot;
-    }
-}
-
-@custom-variant gk-small {
-    @media (min-width: 769px) and (max-width: 1100px) {
-        @slot;
-    }
-}
-
-@custom-variant gk-mobile {
-    @media (max-width: 768px) {
-        @slot;
-    }
-}
-
-@custom-variant gk-mobile-wide {
-    @media (min-width: 550px) and (max-width: 768px) {
-        @slot;
-    }
-}
-
-html:has(.gk-page) {
-    @apply scroll-smooth bg-gk-background motion-reduce:scroll-auto;
 }

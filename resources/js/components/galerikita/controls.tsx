@@ -14,10 +14,13 @@ function Quantity({
     onChange: (value: number) => void;
 }) {
     return (
-        <div className="gk-quantity [&_>_div]:grid [&_>_div]:h-[60px] [&_>_div]:grid-cols-[44px_1fr_44px] [&_>_div]:overflow-hidden [&_>_div]:rounded-[9px] [&_>_div]:[background:#222225] [&_>_div]:[border:1px_solid_#3b3b40] gk-compact:[&_>_div]:grid-cols-[36px_1fr_36px] gk-small:[&_>_div]:grid-cols-[30px_1fr_30px] gk-mobile:[&_>_div]:h-[48px] gk-mobile:[&_>_div]:grid-cols-[44px_1fr_44px] [&_>_span]:mb-[14px] [&_>_span]:block [&_>_span]:text-[12px] [&_>_span]:text-gk-secondary gk-small:[&_>_span]:text-[10px] gk-mobile:[&_>_span]:text-[10px] [&_button]:flex [&_button]:items-center [&_button]:justify-center [&_button]:[background:#ffffff02] [&_button:hover:enabled]:[background:#ffffff0c] [&_output]:flex [&_output]:min-w-[0] [&_output]:items-center [&_output]:justify-center [&_output]:px-[4px] [&_output]:text-[19px] [&_output]:font-semibold [&_output]:[overflow-wrap:anywhere] [&_output]:[border-inline:1px_solid_#3b3b40] gk-mobile:[&_output]:text-[16px]">
-            <span>{label}</span>
-            <div>
+        <div className="gk-quantity">
+            <span className="mb-[14px] block text-[12px] text-muted-foreground [@media(width<550px)]:text-[10px] min-[769px]:[@media(width<=1100px)]:text-[10px] min-[550px]:[@media(width<=768px)]:text-[10px]">
+                {label}
+            </span>
+            <div className="grid h-[60px] grid-cols-[44px_1fr_44px] overflow-hidden rounded-[9px] border border-[#3b3b40] bg-[#222225] [@media(width<550px)]:h-[48px] [@media(width<550px)]:grid-cols-[44px_1fr_44px] min-[769px]:[@media(width<=1100px)]:grid-cols-[30px_1fr_30px] min-[550px]:[@media(width<=768px)]:h-[48px] min-[550px]:[@media(width<=768px)]:grid-cols-[44px_1fr_44px] [@media(width>1100px)]:[@media(width<=1300px)]:grid-cols-[36px_1fr_36px]">
                 <button
+                    className="flex cursor-pointer items-center justify-center bg-[#ffffff02] hover:enabled:bg-[#ffffff0c] disabled:cursor-default disabled:opacity-[0.35]"
                     type="button"
                     aria-label={`Kurangi ${label.toLowerCase()}`}
                     disabled={value <= 1}
@@ -25,8 +28,14 @@ function Quantity({
                 >
                     <Minus size={16} />
                 </button>
-                <output aria-label={label}>{value}</output>
+                <output
+                    className="flex min-w-[0] items-center justify-center border-x border-x-[#3b3b40] px-[4px] text-[19px] font-semibold wrap-anywhere [@media(width<550px)]:text-[16px] min-[550px]:[@media(width<=768px)]:text-[16px]"
+                    aria-label={label}
+                >
+                    {value}
+                </output>
                 <button
+                    className="flex cursor-pointer items-center justify-center bg-[#ffffff02] hover:enabled:bg-[#ffffff0c] disabled:cursor-default disabled:opacity-[0.35]"
                     type="button"
                     aria-label={`Tambah ${label.toLowerCase()}`}
                     disabled={value >= maximum}
@@ -45,10 +54,12 @@ export function PricingSection() {
     return (
         <section
             id="harga"
-            className="gk-pricing gk-section relative min-h-[214px] scroll-mt-[24px] p-[22px_0_18px] [border-bottom:1px_solid_#ffffff0b] gk-mobile:p-[32px_0] [&_.gk-description]:mt-[12px] gk-small:[&_.gk-description]:text-[15px] [&_h2]:m-[0] [&_h2]:font-gk-display [&_h2]:text-[58px] [&_h2]:leading-[0.86] [&_h2]:font-normal [&_h2]:tracking-[-0.6px] gk-compact:[&_h2]:text-[40px] gk-small:[&_h2]:text-[33px] gk-mobile:[&_h2]:text-[40px] gk-mobile:[&_h2]:tracking-[-1.3px]"
+            className="gk-pricing gk-section relative min-h-[214px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[22px_0_18px] [@media(width<550px)]:p-[32px_0] min-[550px]:[@media(width<=768px)]:p-[32px_0]"
         >
-            <div className="gk-container gk-pricing-layout relative mx-[auto] grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.78fr_1fr] items-center gap-[43px] gk-compact:w-[calc(100%_-_80px)] gk-compact:grid-cols-[0.8fr_1fr] gk-compact:gap-[25px] gk-small:grid-cols-[0.72fr_1fr] gk-mobile:w-[calc(100%_-_40px)] gk-mobile:grid-cols-[1fr] gk-mobile:gap-[25px]">
+            <div className="gk-container gk-pricing-layout relative mx-[auto] grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.78fr_1fr] items-center gap-[43px] [@media(width<550px)]:w-[calc(100%_-_40px)] [@media(width<550px)]:grid-cols-[1fr] [@media(width<550px)]:gap-[25px] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_80px)] min-[769px]:[@media(width<=1100px)]:grid-cols-[0.72fr_1fr] min-[769px]:[@media(width<=1100px)]:gap-[25px] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr] min-[550px]:[@media(width<=768px)]:gap-[25px] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width>1100px)]:[@media(width<=1300px)]:grid-cols-[0.8fr_1fr] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[25px]">
                 <SectionHeading
+                    descriptionClassName="mt-[12px] min-[769px]:[@media(width<=1100px)]:text-[15px]"
+                    headingClassName="m-[0] font-serif text-[58px] leading-[0.86] font-normal tracking-[-0.6px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[40px] min-[769px]:[@media(width<=1100px)]:text-[33px] [@media(width<550px)]:text-[40px] min-[550px]:[@media(width<=768px)]:text-[40px] [@media(width<550px)]:tracking-[-1.3px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]"
                     label="HARGA"
                     description="Harga menyesuaikan kapasitas."
                 >
@@ -56,7 +67,7 @@ export function PricingSection() {
                     <br />
                     Sesuaikan kebutuhanmu.
                 </SectionHeading>
-                <div className="gk-pricing-panel grid grid-cols-[1fr_1fr_1fr] gap-[30px] rounded-[10px] p-[27px_26px_19px] [background:linear-gradient(130deg,_#18181a,_#101012)] [border:1px_solid_var(--color-gk-border)] gk-compact:gap-[15px] gk-compact:px-[18px] gk-small:gap-[10px] gk-small:p-[20px_12px] gk-mobile:grid-cols-[1fr_1fr] gk-mobile:gap-[22px_15px] gk-mobile:p-[20px_17px]">
+                <div className="gk-pricing-panel grid grid-cols-[1fr_1fr_1fr] gap-[30px] rounded-[10px] border border-border bg-[linear-gradient(130deg,_#18181a,_#101012)] p-[27px_26px_19px] [@media(width<550px)]:grid-cols-[1fr_1fr] [@media(width<550px)]:gap-[22px_15px] [@media(width<550px)]:p-[20px_17px] min-[769px]:[@media(width<=1100px)]:gap-[10px] min-[769px]:[@media(width<=1100px)]:p-[20px_12px] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr_1fr] min-[550px]:[@media(width<=768px)]:gap-[22px_15px] min-[550px]:[@media(width<=768px)]:p-[20px_17px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[15px] [@media(width>1100px)]:[@media(width<=1300px)]:px-[18px]">
                     <Quantity
                         label="Jumlah Fotografer"
                         value={photographers}
@@ -71,13 +82,21 @@ export function PricingSection() {
                         )}
                         onChange={setPhotos}
                     />
-                    <div className="gk-capacity pl-[20px] [border-left:1px_solid_#29292d] gk-compact:pl-[12px] gk-mobile:relative gk-mobile:[grid-column:span_2] gk-mobile:p-[16px_0_0] gk-mobile:[border-left:0] gk-mobile:[border-top:1px_solid_var(--color-gk-border)] [&_.gk-button]:min-h-[42px] [&_.gk-button]:w-[100%] [&_.gk-button]:rounded-[7px] [&_.gk-button]:p-[8px_15px] gk-small:[&_.gk-button]:px-[8px] gk-small:[&_.gk-button]:text-[12px] gk-mobile:[&_.gk-button]:absolute gk-mobile:[&_.gk-button]:right-[0] gk-mobile:[&_.gk-button]:bottom-[0] gk-mobile:[&_.gk-button]:min-h-[44px] gk-mobile:[&_.gk-button]:w-[auto] [&_>_span]:mb-[0] [&_>_span]:block [&_>_span]:text-[12px] [&_>_span]:text-gk-secondary gk-small:[&_>_span]:text-[10px] [&_output]:mb-[13px] [&_output]:block [&_output]:text-[23px] [&_output]:font-semibold [&_output]:whitespace-nowrap gk-compact:[&_output]:text-[20px] gk-mobile:[&_output]:mb-[0]">
-                        <span>Estimasi Kapasitas</span>
-                        <output data-capacity aria-live="polite">
+                    <div className="gk-capacity border-l border-l-[#29292d] pl-[20px] [@media(width<550px)]:relative [@media(width<550px)]:col-[span_2] [@media(width<550px)]:border-t [@media(width<550px)]:border-l-0 [@media(width<550px)]:border-t-border [@media(width<550px)]:p-[16px_0_0] min-[769px]:[@media(width<=1100px)]:pl-[12px] min-[550px]:[@media(width<=768px)]:relative min-[550px]:[@media(width<=768px)]:col-[span_2] min-[550px]:[@media(width<=768px)]:border-t min-[550px]:[@media(width<=768px)]:border-l-0 min-[550px]:[@media(width<=768px)]:border-t-border min-[550px]:[@media(width<=768px)]:p-[16px_0_0] [@media(width>1100px)]:[@media(width<=1300px)]:pl-[12px]">
+                        <span className="mb-[0] block text-[12px] text-muted-foreground min-[769px]:[@media(width<=1100px)]:text-[10px]">
+                            Estimasi Kapasitas
+                        </span>
+                        <output
+                            className="mb-[13px] block text-[23px] font-semibold whitespace-nowrap [@media(width<550px)]:mb-[0] min-[769px]:[@media(width<=1100px)]:text-[20px] min-[550px]:[@media(width<=768px)]:mb-[0] [@media(width>1100px)]:[@media(width<=1300px)]:text-[20px]"
+                            data-capacity
+                            aria-live="polite"
+                        >
                             {(photographers * photos).toLocaleString('en-US')}{' '}
                             foto
                         </output>
-                        <EventLink>Lanjutkan</EventLink>
+                        <EventLink className="min-h-[42px] w-[100%] rounded-[7px] p-[8px_15px] [@media(width<550px)]:absolute [@media(width<550px)]:right-[0] [@media(width<550px)]:bottom-[0] [@media(width<550px)]:min-h-[44px] [@media(width<550px)]:w-[auto] min-[769px]:[@media(width<=1100px)]:px-[8px] min-[769px]:[@media(width<=1100px)]:text-[12px] min-[550px]:[@media(width<=768px)]:absolute min-[550px]:[@media(width<=768px)]:right-[0] min-[550px]:[@media(width<=768px)]:bottom-[0] min-[550px]:[@media(width<=768px)]:min-h-[44px] min-[550px]:[@media(width<=768px)]:w-[auto]">
+                            Lanjutkan
+                        </EventLink>
                     </div>
                 </div>
             </div>
@@ -113,23 +132,27 @@ export function FaqSection() {
     return (
         <section
             id="faq"
-            className="gk-faq gk-section relative min-h-[230px] scroll-mt-[24px] p-[22px_0] [border-bottom:1px_solid_#ffffff0b] gk-mobile:p-[33px_0] [&_h2]:m-[0] [&_h2]:font-gk-display [&_h2]:text-[58px] [&_h2]:leading-[0.88] [&_h2]:font-normal [&_h2]:tracking-[-0.6px] gk-small:[&_h2]:text-[56px] gk-mobile:[&_h2]:text-[47px] gk-mobile:[&_h2]:tracking-[-1.3px]"
+            className="gk-faq gk-section relative min-h-[230px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[22px_0] [@media(width<550px)]:p-[33px_0] min-[550px]:[@media(width<=768px)]:p-[33px_0]"
         >
-            <div className="gk-container gk-faq-layout relative mx-[auto] grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.88fr_1fr] gap-[76px] gk-compact:w-[calc(100%_-_80px)] gk-mobile:w-[calc(100%_-_40px)] gk-mobile:grid-cols-[1fr] gk-mobile:gap-[30px]">
-                <SectionHeading label="FAQ">
+            <div className="gk-container gk-faq-layout relative mx-[auto] grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.88fr_1fr] gap-[76px] [@media(width<550px)]:w-[calc(100%_-_40px)] [@media(width<550px)]:grid-cols-[1fr] [@media(width<550px)]:gap-[30px] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_80px)] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr] min-[550px]:[@media(width<=768px)]:gap-[30px] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_80px)]">
+                <SectionHeading
+                    headingClassName="m-[0] font-serif text-[58px] leading-[0.88] font-normal tracking-[-0.6px] min-[769px]:[@media(width<=1100px)]:text-[56px] [@media(width<550px)]:text-[47px] min-[550px]:[@media(width<=768px)]:text-[47px] [@media(width<550px)]:tracking-[-1.3px] min-[550px]:[@media(width<=768px)]:tracking-[-1.3px]"
+                    label="FAQ"
+                >
                     Pertanyaan yang
                     <br />
                     {'sering '}
-                    <em className="font-gk-display font-normal">ditanyakan.</em>
+                    <em className="font-serif font-normal">ditanyakan.</em>
                 </SectionHeading>
                 <div className="gk-faq-list mt-[-7px]">
                     {questions.map(([question, answer], index) => (
                         <div
                             key={question}
-                            className="gk-faq-item [border-bottom:1px_solid_var(--color-gk-border)] [&_[role='region']_p]:p-[0_24px_17px_0] [&_[role='region']_p]:text-[14px] [&_[role='region']_p]:leading-[1.6] [&_[role='region']_p]:text-gk-secondary gk-mobile:[&_[role='region']_p]:text-[13px] [&_button]:flex [&_button]:w-[100%] [&_button]:items-center [&_button]:justify-between [&_button]:gap-[18px] [&_button]:p-[9px_0] [&_button]:text-left [&_button]:text-[14px] [&_button]:text-gk-secondary gk-mobile:[&_button]:min-h-[48px] gk-mobile:[&_button]:py-[13px] gk-mobile:[&_button]:text-[12px] [&_button_svg]:shrink-[0] [&_button:hover]:text-gk-text"
+                            className="gk-faq-item border-b border-b-border"
                         >
                             <h3>
                                 <button
+                                    className="flex w-[100%] cursor-pointer items-center justify-between gap-[18px] p-[9px_0] text-left text-[14px] text-muted-foreground hover:text-foreground disabled:cursor-default disabled:opacity-[0.35] [@media(width<550px)]:min-h-[48px] [@media(width<550px)]:py-[13px] [@media(width<550px)]:text-[12px] min-[550px]:[@media(width<=768px)]:min-h-[48px] min-[550px]:[@media(width<=768px)]:py-[13px] min-[550px]:[@media(width<=768px)]:text-[12px]"
                                     id={`gk-question-${index}`}
                                     type="button"
                                     aria-expanded={opened === index}
@@ -144,7 +167,11 @@ export function FaqSection() {
                                     {opened === index ? (
                                         <Minus size={16} aria-hidden="true" />
                                     ) : (
-                                        <Plus size={16} aria-hidden="true" />
+                                        <Plus
+                                            className="shrink-[0]"
+                                            size={16}
+                                            aria-hidden="true"
+                                        />
                                     )}
                                 </button>
                             </h3>
@@ -154,7 +181,9 @@ export function FaqSection() {
                                 aria-labelledby={`gk-question-${index}`}
                                 hidden={opened !== index}
                             >
-                                <p>{answer}</p>
+                                <p className="p-[0_24px_17px_0] text-[14px] leading-[1.6] text-muted-foreground [@media(width<550px)]:text-[13px] min-[550px]:[@media(width<=768px)]:text-[13px]">
+                                    {answer}
+                                </p>
                             </div>
                         </div>
                     ))}

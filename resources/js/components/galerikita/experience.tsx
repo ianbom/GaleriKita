@@ -28,91 +28,96 @@ export function HeroSection() {
     return (
         <section
             id="beranda"
-            className="gk-hero gk-section relative min-h-[580px] scroll-mt-[24px] [border-bottom:1px_solid_#ffffff0b] gk-small:min-h-[530px] gk-mobile:min-h-[0] [&_.gk-description]:mt-[20px] [&_.gk-description]:max-w-[520px] gk-compact:[&_.gk-description]:max-w-[440px] gk-compact:[&_.gk-description]:text-[16px] gk-mobile:[&_.gk-description]:mt-[23px] gk-mobile:[&_.gk-description]:max-w-[490px] [&_h1]:text-[100px] [&_h1]:leading-[0.98] [&_h1]:font-bold [&_h1]:tracking-[-6px] [&_h1]:whitespace-nowrap gk-compact:[&_h1]:text-[84px] gk-small:[&_h1]:text-[70px] gk-small:[&_h1]:tracking-[-4px] gk-mobile:[&_h1]:text-[clamp(59px,_10vw,_83px)] gk-mobile:[&_h1]:tracking-[-3.8px] [&_h1_em]:text-[126px] [&_h1_em]:leading-[0.97] [&_h1_em]:tracking-[-4px] gk-compact:[&_h1_em]:text-[100px] gk-small:[&_h1_em]:text-[84px] gk-mobile:[&_h1_em]:text-[clamp(70px,_12vw,_100px)] gk-mobile:[&_h1_em]:tracking-[-2.8px] [&_h1_em_span]:text-gk-accent"
+            className="gk-hero gk-section relative min-h-[580px] scroll-mt-[24px] border-b border-b-[#ffffff0b] [@media(width<550px)]:min-h-[0] min-[769px]:[@media(width<=1100px)]:min-h-[530px] min-[550px]:[@media(width<=768px)]:min-h-[0]"
         >
-            <div className="gk-container gk-hero-layout relative mx-[auto] min-h-[580px] w-[min(100%_-_128px,_1312px)] gk-compact:w-[calc(100%_-_80px)] gk-small:min-h-[530px] gk-mobile:min-h-[0] gk-mobile:w-[calc(100%_-_40px)]">
-                <div className="gk-hero-copy relative z-[3] w-[550px] pt-[80px] gk-compact:w-[47%] gk-mobile:w-[100%] gk-mobile:pt-[50px]">
-                    <p className="gk-eyebrow mb-[14px]! text-[12px] font-bold tracking-[2px] text-gk-secondary gk-mobile:text-[10px] gk-mobile:tracking-[1.6px]">
+            <div className="gk-container gk-hero-layout relative mx-[auto] min-h-[580px] w-[min(100%_-_128px,_1312px)] [@media(width<550px)]:min-h-[0] [@media(width<550px)]:w-[calc(100%_-_40px)] min-[769px]:[@media(width<=1100px)]:min-h-[530px] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_80px)] min-[550px]:[@media(width<=768px)]:min-h-[0] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_80px)]">
+                <div className="gk-hero-copy relative z-[3] w-[550px] pt-[80px] [@media(width<550px)]:w-[100%] [@media(width<550px)]:pt-[50px] min-[769px]:[@media(width<=1100px)]:w-[47%] min-[550px]:[@media(width<=768px)]:w-[100%] min-[550px]:[@media(width<=768px)]:pt-[50px] [@media(width>1100px)]:[@media(width<=1300px)]:w-[47%]">
+                    <p className="gk-eyebrow mb-[14px]! text-[12px] font-bold tracking-[2px] text-muted-foreground [@media(width<550px)]:text-[10px] [@media(width<550px)]:tracking-[1.6px] min-[550px]:[@media(width<=768px)]:text-[10px] min-[550px]:[@media(width<=768px)]:tracking-[1.6px]">
                         EVERY MOMENT. EVERY PERSPECTIVE.
                     </p>
-                    <h1>
+                    <h1 className="text-[100px] leading-[0.98] font-bold tracking-[-6px] whitespace-nowrap [@media(width<550px)]:text-[clamp(59px,_10vw,_83px)] [@media(width<550px)]:tracking-[-3.8px] min-[769px]:[@media(width<=1100px)]:text-[70px] min-[769px]:[@media(width<=1100px)]:tracking-[-4px] min-[550px]:[@media(width<=768px)]:text-[clamp(59px,_10vw,_83px)] min-[550px]:[@media(width<=768px)]:tracking-[-3.8px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[84px]">
                         Satu acara.
                         <br />
-                        <em className="font-gk-display font-normal">
-                            Sejuta <span>cerita.</span>
+                        <em className="font-serif text-[126px] leading-[0.97] font-normal tracking-[-4px] [@media(width<550px)]:text-[clamp(70px,_12vw,_100px)] [@media(width<550px)]:tracking-[-2.8px] min-[769px]:[@media(width<=1100px)]:text-[84px] min-[550px]:[@media(width<=768px)]:text-[clamp(70px,_12vw,_100px)] min-[550px]:[@media(width<=768px)]:tracking-[-2.8px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[100px]">
+                            Sejuta <span className="text-primary">cerita.</span>
                         </em>
                     </h1>
-                    <p className="gk-description text-[18px] leading-[1.45] text-gk-secondary gk-mobile:text-[15px]">
+                    <p className="gk-description mt-[20px] max-w-[520px] text-[18px] leading-[1.45] text-muted-foreground [@media(width<550px)]:mt-[23px] [@media(width<550px)]:max-w-[490px] [@media(width<550px)]:text-[15px] min-[769px]:[@media(width<=1100px)]:max-w-[440px] min-[769px]:[@media(width<=1100px)]:text-[16px] min-[550px]:[@media(width<=768px)]:mt-[23px] min-[550px]:[@media(width<=768px)]:max-w-[490px] min-[550px]:[@media(width<=768px)]:text-[15px] [@media(width>1100px)]:[@media(width<=1300px)]:max-w-[440px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[16px]">
                         Abadikan setiap sudut pandang. Kumpulkan foto dari semua
                         orang dalam satu galeri, cukup dengan satu QR code.
                     </p>
-                    <div className="gk-hero-actions mt-[25px] flex items-center gap-4 gk-compact:gap-[12px] gk-mobile:mt-[22px] gk-mobile:gap-[10px] gk-compact:[&_.gk-button]:px-[19px] gk-compact:[&_.gk-button]:text-[13px] gk-mobile:[&_.gk-button]:min-h-[46px] gk-mobile:[&_.gk-button]:p-[12px_15px] gk-mobile:[&_.gk-button]:text-[12px]">
-                        <EventLink />
+                    <div className="gk-hero-actions mt-[25px] flex items-center gap-4 [@media(width<550px)]:mt-[22px] [@media(width<550px)]:gap-[10px] min-[769px]:[@media(width<=1100px)]:gap-[12px] min-[550px]:[@media(width<=768px)]:mt-[22px] min-[550px]:[@media(width<=768px)]:gap-[10px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[12px]">
+                        <EventLink className="[@media(width<550px)]:min-h-[46px] [@media(width<550px)]:p-[12px_15px] [@media(width<550px)]:text-[12px] min-[769px]:[@media(width<=1100px)]:px-[19px] min-[769px]:[@media(width<=1100px)]:text-[13px] min-[550px]:[@media(width<=768px)]:min-h-[46px] min-[550px]:[@media(width<=768px)]:p-[12px_15px] min-[550px]:[@media(width<=768px)]:text-[12px] [@media(width>1100px)]:[@media(width<=1300px)]:px-[19px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[13px]" />
                         <a
                             href="#cara-kerja"
-                            className="gk-button gk-button-outline inline-flex min-h-[54px] items-center justify-center gap-2 rounded-[999px] p-[14px_28px] text-[15px] font-bold whitespace-nowrap text-gk-text [background:transparent] [border:1px_solid_#515154] [transition:background_0.15s,_border-color_0.15s] [&_>_svg]:h-[23px] [&_>_svg]:w-[23px] [&_>_svg]:rounded-[50%] [&_>_svg]:p-[3px] [&_>_svg]:[border:1px_solid_#b1b1b8] [&:hover]:border-gk-text [&:hover]:[background:#ffffff08]"
+                            className="gk-button gk-button-outline inline-flex min-h-[54px] items-center justify-center gap-2 rounded-[999px] border border-[#515154] bg-transparent p-[14px_28px] text-[15px] font-bold whitespace-nowrap text-foreground transition-[background,border-color] duration-150 ease-[ease] hover:border-foreground hover:bg-[#ffffff08] [@media(width<550px)]:min-h-[46px] [@media(width<550px)]:p-[12px_15px] [@media(width<550px)]:text-[12px] min-[769px]:[@media(width<=1100px)]:px-[19px] min-[769px]:[@media(width<=1100px)]:text-[13px] min-[550px]:[@media(width<=768px)]:min-h-[46px] min-[550px]:[@media(width<=768px)]:p-[12px_15px] min-[550px]:[@media(width<=768px)]:text-[12px] [@media(width>1100px)]:[@media(width<=1300px)]:px-[19px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[13px]"
                         >
-                            <Play size={19} aria-hidden="true" />
+                            <Play
+                                className="h-[23px] w-[23px] rounded-[50%] border border-[#b1b1b8] p-[3px]"
+                                size={19}
+                                aria-hidden="true"
+                            />
                             Lihat Cara Kerja
                         </a>
                     </div>
-                    <p className="gk-note mt-[14px]! flex items-center gap-2 text-[13px] text-gk-secondary gk-mobile:mt-[13px]! gk-mobile:text-[11px]">
+                    <p className="gk-note mt-[14px]! flex items-center gap-2 text-[13px] text-muted-foreground [@media(width<550px)]:mt-[13px]! [@media(width<550px)]:text-[11px] min-[550px]:[@media(width<=768px)]:mt-[13px]! min-[550px]:[@media(width<=768px)]:text-[11px]">
                         <Info size={14} aria-hidden="true" />
                         Tanpa perlu akun untuk peserta.
                     </p>
                 </div>
                 <div
-                    className="gk-hero-collage absolute top-[-10px] left-[526px] h-[660px] w-[830px] gk-compact:left-[43%] gk-compact:[transform-origin:top_left] gk-compact:[transform:scale(0.87)] gk-small:top-[40px] gk-small:left-[44%] gk-small:[transform:scale(0.7)] gk-mobile:relative gk-mobile:top-[auto] gk-mobile:left-[auto] gk-mobile:mt-[28px] gk-mobile:aspect-[830/670] gk-mobile:h-[auto] gk-mobile:w-[100%] gk-mobile-wide:mx-[auto] gk-mobile-wide:max-w-[600px] [&_>_.gk-print]:absolute [&_>_.gk-print]:p-[4px] gk-mobile:[&.gk-hero-collage_.gk-print]:p-[2px_2px_12px]"
+                    className="gk-hero-collage absolute top-[-10px] left-[526px] h-[660px] w-[830px] [@media(width<550px)]:relative [@media(width<550px)]:top-[auto] [@media(width<550px)]:left-[auto] [@media(width<550px)]:mt-[28px] [@media(width<550px)]:aspect-[830/670] [@media(width<550px)]:h-[auto] [@media(width<550px)]:w-[100%] min-[769px]:[@media(width<=1100px)]:top-[40px] min-[769px]:[@media(width<=1100px)]:left-[44%] min-[769px]:[@media(width<=1100px)]:origin-top-left min-[769px]:[@media(width<=1100px)]:transform-[scale(0.7)] min-[550px]:[@media(width<=768px)]:relative min-[550px]:[@media(width<=768px)]:top-[auto] min-[550px]:[@media(width<=768px)]:left-[auto] min-[550px]:[@media(width<=768px)]:mx-[auto] min-[550px]:[@media(width<=768px)]:mt-[28px] min-[550px]:[@media(width<=768px)]:aspect-[830/670] min-[550px]:[@media(width<=768px)]:h-[auto] min-[550px]:[@media(width<=768px)]:w-[100%] min-[550px]:[@media(width<=768px)]:max-w-[600px] [@media(width>1100px)]:[@media(width<=1300px)]:left-[43%] [@media(width>1100px)]:[@media(width<=1300px)]:origin-top-left [@media(width>1100px)]:[@media(width<=1300px)]:transform-[scale(0.87)]"
                     aria-label="Ilustrasi galeri foto kolaboratif"
                 >
                     <Print
                         name="hero.graduation"
                         src={assets.hero.graduation}
-                        className="gk-hero-graduation top-[32px] left-[15px] z-[2] h-[330px] w-[402px] [transform:rotate(-7deg)] gk-mobile:top-[4.8%] gk-mobile:left-[1.8%] gk-mobile:h-[49.2%] gk-mobile:w-[48.4%]"
+                        className="gk-hero-graduation absolute top-[32px] left-[15px] z-[2] h-[330px] w-[402px] transform-[rotate(-7deg)] p-[4px] [@media(width<550px)]:top-[4.8%] [@media(width<550px)]:left-[1.8%] [@media(width<550px)]:h-[49.2%] [@media(width<550px)]:w-[48.4%] [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:top-[4.8%] min-[550px]:[@media(width<=768px)]:left-[1.8%] min-[550px]:[@media(width<=768px)]:h-[49.2%] min-[550px]:[@media(width<=768px)]:w-[48.4%] min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
                     <Print
                         name="hero.birthday"
                         src={assets.hero.birthday}
-                        className="gk-hero-birthday top-[70px] left-[390px] z-[3] h-[302px] w-[380px] [transform:rotate(10deg)] gk-mobile:top-[12.1%] gk-mobile:left-[47%] gk-mobile:h-[45.1%] gk-mobile:w-[45.8%]"
+                        className="gk-hero-birthday absolute top-[70px] left-[390px] z-[3] h-[302px] w-[380px] transform-[rotate(10deg)] p-[4px] [@media(width<550px)]:top-[12.1%] [@media(width<550px)]:left-[47%] [@media(width<550px)]:h-[45.1%] [@media(width<550px)]:w-[45.8%] [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:top-[12.1%] min-[550px]:[@media(width<=768px)]:left-[47%] min-[550px]:[@media(width<=768px)]:h-[45.1%] min-[550px]:[@media(width<=768px)]:w-[45.8%] min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
                     <Print
                         name="hero.extra"
                         src={assets.hero.extra}
-                        className="gk-hero-extra top-[204px] left-[698px] z-[1] h-[190px] w-[150px] [transform:rotate(10deg)] gk-mobile:top-[30.4%] gk-mobile:left-[84.1%] gk-mobile:h-[28.4%] gk-mobile:w-[18%]"
+                        className="gk-hero-extra absolute top-[204px] left-[698px] z-[1] h-[190px] w-[150px] transform-[rotate(10deg)] p-[4px] [@media(width<550px)]:top-[30.4%] [@media(width<550px)]:left-[84.1%] [@media(width<550px)]:h-[28.4%] [@media(width<550px)]:w-[18%] [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:top-[30.4%] min-[550px]:[@media(width<=768px)]:left-[84.1%] min-[550px]:[@media(width<=768px)]:h-[28.4%] min-[550px]:[@media(width<=768px)]:w-[18%] min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
                     <Print
                         name="hero.friends"
                         src={assets.hero.friends}
-                        className="gk-hero-friends top-[337px] left-[430px] z-[4] h-[285px] w-[285px] [transform:rotate(-5deg)] gk-mobile:top-[50.3%] gk-mobile:left-[51.8%] gk-mobile:h-[42.5%] gk-mobile:w-[34.3%]"
+                        className="gk-hero-friends absolute top-[337px] left-[430px] z-[4] h-[285px] w-[285px] transform-[rotate(-5deg)] p-[4px] [@media(width<550px)]:top-[50.3%] [@media(width<550px)]:left-[51.8%] [@media(width<550px)]:h-[42.5%] [@media(width<550px)]:w-[34.3%] [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:top-[50.3%] min-[550px]:[@media(width<=768px)]:left-[51.8%] min-[550px]:[@media(width<=768px)]:h-[42.5%] min-[550px]:[@media(width<=768px)]:w-[34.3%] min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
                     <Print
                         name="hero.wedding"
                         src={assets.hero.wedding}
-                        className="gk-hero-wedding top-[300px] left-[165px] z-[5] h-[260px] w-[330px] [transform:rotate(-8deg)] pb-[24px]! gk-mobile:top-[44.8%] gk-mobile:left-[21.1%] gk-mobile:h-[38.8%] gk-mobile:w-[39.8%]"
+                        className="gk-hero-wedding absolute top-[300px] left-[165px] z-[5] h-[260px] w-[330px] transform-[rotate(-8deg)] p-[4px] pb-[24px]! [@media(width<550px)]:top-[44.8%] [@media(width<550px)]:left-[21.1%] [@media(width<550px)]:h-[38.8%] [@media(width<550px)]:w-[39.8%] [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:top-[44.8%] min-[550px]:[@media(width<=768px)]:left-[21.1%] min-[550px]:[@media(width<=768px)]:h-[38.8%] min-[550px]:[@media(width<=768px)]:w-[39.8%] min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
                     <Print
                         name="hero.vacation"
                         src={assets.hero.vacation}
-                        className="gk-hero-vacation top-[397px] left-[-4px] z-[6] h-[235px] w-[307px] [transform:rotate(11deg)] gk-mobile:top-[61.3%] gk-mobile:left-[-0.5%] gk-mobile:h-[35.1%] gk-mobile:w-[37%]"
+                        className="gk-hero-vacation absolute top-[397px] left-[-4px] z-[6] h-[235px] w-[307px] transform-[rotate(11deg)] p-[4px] [@media(width<550px)]:top-[61.3%] [@media(width<550px)]:left-[-0.5%] [@media(width<550px)]:h-[35.1%] [@media(width<550px)]:w-[37%] [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:top-[61.3%] min-[550px]:[@media(width<=768px)]:left-[-0.5%] min-[550px]:[@media(width<=768px)]:h-[35.1%] min-[550px]:[@media(width<=768px)]:w-[37%] min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
                     <Print
                         name="hero.background"
                         src={assets.hero.background}
-                        className="gk-hero-background top-[520px] left-[290px] z-[0] h-[460px] w-[445px] [transform:rotate(-19deg)] [opacity:0.045] gk-mobile:hidden"
+                        className="gk-hero-background absolute top-[520px] left-[290px] z-[0] h-[460px] w-[445px] transform-[rotate(-19deg)] p-[4px] opacity-[0.045] [@media(width<550px)]:hidden [@media(width<550px)]:p-[2px_2px_12px] min-[550px]:[@media(width<=768px)]:hidden min-[550px]:[@media(width<=768px)]:p-[2px_2px_12px]"
                         eager
                     />
-                    <div className="gk-album-summary absolute top-[46px] left-[525px] z-[7] flex w-[258px] items-center gap-4 rounded-[10px] p-[14px] [box-shadow:0_8px_28px_#0005] [background:#19191b] [border:1px_solid_#434347] gk-mobile:top-[6.9%] gk-mobile:left-[63%] gk-mobile:w-[34%] gk-mobile:gap-[5px] gk-mobile:rounded-[6px] gk-mobile:p-[7px] [&_>_svg]:text-gk-accent gk-mobile:[&_>_svg]:w-[10px] [&_b]:text-gk-accent [&_p]:[flex:1] [&_p]:text-[12px] gk-mobile:[&_p]:text-[7px] [&_p_span]:mt-[6px] [&_p_span]:block [&_p_span]:text-[11px] [&_p_span]:text-gk-secondary gk-mobile:[&_p_span]:mt-[3px] gk-mobile:[&_p_span]:text-[6px] [&_strong]:block [&_strong]:font-semibold">
-                        <div className="gk-album-avatars relative h-[45px] w-[42px] [flex:0_0_42px] gk-mobile:h-[25px] gk-mobile:w-[23px] gk-mobile:basis-[23px] [&_img]:absolute [&_img]:h-[27px] [&_img]:w-[27px] [&_img]:rounded-[50%] [&_img]:[border:1px_solid_#777] gk-mobile:[&_img]:h-[15px] gk-mobile:[&_img]:w-[15px] [&_img:nth-child(2)]:left-[17px] gk-mobile:[&_img:nth-child(2)]:left-[9px] [&_img:nth-child(3)]:top-[19px] [&_img:nth-child(3)]:left-[9px] gk-mobile:[&_img:nth-child(3)]:top-[10px] gk-mobile:[&_img:nth-child(3)]:left-[5px]">
+                    <div className="gk-album-summary absolute top-[46px] left-[525px] z-[7] flex w-[258px] items-center gap-4 rounded-[10px] border border-[#434347] bg-[#19191b] p-[14px] shadow-[0_8px_28px_#0005] [@media(width<550px)]:top-[6.9%] [@media(width<550px)]:left-[63%] [@media(width<550px)]:w-[34%] [@media(width<550px)]:gap-[5px] [@media(width<550px)]:rounded-[6px] [@media(width<550px)]:p-[7px] min-[550px]:[@media(width<=768px)]:top-[6.9%] min-[550px]:[@media(width<=768px)]:left-[63%] min-[550px]:[@media(width<=768px)]:w-[34%] min-[550px]:[@media(width<=768px)]:gap-[5px] min-[550px]:[@media(width<=768px)]:rounded-[6px] min-[550px]:[@media(width<=768px)]:p-[7px]">
+                        <div className="gk-album-avatars relative h-[45px] w-[42px] flex-[0_0_42px] [@media(width<550px)]:h-[25px] [@media(width<550px)]:w-[23px] [@media(width<550px)]:basis-[23px] min-[550px]:[@media(width<=768px)]:h-[25px] min-[550px]:[@media(width<=768px)]:w-[23px] min-[550px]:[@media(width<=768px)]:basis-[23px]">
                             {(
                                 ['avatar01', 'avatar02', 'avatar03'] as const
                             ).map((key) => (
                                 <Photo
+                                    className="absolute h-[27px] w-[27px] rounded-[50%] border border-[#777] nth-[2]:left-[17px] nth-[3]:top-[19px] nth-[3]:left-[9px] [@media(width<550px)]:h-[15px] [@media(width<550px)]:w-[15px] [@media(width<550px)]:nth-[2]:left-[9px] [@media(width<550px)]:nth-[3]:top-[10px] [@media(width<550px)]:nth-[3]:left-[5px] min-[550px]:[@media(width<=768px)]:h-[15px] min-[550px]:[@media(width<=768px)]:w-[15px] min-[550px]:[@media(width<=768px)]:nth-[2]:left-[9px] min-[550px]:[@media(width<=768px)]:nth-[3]:top-[10px] min-[550px]:[@media(width<=768px)]:nth-[3]:left-[5px]"
                                     key={key}
                                     src={assets.hero[key]}
                                     name={`hero.${key}`}
@@ -120,20 +125,26 @@ export function HeroSection() {
                                 />
                             ))}
                         </div>
-                        <p>
-                            <strong>Galeri Reuni 2026</strong>
-                            <span>
-                                <b>129</b> Foto Terkumpul
+                        <p className="flex-[1] text-[12px] [@media(width<550px)]:text-[7px] min-[550px]:[@media(width<=768px)]:text-[7px]">
+                            <strong className="block font-semibold">
+                                Galeri Reuni 2026
+                            </strong>
+                            <span className="mt-[6px] block text-[11px] text-muted-foreground [@media(width<550px)]:mt-[3px] [@media(width<550px)]:text-[6px] min-[550px]:[@media(width<=768px)]:mt-[3px] min-[550px]:[@media(width<=768px)]:text-[6px]">
+                                <b className="text-primary">129</b> Foto
+                                Terkumpul
                             </span>
                         </p>
-                        <ChevronRight size={20} />
+                        <ChevronRight
+                            className="text-primary [@media(width<550px)]:w-[10px] min-[550px]:[@media(width<=768px)]:w-[10px]"
+                            size={20}
+                        />
                     </div>
                     <div
-                        className="gk-hero-qr absolute top-[267px] left-[615px] z-[8] h-[272px] w-[166px] [transform:rotate(5deg)] rounded-[11px] p-[15px] [box-shadow:0_10px_25px_#0009] [background:#111113] [border:1px_solid_#555] gk-mobile:top-[41.3%] gk-mobile:left-[80.1%] gk-mobile:h-[40.6%] gk-mobile:w-[20%] gk-mobile:rounded-[6px] gk-mobile:p-[7px]"
+                        className="gk-hero-qr absolute top-[267px] left-[615px] z-[8] h-[272px] w-[166px] transform-[rotate(5deg)] rounded-[11px] border border-[#555] bg-[#111113] p-[15px] shadow-[0_10px_25px_#0009] [@media(width<550px)]:top-[41.3%] [@media(width<550px)]:left-[80.1%] [@media(width<550px)]:h-[40.6%] [@media(width<550px)]:w-[20%] [@media(width<550px)]:rounded-[6px] [@media(width<550px)]:p-[7px] min-[550px]:[@media(width<=768px)]:top-[41.3%] min-[550px]:[@media(width<=768px)]:left-[80.1%] min-[550px]:[@media(width<=768px)]:h-[40.6%] min-[550px]:[@media(width<=768px)]:w-[20%] min-[550px]:[@media(width<=768px)]:rounded-[6px] min-[550px]:[@media(width<=768px)]:p-[7px]"
                         aria-hidden="true"
                     >
-                        <div className="gk-scan-corners h-[100%] bg-no-repeat! p-[17px_3px] [background:linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_left_top_/_14px_3px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_left_top_/_3px_14px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_right_top_/_14px_3px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_right_top_/_3px_14px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_left_bottom_/_14px_3px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_left_bottom_/_3px_14px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_right_bottom_/_14px_3px,_linear-gradient(var(--color-gk-accent),_var(--color-gk-accent))_right_bottom_/_3px_14px] gk-mobile:p-[10%_4%] [&_p]:mb-[21px] [&_p]:text-center [&_p]:text-[16px] [&_p]:leading-[1.2] gk-mobile:[&_p]:mb-[16%] gk-mobile:[&_p]:text-[clamp(7px,_1.65vw,_12px)]">
-                            <p>
+                        <div className="gk-scan-corners h-[100%] bg-[linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary)),linear-gradient(var(--primary),_var(--primary))] bg-size-[14px_3px,3px_14px,14px_3px,3px_14px,14px_3px,3px_14px,14px_3px,3px_14px] bg-position-[left_top,left_top,right_top,right_top,left_bottom,left_bottom,right_bottom,right_bottom] bg-no-repeat! p-[17px_3px] [@media(width<550px)]:p-[10%_4%] min-[550px]:[@media(width<=768px)]:p-[10%_4%]">
+                            <p className="mb-[21px] text-center text-[16px] leading-[1.2] [@media(width<550px)]:mb-[16%] [@media(width<550px)]:text-[clamp(7px,_1.65vw,_12px)] min-[550px]:[@media(width<=768px)]:mb-[16%] min-[550px]:[@media(width<=768px)]:text-[clamp(7px,_1.65vw,_12px)]">
                                 Scan untuk
                                 <br />
                                 bergabung
@@ -159,18 +170,22 @@ function Step({
     children: ReactNode;
 }) {
     return (
-        <article className="gk-step gk-mobile:mx-[auto] gk-mobile:w-[min(100%,_420px)] gk-mobile:[&:last-child_.gk-camera-image]:h-[250px] gk-mobile:[&:last-child_.gk-gallery-preview]:h-[356px] gk-mobile:[&:last-child_.gk-gallery-preview]:w-[48%] [&:last-child_.gk-phone]:absolute [&:last-child_.gk-phone]:top-[0] [&:last-child_.gk-phone]:left-[0] gk-mobile:[&:last-child_.gk-phone]:h-[362px] gk-mobile:[&:last-child_.gk-phone]:w-[49%] gk-mobile:[&:last-child_.gk-preview-grid]:h-[259px] gk-mobile:[&:nth-child(2)_.gk-invitation]:h-[335px] gk-mobile:[&:nth-child(2)_.gk-invitation]:w-[60%] gk-mobile:[&:nth-child(2)_.gk-invitation]:px-[12px] gk-mobile:[&:nth-child(2)_.gk-invitation_.gk-qr]:w-[135px]">
-            <div className="gk-step-heading flex min-h-[136px] gap-[27px] gk-compact:gap-[21px] gk-mobile:min-h-[124px] gk-mobile:gap-[24px] [&_>_div]:mt-[22px] [&_>_div]:[flex:1] [&_>_div]:pt-[22px] [&_>_div]:[border-top:1px_solid_#666] gk-mobile:[&_>_div]:mt-[14px] gk-mobile:[&_>_div]:pt-[14px] [&_h3]:text-[23px] [&_h3]:font-semibold [&_h3]:tracking-[-0.8px] gk-compact:[&_h3]:text-[20px] gk-mobile:[&_h3]:text-[21px] [&_p]:mt-[8px] [&_p]:max-w-[250px] [&_p]:text-[15px] [&_p]:leading-[1.35] [&_p]:text-gk-secondary gk-mobile:[&_p]:text-[13px]">
-                <span className="gk-step-number font-gk-display text-[109px] leading-[0.85] tracking-[-6px] italic gk-compact:text-[94px] gk-mobile:text-[92px]">
+        <article className="gk-step [@media(width<550px)]:mx-[auto] [@media(width<550px)]:w-[min(100%,_420px)] min-[550px]:[@media(width<=768px)]:mx-[auto] min-[550px]:[@media(width<=768px)]:w-[min(100%,_420px)]">
+            <div className="gk-step-heading flex min-h-[136px] gap-[27px] [@media(width<550px)]:min-h-[124px] [@media(width<550px)]:gap-[24px] min-[769px]:[@media(width<=1100px)]:gap-[21px] min-[550px]:[@media(width<=768px)]:min-h-[124px] min-[550px]:[@media(width<=768px)]:gap-[24px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[21px]">
+                <span className="gk-step-number font-serif text-[109px] leading-[0.85] tracking-[-6px] italic [@media(width<550px)]:text-[92px] min-[769px]:[@media(width<=1100px)]:text-[94px] min-[550px]:[@media(width<=768px)]:text-[92px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[94px]">
                     {number}
                 </span>
-                <div>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
+                <div className="mt-[22px] flex-[1] border-t border-t-[#666] pt-[22px] [@media(width<550px)]:mt-[14px] [@media(width<550px)]:pt-[14px] min-[550px]:[@media(width<=768px)]:mt-[14px] min-[550px]:[@media(width<=768px)]:pt-[14px]">
+                    <h3 className="text-[23px] font-semibold tracking-[-0.8px] [@media(width<550px)]:text-[21px] min-[769px]:[@media(width<=1100px)]:text-[20px] min-[550px]:[@media(width<=768px)]:text-[21px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[20px]">
+                        {title}
+                    </h3>
+                    <p className="mt-[8px] max-w-[250px] text-[15px] leading-[1.35] text-muted-foreground [@media(width<550px)]:text-[13px] min-[550px]:[@media(width<=768px)]:text-[13px]">
+                        {description}
+                    </p>
                 </div>
             </div>
             <div
-                className="gk-step-art relative h-[410px] overflow-hidden gk-compact:[zoom:0.85] gk-small:[zoom:0.72] gk-mobile:h-[375px]"
+                className="gk-step-art relative h-[410px] overflow-hidden [@media(width<550px)]:h-[375px] min-[769px]:[@media(width<=1100px)]:zoom-[0.72] min-[550px]:[@media(width<=768px)]:h-[375px] [@media(width>1100px)]:[@media(width<=1300px)]:zoom-[0.85]"
                 aria-hidden="true"
             >
                 {children}
@@ -183,10 +198,10 @@ export function HowItWorksSection() {
     return (
         <section
             id="cara-kerja"
-            className="gk-how gk-section relative min-h-[820px] scroll-mt-[24px] pt-[46px] [border-bottom:1px_solid_#ffffff0b] gk-compact:min-h-[760px] gk-small:min-h-[710px] gk-mobile:min-h-[0] gk-mobile:p-[46px_0_0] [&_.gk-handwritten]:pr-[5px] [&_.gk-handwritten]:pb-[20px] gk-mobile:[&_.gk-handwritten]:hidden [&_.gk-handwritten::after]:mt-[17px] [&_.gk-handwritten::after]:block [&_.gk-handwritten::after]:h-[1px] [&_.gk-handwritten::after]:w-[80px] [&_.gk-handwritten::after]:[transform:rotate(-9deg)] [&_.gk-handwritten::after]:[content:''] [&_.gk-handwritten::after]:[background:#666] [&_.gk-heading-row]:relative [&_.gk-heading-row]:z-[1]"
+            className="gk-how gk-section relative min-h-[820px] scroll-mt-[24px] border-b border-b-[#ffffff0b] pt-[46px] [@media(width<550px)]:min-h-[0] [@media(width<550px)]:p-[46px_0_0] min-[769px]:[@media(width<=1100px)]:min-h-[710px] min-[550px]:[@media(width<=768px)]:min-h-[0] min-[550px]:[@media(width<=768px)]:p-[46px_0_0] [@media(width>1100px)]:[@media(width<=1300px)]:min-h-[760px]"
         >
-            <div className="gk-container relative mx-[auto] w-[min(100%_-_128px,_1312px)] gk-compact:w-[calc(100%_-_80px)] gk-mobile:w-[calc(100%_-_40px)]">
-                <div className="gk-heading-row flex items-end justify-between gap-[24px] gk-mobile:flex-col gk-mobile:[align-items:start] gk-mobile:gap-[20px]">
+            <div className="gk-container relative mx-[auto] w-[min(100%_-_128px,_1312px)] [@media(width<550px)]:w-[calc(100%_-_40px)] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_80px)] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_80px)]">
+                <div className="gk-heading-row relative z-[1] flex items-end justify-between gap-[24px] [@media(width<550px)]:flex-col [@media(width<550px)]:items-start [@media(width<550px)]:gap-[20px] min-[550px]:[@media(width<=768px)]:flex-col min-[550px]:[@media(width<=768px)]:items-start min-[550px]:[@media(width<=768px)]:gap-[20px]">
                     <SectionHeading
                         label="CARA KERJA"
                         description="Semudah membuat acara, membagikan QR, dan mengabadikan cerita bersama."
@@ -194,11 +209,11 @@ export function HowItWorksSection() {
                         Semua momen,
                         <br />
                         {'dalam '}
-                        <em className="font-gk-display font-normal">
+                        <em className="font-serif font-normal">
                             tiga langkah.
                         </em>
                     </SectionHeading>
-                    <p className="gk-handwritten [transform:rotate(-8deg)] font-gk-display text-[27px] leading-[1.25] tracking-[1px] text-[#949498] italic">
+                    <p className="gk-handwritten transform-[rotate(-8deg)] pr-[5px] pb-[20px] font-serif text-[27px] leading-[1.25] tracking-[1px] text-[#949498] italic after:mt-[17px] after:block after:h-[1px] after:w-[80px] after:transform-[rotate(-9deg)] after:bg-[#666] after:content-[''] [@media(width<550px)]:hidden min-[550px]:[@media(width<=768px)]:hidden">
                         Foto lebih seru
                         <br />
                         kalau dilakukan
@@ -206,43 +221,48 @@ export function HowItWorksSection() {
                         bersama.
                     </p>
                 </div>
-                <div className="gk-steps mt-[36px] grid grid-cols-[repeat(3,_minmax(0,_1fr))] gap-[43px] gk-compact:gap-[26px] gk-mobile:mt-[34px] gk-mobile:grid-cols-[1fr] gk-mobile:gap-[34px]">
+                <div className="gk-steps mt-[36px] grid grid-cols-[repeat(3,_minmax(0,_1fr))] gap-[43px] [@media(width<550px)]:mt-[34px] [@media(width<550px)]:grid-cols-[1fr] [@media(width<550px)]:gap-[34px] min-[769px]:[@media(width<=1100px)]:gap-[26px] min-[550px]:[@media(width<=768px)]:mt-[34px] min-[550px]:[@media(width<=768px)]:grid-cols-[1fr] min-[550px]:[@media(width<=768px)]:gap-[34px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[26px]">
                     <Step
                         number="01"
                         title="Buat Event"
                         description="Buat acara dan atur galeri sesuai kebutuhanmu."
                     >
-                        <div className="gk-event-preview relative h-[415px] w-[380px] max-w-[100%] rounded-[10px] p-[18px] [background:linear-gradient(140deg,_#151517,_#0e0e10)] [border:1px_solid_var(--color-gk-border)] gk-mobile:h-[385px] gk-mobile:w-[100%] [&_>_.gk-photo]:h-[108px] [&_>_.gk-photo]:rounded-[5px]">
+                        <div className="gk-event-preview relative h-[415px] w-[380px] max-w-[100%] rounded-[10px] border border-border bg-[linear-gradient(140deg,_#151517,_#0e0e10)] p-[18px] [@media(width<550px)]:h-[385px] [@media(width<550px)]:w-[100%] min-[550px]:[@media(width<=768px)]:h-[385px] min-[550px]:[@media(width<=768px)]:w-[100%]">
                             <Photo
+                                className="h-[108px] rounded-[5px]"
                                 src={assets.how.eventCover}
                                 name="how.eventCover"
                             />
-                            <div className="gk-event-title mt-[13px] rounded-[5px] p-[10px] text-[15px] [border:1px_solid_var(--color-gk-border)]">
+                            <div className="gk-event-title mt-[13px] rounded-[5px] border border-border p-[10px] text-[15px]">
                                 Pernikahan Andi &amp; Sari
                             </div>
-                            <div className="gk-event-schedule mt-[10px] flex gap-2 [&_span]:flex [&_span]:items-center [&_span]:gap-2 [&_span]:rounded-[5px] [&_span]:p-[7px] [&_span]:text-[11px] [&_span]:whitespace-nowrap [&_span]:[border:1px_solid_var(--color-gk-border)]">
-                                <span>
+                            <div className="gk-event-schedule mt-[10px] flex gap-2">
+                                <span className="flex items-center gap-2 rounded-[5px] border border-border p-[7px] text-[11px] whitespace-nowrap">
                                     <CalendarDays size={14} /> Sab, 14 Jun 2025
                                 </span>
-                                <span>
+                                <span className="flex items-center gap-2 rounded-[5px] border border-border p-[7px] text-[11px] whitespace-nowrap">
                                     <Clock3 size={14} /> 10:00 - selesai
                                 </span>
                             </div>
-                            <div className="gk-event-access m-[18px_9px] flex gap-[30px] text-[13px] [&_i]:h-[17px] [&_i]:w-[17px] [&_i]:rounded-[50%] [&_i]:[border:5px_solid_#69696d] [&_span]:flex [&_span]:items-center [&_span]:gap-2 [&_span:first-child]:text-gk-accent [&_span:first-child_i]:border-gk-accent">
-                                <span>
-                                    <i />
+                            <div className="gk-event-access m-[18px_9px] flex gap-[30px] text-[13px]">
+                                <span className="flex items-center gap-2 first:text-primary">
+                                    <i className="h-[17px] w-[17px] rounded-[50%] border-[5px] border-primary" />
                                     Public
                                 </span>
-                                <span>
-                                    <i />
+                                <span className="flex items-center gap-2">
+                                    <i className="h-[17px] w-[17px] rounded-[50%] border-[5px] border-[#69696d]" />
                                     Private
                                 </span>
                             </div>
-                            <div className="gk-event-capacity relative h-[120px] overflow-hidden rounded-[5px] [border:1px_solid_var(--color-gk-border)] [&_img]:absolute [&_img]:top-[31px] [&_img]:right-[-17px] [&_img]:h-[100px] [&_img]:w-[155px] [&_img]:[transform:rotate(-15deg)] [&_img]:[opacity:0.6] [&_p]:p-[9px] [&_p]:text-[13px] [&_p]:text-gk-secondary [&_strong]:mt-[6px] [&_strong]:block [&_strong]:text-gk-text">
-                                <p>
-                                    Maks. fotografer<strong>500 orang</strong>
+                            <div className="gk-event-capacity relative h-[120px] overflow-hidden rounded-[5px] border border-border">
+                                <p className="p-[9px] text-[13px] text-muted-foreground">
+                                    Maks. fotografer
+                                    <strong className="mt-[6px] block text-foreground">
+                                        500 orang
+                                    </strong>
                                 </p>
                                 <Photo
+                                    className="absolute top-[31px] right-[-17px] h-[100px] w-[155px] transform-[rotate(-15deg)] opacity-[0.6]"
                                     src={assets.how.eventDetail}
                                     name="how.eventDetail"
                                 />
@@ -254,16 +274,22 @@ export function HowItWorksSection() {
                         title="Bagikan QR Code"
                         description="Bagikan QR. Peserta cukup scan dan masukkan nama."
                     >
-                        <Invitation />
-                        <Phone className="gk-how-join-phone absolute top-[20px] right-[1px] h-[426px] w-[209px] [transform:rotate(4deg)] gk-mobile:h-[397px] gk-mobile:w-[52%]" />
+                        <Invitation className="[@media(width<550px)]:h-[335px] [@media(width<550px)]:w-[60%] [@media(width<550px)]:px-[12px] min-[550px]:[@media(width<=768px)]:h-[335px] min-[550px]:[@media(width<=768px)]:w-[60%] min-[550px]:[@media(width<=768px)]:px-[12px]" />
+                        <Phone className="gk-how-join-phone absolute top-[20px] right-[1px] h-[426px] w-[209px] transform-[rotate(4deg)] [@media(width<550px)]:h-[397px] [@media(width<550px)]:w-[52%] min-[550px]:[@media(width<=768px)]:h-[397px] min-[550px]:[@media(width<=768px)]:w-[52%]" />
                     </Step>
                     <Step
                         number="03"
                         title="Abadikan Momen"
                         description="Semua peserta bisa mengambil atau mengunggah foto ke satu album."
                     >
-                        <Phone camera={assets.how.camera} name="how.camera" />
+                        <Phone
+                            className="absolute top-[0] left-[0] [@media(width<550px)]:h-[362px] [@media(width<550px)]:w-[49%] min-[550px]:[@media(width<=768px)]:h-[362px] min-[550px]:[@media(width<=768px)]:w-[49%]"
+                            camera={assets.how.camera}
+                            name="how.camera"
+                        />
                         <GalleryPreview
+                            previewGridClassName="[@media(width<550px)]:h-[259px] min-[550px]:[@media(width<=768px)]:h-[259px]"
+                            className="[@media(width<550px)]:h-[356px] [@media(width<550px)]:w-[48%] min-[550px]:[@media(width<=768px)]:h-[356px] min-[550px]:[@media(width<=768px)]:w-[48%]"
                             photos={Array.from({ length: 6 }, (_, index) => {
                                 const key =
                                     `gallery0${index + 1}` as keyof typeof assets.how;
@@ -286,33 +312,56 @@ function Feature({
     icon,
     className = '',
     children,
+    titleClassName = '',
+    featureArtClassName = '',
+    descriptionClassName = '',
 }: {
     title: string;
     description: string;
     icon: ReactNode;
     className?: string;
     children: ReactNode;
+    titleClassName?: string;
+    featureArtClassName?: string;
+    descriptionClassName?: string;
 }) {
     return (
         <article
             className={cn(
-                `gk-feature relative [grid-column:span_2] h-[371px] overflow-hidden rounded-[12px] [background:radial-gradient(ellipse_at_top_left,_#21212366,_transparent_65%),_#111113] [border:1px_solid_var(--color-gk-border)] gk-small:h-[323px] gk-mobile:[grid-column:span_2] gk-mobile:h-[352px] ${className}`,
+                `gk-feature relative col-[span_2] h-[371px] overflow-hidden rounded-[12px] border border-border bg-[#111113] bg-[radial-gradient(ellipse_at_top_left,_#21212366,_transparent_65%)] [@media(width<550px)]:col-[span_2] [@media(width<550px)]:h-[352px] min-[769px]:[@media(width<=1100px)]:h-[323px] min-[550px]:[@media(width<=768px)]:col-[span_2] min-[550px]:[@media(width<=768px)]:h-[352px] ${className}`,
             )}
         >
-            <div className="gk-feature-heading relative z-[2] flex gap-[16px] p-[21px_22px_0] gk-compact:gap-[12px] gk-compact:px-[16px] gk-small:gap-[10px] gk-mobile:gap-[14px] gk-mobile:p-[19px_18px_0] [&_h3]:text-[20px] [&_h3]:font-semibold [&_h3]:tracking-[-0.6px] gk-compact:[&_h3]:text-[17px] gk-small:[&_h3]:text-[15px] gk-mobile:[&_h3]:text-[18px] [&_p]:mt-[6px] [&_p]:text-[14px] [&_p]:leading-[1.4] [&_p]:text-gk-secondary gk-compact:[&_p]:text-[12px] gk-mobile:[&_p]:text-[13px]">
+            <div className="gk-feature-heading relative z-[2] flex gap-[16px] p-[21px_22px_0] [@media(width<550px)]:gap-[14px] [@media(width<550px)]:p-[19px_18px_0] min-[769px]:[@media(width<=1100px)]:gap-[10px] min-[769px]:[@media(width<=1100px)]:px-[16px] min-[550px]:[@media(width<=768px)]:gap-[14px] min-[550px]:[@media(width<=768px)]:p-[19px_18px_0] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[12px] [@media(width>1100px)]:[@media(width<=1300px)]:px-[16px]">
                 <span
-                    className="gk-feature-icon flex h-[48px] w-[48px] shrink-[0] items-center justify-center rounded-[12px] text-[#c2dc61] [background:#242425] [border:1px_solid_#38383c] gk-small:h-[38px] gk-small:w-[38px] gk-mobile:h-[43px] gk-mobile:w-[43px] [&_svg]:h-[25px] [&_svg]:w-[25px]"
+                    className="gk-feature-icon flex h-[48px] w-[48px] shrink-[0] items-center justify-center rounded-[12px] border border-[#38383c] bg-[#242425] text-[#c2dc61] [@media(width<550px)]:h-[43px] [@media(width<550px)]:w-[43px] min-[769px]:[@media(width<=1100px)]:h-[38px] min-[769px]:[@media(width<=1100px)]:w-[38px] min-[550px]:[@media(width<=768px)]:h-[43px] min-[550px]:[@media(width<=768px)]:w-[43px]"
                     aria-hidden="true"
                 >
                     {icon}
                 </span>
                 <div>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
+                    <h3
+                        className={cn(
+                            'text-[20px] font-semibold tracking-[-0.6px] [@media(width<550px)]:text-[18px] min-[769px]:[@media(width<=1100px)]:text-[15px] min-[550px]:[@media(width<=768px)]:text-[18px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[17px]',
+                            titleClassName,
+                        )}
+                    >
+                        {title}
+                    </h3>
+                    <p
+                        className={cn(
+                            'mt-[6px] text-[14px] leading-[1.4] text-muted-foreground [@media(width<550px)]:text-[13px] min-[769px]:[@media(width<=1100px)]:text-[12px] min-[550px]:[@media(width<=768px)]:text-[13px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[12px]',
+                            descriptionClassName,
+                        )}
+                    >
+                        {description}
+                    </p>
                 </div>
             </div>
             <div
-                className="gk-feature-art absolute top-[96px] right-[0] bottom-[0] left-[0] gk-compact:[zoom:0.85] gk-small:[zoom:0.7] gk-mobile:mx-[auto] gk-mobile:max-w-[440px]"
+                className={cn(
+                    'gk-feature-art absolute top-[96px] right-[0] bottom-[0] left-[0] [@media(width<550px)]:mx-[auto] [@media(width<550px)]:max-w-[440px] min-[769px]:[@media(width<=1100px)]:zoom-[0.7] min-[550px]:[@media(width<=768px)]:mx-[auto] min-[550px]:[@media(width<=768px)]:max-w-[440px] [@media(width>1100px)]:[@media(width<=1300px)]:zoom-[0.85]',
+                    featureArtClassName,
+                )}
                 aria-hidden="true"
             >
                 {children}
@@ -321,11 +370,14 @@ function Feature({
     );
 }
 
-function DriveMark() {
+function DriveMark({ className = '' }: { className?: string }) {
     return (
         <svg
             viewBox="0 0 48 44"
-            className="gk-drive-mark h-[44px] w-[49px] gk-mobile:h-[34px] gk-mobile:w-[37px]"
+            className={cn(
+                'gk-drive-mark h-[44px] w-[49px] [@media(width<550px)]:h-[34px] [@media(width<550px)]:w-[37px] min-[550px]:[@media(width<=768px)]:h-[34px] min-[550px]:[@media(width<=768px)]:w-[37px]',
+                className,
+            )}
             aria-hidden="true"
         >
             <path fill="#37a85b" d="M16 2h16L16 30H0z" />
@@ -339,46 +391,58 @@ export function FeaturesSection() {
     return (
         <section
             id="fitur"
-            className="gk-features gk-section relative min-h-[858px] scroll-mt-[24px] p-[31px_0_14px] [border-bottom:1px_solid_#ffffff0b] gk-small:min-h-[780px] gk-mobile:min-h-[0] gk-mobile:p-[38px_0_24px] [&_.gk-heading-row]:mb-[14px]"
+            className="gk-features gk-section relative min-h-[858px] scroll-mt-[24px] border-b border-b-[#ffffff0b] p-[31px_0_14px] [@media(width<550px)]:min-h-[0] [@media(width<550px)]:p-[38px_0_24px] min-[769px]:[@media(width<=1100px)]:min-h-[780px] min-[550px]:[@media(width<=768px)]:min-h-[0] min-[550px]:[@media(width<=768px)]:p-[38px_0_24px]"
         >
-            <div className="gk-container gk-container-wide relative mx-[auto] w-[min(100%_-_88px,_1352px)] gk-compact:w-[calc(100%_-_48px)] gk-mobile:w-[calc(100%_-_40px)]">
-                <div className="gk-heading-row gk-inset-heading flex items-end justify-between gap-[24px] px-[20px] gk-mobile:flex-col gk-mobile:[align-items:start] gk-mobile:gap-[20px] gk-mobile:px-[0]">
+            <div className="gk-container gk-container-wide relative mx-[auto] w-[min(100%_-_88px,_1352px)] [@media(width<550px)]:w-[calc(100%_-_40px)] min-[769px]:[@media(width<=1100px)]:w-[calc(100%_-_48px)] min-[550px]:[@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width>1100px)]:[@media(width<=1300px)]:w-[calc(100%_-_48px)]">
+                <div className="gk-heading-row gk-inset-heading mb-[14px] flex items-end justify-between gap-[24px] px-[20px] [@media(width<550px)]:flex-col [@media(width<550px)]:items-start [@media(width<550px)]:gap-[20px] [@media(width<550px)]:px-[0] min-[550px]:[@media(width<=768px)]:flex-col min-[550px]:[@media(width<=768px)]:items-start min-[550px]:[@media(width<=768px)]:gap-[20px] min-[550px]:[@media(width<=768px)]:px-[0]">
                     <SectionHeading label="BUILT FOR EVERY MOMENT">
                         Lebih dari
                         <br />
                         {'sekadar galeri '}
-                        <em className="font-gk-display font-normal">foto.</em>
+                        <em className="font-serif font-normal">foto.</em>
                     </SectionHeading>
-                    <div className="gk-heading-aside flex items-center gap-[56px] pb-[12px] text-[16px] text-gk-secondary gk-compact:gap-[28px] gk-compact:text-[14px] gk-mobile:w-[100%] gk-mobile:justify-between gk-mobile:gap-[15px] gk-mobile:p-[0] gk-mobile:text-[13px] gk-mobile:[&_br]:hidden">
+                    <div className="gk-heading-aside flex items-center gap-[56px] pb-[12px] text-[16px] text-muted-foreground [@media(width<550px)]:w-[100%] [@media(width<550px)]:justify-between [@media(width<550px)]:gap-[15px] [@media(width<550px)]:p-[0] [@media(width<550px)]:text-[13px] min-[769px]:[@media(width<=1100px)]:gap-[28px] min-[769px]:[@media(width<=1100px)]:text-[14px] min-[550px]:[@media(width<=768px)]:w-[100%] min-[550px]:[@media(width<=768px)]:justify-between min-[550px]:[@media(width<=768px)]:gap-[15px] min-[550px]:[@media(width<=768px)]:p-[0] min-[550px]:[@media(width<=768px)]:text-[13px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[28px] [@media(width>1100px)]:[@media(width<=1300px)]:text-[14px]">
                         <p>
                             Fitur lengkap untuk pengalaman mengabadikan
-                            <br />
+                            <br className="[@media(width<550px)]:hidden min-[550px]:[@media(width<=768px)]:hidden" />
                             momen yang lebih berkesan, bersama-sama.
                         </p>
                         <DirectionIcons />
                     </div>
                 </div>
-                <div className="gk-bento grid grid-cols-[repeat(24,_minmax(0,_1fr))] gap-[12px] gk-mobile:grid-cols-[repeat(2,_minmax(0,_1fr))] gk-mobile:gap-[12px]">
+                <div className="gk-bento grid grid-cols-[repeat(24,_minmax(0,_1fr))] gap-[12px] [@media(width<550px)]:grid-cols-[repeat(2,_minmax(0,_1fr))] [@media(width<550px)]:gap-[12px] min-[550px]:[@media(width<=768px)]:grid-cols-[repeat(2,_minmax(0,_1fr))] min-[550px]:[@media(width<=768px)]:gap-[12px]">
                     <Feature
+                        titleClassName="max-w-[180px]"
                         title="Scan QR, Langsung Gabung"
                         description=""
-                        icon={<ScanQrCode />}
-                        className="gk-feature-qr [grid-column:span_8] [&_.gk-join]:mt-[30px] [&_.gk-join_strong]:text-[12px] [&_.gk-phone]:absolute [&_.gk-phone]:top-[-26px] [&_.gk-phone]:right-[34px] [&_.gk-phone]:h-[360px] [&_.gk-phone]:w-[171px] [&_.gk-phone]:[transform:rotate(4deg)] gk-compact:[&_.gk-phone]:right-[10px] gk-mobile:[&_.gk-phone]:right-[25px] [&_h3]:max-w-[180px]"
+                        icon={<ScanQrCode className="h-[25px] w-[25px]" />}
+                        className="gk-feature-qr col-[span_8]"
                     >
                         <Invitation compact />
-                        <Phone />
+                        <Phone
+                            cameraHintClassName="text-[12px]"
+                            className="absolute top-[-26px] right-[34px] h-[360px] w-[171px] transform-[rotate(4deg)] [@media(width<550px)]:right-[25px] min-[769px]:[@media(width<=1100px)]:right-[10px] min-[550px]:[@media(width<=768px)]:right-[25px] [@media(width>1100px)]:[@media(width<=1300px)]:right-[10px]"
+                            joinClassName="mt-[30px]"
+                        />
                     </Feature>
                     <Feature
                         title="Kamera dengan Filter & Bingkai"
                         description="Ambil foto dengan gayamu sendiri."
-                        icon={<Aperture />}
-                        className="gk-feature-camera [grid-column:span_9] [&_.gk-camera-image]:h-[198px] [&_.gk-camera-tools]:gap-[10px] [&_.gk-camera-tools]:text-[5px] [&_.gk-phone]:absolute [&_.gk-phone]:top-[2px] [&_.gk-phone]:left-[21px] [&_.gk-phone]:h-[288px] [&_.gk-phone]:w-[149px] [&_.gk-phone]:rounded-[21px] [&_.gk-phone]:p-[6px] gk-mobile:[&_.gk-phone]:left-[17px] gk-mobile:[&_.gk-phone]:h-[280px] gk-mobile:[&_.gk-phone]:w-[127px] [&_.gk-phone-top]:h-[12px] [&_.gk-phone-top]:p-[0_4px] [&_.gk-phone-top]:text-[6px] [&_.gk-phone-top_i]:h-[7px] [&_.gk-phone-top_i]:w-[40px] [&_.gk-print]:absolute [&_.gk-print]:top-[135px] [&_.gk-print]:h-[160px] [&_.gk-print]:w-[125px] [&_.gk-print]:p-[5px_5px_23px] gk-mobile:[&_.gk-print]:h-[141px] gk-mobile:[&_.gk-print]:w-[100px] [&_.gk-shutter]:h-[26px] [&_.gk-shutter]:w-[26px] [&_.gk-shutter-row]:pt-[6px]"
+                        icon={<Aperture className="h-[25px] w-[25px]" />}
+                        className="gk-feature-camera col-[span_9]"
                     >
                         <Phone
+                            shutterRowClassName="pt-[6px]"
+                            shutterClassName="h-[26px] w-[26px]"
+                            notchClassName="h-[7px] w-[40px]"
+                            phoneTopClassName="h-[12px] p-[0_4px] text-[6px]"
+                            className="absolute top-[2px] left-[21px] h-[288px] w-[149px] rounded-[21px] p-[6px] [@media(width<550px)]:left-[17px] [@media(width<550px)]:h-[280px] [@media(width<550px)]:w-[127px] min-[550px]:[@media(width<=768px)]:left-[17px] min-[550px]:[@media(width<=768px)]:h-[280px] min-[550px]:[@media(width<=768px)]:w-[127px]"
+                            cameraToolsClassName="gap-[10px] text-[5px]"
+                            photoClassName="h-[198px] [@media(width<550px)]:h-[198px] min-[550px]:[@media(width<=768px)]:h-[198px]"
                             camera={assets.features.camera}
                             name="features.camera"
                         />
-                        <div className="gk-filters absolute top-[10px] right-[23px] left-[194px] grid grid-cols-[repeat(4,_minmax(0,_1fr))] gap-[8px] gk-compact:right-[12px] gk-compact:left-[177px] gk-compact:gap-[4px] gk-mobile:right-[14px] gk-mobile:left-[159px] gk-mobile:gap-[5px] [&_.gk-photo]:h-[55px] [&_.gk-photo]:rounded-[11px] [&_.gk-photo]:[border:1px_solid_#727276] gk-mobile:[&_.gk-photo]:h-[49px] [&_>_div:nth-child(2)_img]:[filter:sepia(0.25)] [&_>_div:nth-child(3)_img]:[filter:contrast(1.3)] [&_>_div:nth-child(4)_img]:[filter:grayscale(1)] [&_span]:mt-[7px] [&_span]:block [&_span]:text-center [&_span]:text-[9px]">
+                        <div className="gk-filters absolute top-[10px] right-[23px] left-[194px] grid grid-cols-[repeat(4,_minmax(0,_1fr))] gap-[8px] [@media(width<550px)]:right-[14px] [@media(width<550px)]:left-[159px] [@media(width<550px)]:gap-[5px] min-[769px]:[@media(width<=1100px)]:right-[12px] min-[769px]:[@media(width<=1100px)]:left-[177px] min-[769px]:[@media(width<=1100px)]:gap-[4px] min-[550px]:[@media(width<=768px)]:right-[14px] min-[550px]:[@media(width<=768px)]:left-[159px] min-[550px]:[@media(width<=768px)]:gap-[5px] [@media(width>1100px)]:[@media(width<=1300px)]:right-[12px] [@media(width>1100px)]:[@media(width<=1300px)]:left-[177px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[4px]">
                             {(
                                 [
                                     'original',
@@ -389,10 +453,19 @@ export function FeaturesSection() {
                             ).map((key, index) => (
                                 <div key={key}>
                                     <Photo
+                                        className={cn(
+                                            'h-[55px] rounded-[11px] border border-[#727276] [@media(width<550px)]:h-[49px] min-[550px]:[@media(width<=768px)]:h-[49px]',
+                                            [
+                                                '',
+                                                'sepia-[0.25]',
+                                                'contrast-[1.3]',
+                                                'grayscale',
+                                            ][index],
+                                        )}
                                         src={assets.features[key]}
                                         name={`features.${key}`}
                                     />
-                                    <span>
+                                    <span className="mt-[7px] block text-center text-[9px]">
                                         {
                                             [
                                                 'Original',
@@ -408,41 +481,46 @@ export function FeaturesSection() {
                         <Print
                             src={assets.features.print01}
                             name="features.print01"
-                            className="gk-feature-print-one left-[190px] [transform:rotate(-12deg)] gk-compact:left-[170px] gk-mobile:left-[158px]"
+                            className="gk-feature-print-one absolute top-[135px] left-[190px] h-[160px] w-[125px] transform-[rotate(-12deg)] p-[5px_5px_23px] [@media(width<550px)]:left-[158px] [@media(width<550px)]:h-[141px] [@media(width<550px)]:w-[100px] min-[769px]:[@media(width<=1100px)]:left-[170px] min-[550px]:[@media(width<=768px)]:left-[158px] min-[550px]:[@media(width<=768px)]:h-[141px] min-[550px]:[@media(width<=768px)]:w-[100px] [@media(width>1100px)]:[@media(width<=1300px)]:left-[170px]"
                         />
                         <Print
                             src={assets.features.print02}
                             name="features.print02"
-                            className="gk-feature-print-two left-[292px] [transform:rotate(12deg)] gk-compact:left-[253px] gk-mobile:left-[239px]"
+                            className="gk-feature-print-two absolute top-[135px] left-[292px] h-[160px] w-[125px] transform-[rotate(12deg)] p-[5px_5px_23px] [@media(width<550px)]:left-[239px] [@media(width<550px)]:h-[141px] [@media(width<550px)]:w-[100px] min-[769px]:[@media(width<=1100px)]:left-[253px] min-[550px]:[@media(width<=768px)]:left-[239px] min-[550px]:[@media(width<=768px)]:h-[141px] min-[550px]:[@media(width<=768px)]:w-[100px] [@media(width>1100px)]:[@media(width<=1300px)]:left-[253px]"
                         />
                     </Feature>
                     <Feature
                         title="Galeri Sesuai Keinginan"
                         description="Atur siapa yang bisa melihat dan kapan foto ditampilkan."
-                        icon={<Images />}
-                        className="gk-feature-privacy [grid-column:span_7] gk-mobile:h-[323px]"
+                        icon={<Images className="h-[25px] w-[25px]" />}
+                        className="gk-feature-privacy col-[span_7] [@media(width<550px)]:h-[323px] min-[550px]:[@media(width<=768px)]:h-[323px]"
                     >
                         <PrivacyPreview />
                     </Feature>
                     <Feature
+                        descriptionClassName="max-w-[300px] min-[769px]:[@media(width<=1100px)]:max-w-[210px]"
+                        featureArtClassName="top-[92px]"
                         title="24 Jam Penuh Cerita"
                         description="Periode khusus untuk mengumpulkan foto selama acara."
-                        icon={<Clock3 />}
-                        className="gk-feature-timer [grid-column:span_14] h-[270px] gk-small:h-[245px] gk-mobile:h-[350px] [&_.gk-feature-art]:top-[92px] [&_.gk-feature-heading_p]:max-w-[300px] gk-small:[&_.gk-feature-heading_p]:max-w-[210px]"
+                        icon={<Clock3 className="h-[25px] w-[25px]" />}
+                        className="gk-feature-timer col-[span_14] h-[270px] [@media(width<550px)]:h-[350px] min-[769px]:[@media(width<=1100px)]:h-[245px] min-[550px]:[@media(width<=768px)]:h-[350px]"
                     >
-                        <div className="gk-timer-display absolute bottom-[23px] left-[46px] flex items-center gap-[33px] gk-compact:left-[30px] gk-compact:gap-[22px] gk-mobile:bottom-[25px] gk-mobile:left-[22px] gk-mobile:gap-[20px] [&_>_span]:font-gk-display [&_>_span]:text-[76px] [&_>_span]:leading-[1] [&_>_span]:tracking-[-3px] [&_>_span]:whitespace-nowrap gk-mobile:[&_>_span]:text-[63px]">
-                            <span>24 JAM</span>
-                            <div className="gk-clock relative h-[145px] w-[145px] [transform:rotate(-6deg)] rounded-[50%] [background:conic-gradient(_var(--color-gk-accent)_0deg_111deg,_#333337_111deg_360deg_)] gk-mobile:h-[116px] gk-mobile:w-[116px] [&_b]:absolute [&_b]:top-[50%] [&_b]:left-[50%] [&_b]:h-[2px] [&_b]:w-[36px] [&_b]:[transform-origin:left] [&_b]:[transform:rotate(10deg)] [&_b]:[background:#e9e9e4] [&_i]:absolute [&_i]:top-[50%] [&_i]:left-[50%] [&_i]:h-[2px] [&_i]:w-[48px] [&_i]:[transform-origin:left] [&_i]:[transform:rotate(-115deg)] [&_i]:[background:#e9e9e4] [&::after]:absolute [&::after]:top-[calc(50%_-_3px)] [&::after]:left-[calc(50%_-_3px)] [&::after]:h-[7px] [&::after]:w-[7px] [&::after]:rounded-[50%] [&::after]:[content:''] [&::after]:[background:#ddd] [&::before]:absolute [&::before]:[inset:9px] [&::before]:rounded-[50%] [&::before]:[content:''] [&::before]:[background:#131315]">
-                                <i />
-                                <b />
+                        <div className="gk-timer-display absolute bottom-[23px] left-[46px] flex items-center gap-[33px] [@media(width<550px)]:bottom-[25px] [@media(width<550px)]:left-[22px] [@media(width<550px)]:gap-[20px] min-[769px]:[@media(width<=1100px)]:left-[30px] min-[769px]:[@media(width<=1100px)]:gap-[22px] min-[550px]:[@media(width<=768px)]:bottom-[25px] min-[550px]:[@media(width<=768px)]:left-[22px] min-[550px]:[@media(width<=768px)]:gap-[20px] [@media(width>1100px)]:[@media(width<=1300px)]:left-[30px] [@media(width>1100px)]:[@media(width<=1300px)]:gap-[22px]">
+                            <span className="font-serif text-[76px] leading-[1] tracking-[-3px] whitespace-nowrap [@media(width<550px)]:text-[63px] min-[550px]:[@media(width<=768px)]:text-[63px]">
+                                24 JAM
+                            </span>
+                            <div className="gk-clock relative h-[145px] w-[145px] transform-[rotate(-6deg)] rounded-[50%] bg-[conic-gradient(_var(--primary)_0deg_111deg,_#333337_111deg_360deg_)] before:absolute before:inset-[9px] before:rounded-[50%] before:bg-[#131315] before:content-[''] after:absolute after:top-[calc(50%_-_3px)] after:left-[calc(50%_-_3px)] after:h-[7px] after:w-[7px] after:rounded-[50%] after:bg-[#ddd] after:content-[''] [@media(width<550px)]:h-[116px] [@media(width<550px)]:w-[116px] min-[550px]:[@media(width<=768px)]:h-[116px] min-[550px]:[@media(width<=768px)]:w-[116px]">
+                                <i className="absolute top-[50%] left-[50%] h-[2px] w-[48px] origin-left transform-[rotate(-115deg)] bg-[#e9e9e4]" />
+                                <b className="absolute top-[50%] left-[50%] h-[2px] w-[36px] origin-left transform-[rotate(10deg)] bg-[#e9e9e4]" />
                             </div>
                         </div>
-                        <div className="gk-timer-collage absolute top-[-24px] right-[21px] h-[185px] w-[285px] gk-compact:right-[-20px] gk-mobile:top-[-10px] gk-mobile:right-[20px] gk-mobile:[transform-origin:top_right] gk-mobile:[transform:scale(0.65)] [&_.gk-print]:absolute [&_.gk-print]:h-[91px] [&_.gk-print]:w-[104px] [&_.gk-print]:p-[3px_3px_10px] [&_>_:nth-child(1)]:top-[15px] [&_>_:nth-child(1)]:left-[38px] [&_>_:nth-child(1)]:[transform:rotate(-2deg)] [&_>_:nth-child(2)]:top-[-8px] [&_>_:nth-child(2)]:left-[179px] [&_>_:nth-child(2)]:[transform:rotate(7deg)] [&_>_:nth-child(3)]:top-[104px] [&_>_:nth-child(3)]:left-[0] [&_>_:nth-child(3)]:[transform:rotate(-8deg)] [&_>_:nth-child(4)]:top-[65px] [&_>_:nth-child(4)]:left-[90px] [&_>_:nth-child(4)]:[transform:rotate(-6deg)] [&_>_:nth-child(5)]:top-[102px] [&_>_:nth-child(5)]:left-[168px] [&_>_:nth-child(5)]:[transform:rotate(3deg)] [&_>_:nth-child(6)]:top-[41px] [&_>_:nth-child(6)]:left-[215px] [&_>_:nth-child(6)]:h-[63px] [&_>_:nth-child(6)]:w-[64px] [&_>_:nth-child(6)]:[transform:rotate(-4deg)]">
+                        <div className="gk-timer-collage absolute top-[-24px] right-[21px] h-[185px] w-[285px] [@media(width<550px)]:top-[-10px] [@media(width<550px)]:right-[20px] [@media(width<550px)]:origin-top-right [@media(width<550px)]:transform-[scale(0.65)] min-[769px]:[@media(width<=1100px)]:right-[-20px] min-[550px]:[@media(width<=768px)]:top-[-10px] min-[550px]:[@media(width<=768px)]:right-[20px] min-[550px]:[@media(width<=768px)]:origin-top-right min-[550px]:[@media(width<=768px)]:transform-[scale(0.65)] [@media(width>1100px)]:[@media(width<=1300px)]:right-[-20px]">
                             {Array.from({ length: 6 }, (_, index) => {
                                 const key =
                                     `timer0${index + 1}` as keyof typeof assets.features;
                                 return (
                                     <Print
+                                        className="absolute h-[91px] w-[104px] p-[3px_3px_10px] nth-[1]:top-[15px] nth-[1]:left-[38px] nth-[1]:transform-[rotate(-2deg)] nth-[2]:top-[-8px] nth-[2]:left-[179px] nth-[2]:transform-[rotate(7deg)] nth-[3]:top-[104px] nth-[3]:left-[0] nth-[3]:transform-[rotate(-8deg)] nth-[4]:top-[65px] nth-[4]:left-[90px] nth-[4]:transform-[rotate(-6deg)] nth-[5]:top-[102px] nth-[5]:left-[168px] nth-[5]:transform-[rotate(3deg)] nth-[6]:top-[41px] nth-[6]:left-[215px] nth-[6]:h-[63px] nth-[6]:w-[64px] nth-[6]:transform-[rotate(-4deg)]"
                                         key={key}
                                         src={assets.features[key]}
                                         name={`features.${key}`}
@@ -454,19 +532,22 @@ export function FeaturesSection() {
                     <Feature
                         title="Simpan ke Google Drive"
                         description="Sinkronkan foto setelah acara selesai."
-                        icon={<DriveMark />}
-                        className="gk-feature-drive [grid-column:span_10] h-[270px] gk-small:h-[245px] gk-mobile:h-[294px]"
+                        icon={
+                            <DriveMark className="h-[25px] w-[25px] [@media(width<550px)]:h-[25px] [@media(width<550px)]:w-[25px] min-[550px]:[@media(width<=768px)]:h-[25px] min-[550px]:[@media(width<=768px)]:w-[25px]" />
+                        }
+                        className="gk-feature-drive col-[span_10] h-[270px] [@media(width<550px)]:h-[294px] min-[769px]:[@media(width<=1100px)]:h-[245px] min-[550px]:[@media(width<=768px)]:h-[294px]"
                     >
-                        <div className="gk-drive-line absolute top-[63px] right-[16%] left-[16%] [border-top:2px_dashed_#afbf5290]" />
-                        <div className="gk-drive-circle absolute top-[18px] left-[calc(50%_-_44px)] z-[2] flex h-[88px] w-[88px] items-center justify-center rounded-[50%] [background:#252527] gk-mobile:top-[24px] gk-mobile:left-[calc(50%_-_35px)] gk-mobile:h-[70px] gk-mobile:w-[70px]">
+                        <div className="gk-drive-line absolute top-[63px] right-[16%] left-[16%] border-t-[2px] border-dashed border-t-[#afbf5290]" />
+                        <div className="gk-drive-circle absolute top-[18px] left-[calc(50%_-_44px)] z-[2] flex h-[88px] w-[88px] items-center justify-center rounded-[50%] bg-[#252527] [@media(width<550px)]:top-[24px] [@media(width<550px)]:left-[calc(50%_-_35px)] [@media(width<550px)]:h-[70px] [@media(width<550px)]:w-[70px] min-[550px]:[@media(width<=768px)]:top-[24px] min-[550px]:[@media(width<=768px)]:left-[calc(50%_-_35px)] min-[550px]:[@media(width<=768px)]:h-[70px] min-[550px]:[@media(width<=768px)]:w-[70px]">
                             <DriveMark />
                         </div>
-                        <div className="gk-drive-collage absolute [inset:0] [&_.gk-print]:absolute [&_.gk-print]:h-[82px] [&_.gk-print]:w-[80px] [&_.gk-print]:p-[3px_3px_12px] [&_>_:nth-child(1)]:top-[1px] [&_>_:nth-child(1)]:left-[4%] [&_>_:nth-child(1)]:[transform:rotate(8deg)] [&_>_:nth-child(10)]:top-[108px] [&_>_:nth-child(10)]:right-[39%] [&_>_:nth-child(10)]:h-[64px] [&_>_:nth-child(10)]:w-[60px] [&_>_:nth-child(10)]:[transform:rotate(-8deg)] [&_>_:nth-child(2)]:top-[22px] [&_>_:nth-child(2)]:left-[18%] [&_>_:nth-child(2)]:[transform:rotate(-9deg)] [&_>_:nth-child(3)]:top-[89px] [&_>_:nth-child(3)]:left-[0] [&_>_:nth-child(3)]:[transform:rotate(-3deg)] [&_>_:nth-child(4)]:top-[112px] [&_>_:nth-child(4)]:left-[15%] [&_>_:nth-child(4)]:[transform:rotate(5deg)] [&_>_:nth-child(5)]:top-[98px] [&_>_:nth-child(5)]:left-[28%] [&_>_:nth-child(5)]:[transform:rotate(-4deg)] [&_>_:nth-child(6)]:top-[-8px] [&_>_:nth-child(6)]:right-[3%] [&_>_:nth-child(6)]:[transform:rotate(7deg)] [&_>_:nth-child(7)]:top-[64px] [&_>_:nth-child(7)]:right-[14%] [&_>_:nth-child(7)]:[transform:rotate(-11deg)] [&_>_:nth-child(8)]:top-[100px] [&_>_:nth-child(8)]:right-[0] [&_>_:nth-child(8)]:[transform:rotate(-3deg)] [&_>_:nth-child(9)]:top-[111px] [&_>_:nth-child(9)]:right-[24%] [&_>_:nth-child(9)]:[transform:rotate(5deg)] gk-mobile:[&.gk-drive-collage_.gk-print]:h-[59px] gk-mobile:[&.gk-drive-collage_.gk-print]:w-[52px]">
+                        <div className="gk-drive-collage absolute inset-[0]">
                             {Array.from({ length: 10 }, (_, index) => {
                                 const key =
                                     `drive${String(index + 1).padStart(2, '0')}` as keyof typeof assets.features;
                                 return (
                                     <Print
+                                        className="absolute h-[82px] w-[80px] p-[3px_3px_12px] nth-[1]:top-[1px] nth-[1]:left-[4%] nth-[1]:transform-[rotate(8deg)] nth-[10]:top-[108px] nth-[10]:right-[39%] nth-[10]:h-[64px] nth-[10]:w-[60px] nth-[10]:transform-[rotate(-8deg)] nth-[2]:top-[22px] nth-[2]:left-[18%] nth-[2]:transform-[rotate(-9deg)] nth-[3]:top-[89px] nth-[3]:left-[0] nth-[3]:transform-[rotate(-3deg)] nth-[4]:top-[112px] nth-[4]:left-[15%] nth-[4]:transform-[rotate(5deg)] nth-[5]:top-[98px] nth-[5]:left-[28%] nth-[5]:transform-[rotate(-4deg)] nth-[6]:top-[-8px] nth-[6]:right-[3%] nth-[6]:transform-[rotate(7deg)] nth-[7]:top-[64px] nth-[7]:right-[14%] nth-[7]:transform-[rotate(-11deg)] nth-[8]:top-[100px] nth-[8]:right-[0] nth-[8]:transform-[rotate(-3deg)] nth-[9]:top-[111px] nth-[9]:right-[24%] nth-[9]:transform-[rotate(5deg)] [@media(width<550px)]:h-[59px] [@media(width<550px)]:w-[52px] [@media(width<550px)]:nth-[10]:h-[59px] [@media(width<550px)]:nth-[10]:w-[52px] min-[550px]:[@media(width<=768px)]:h-[59px] min-[550px]:[@media(width<=768px)]:w-[52px] min-[550px]:[@media(width<=768px)]:nth-[10]:h-[59px] min-[550px]:[@media(width<=768px)]:nth-[10]:w-[52px]"
                                         key={key}
                                         src={assets.features[key]}
                                         name={`features.${key}`}
