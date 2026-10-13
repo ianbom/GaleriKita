@@ -1,0 +1,1298 @@
+# TASK: BUILD A PIXEL-PERFECT GALERIKITA LANDING PAGE FROM TWO DESIGN REFERENCES
+
+You are a senior frontend engineer, expert React developer, and pixel-perfect UI implementation specialist.
+
+Your task is to implement the **GaleriKita landing page** inside my existing Laravel + Inertia.js + React + TypeScript project.
+
+**THIS IS A STRICT DESIGN REPLICATION TASK, NOT A REDESIGN TASK.**
+
+The final website must reproduce the provided reference designs as accurately as technically possible.
+
+Your primary objective is to achieve extremely high visual fidelity, including layout, proportions, typography, spacing, alignment, border radius, colors, responsive behavior, and UI composition.
+
+Do not create your own interpretation of the design.
+
+---
+
+# 1. DESIGN REFERENCE FILES
+
+There are TWO reference images:
+
+**Reference A — Wireframe**
+
+`wireframe.png`
+
+This is the structural reference.
+
+Use it to determine:
+
+- Layout structure.
+- Section positions.
+- Exact section order.
+- Relative section heights.
+- Grid arrangements.
+- Column widths.
+- Component dimensions.
+- Margins and paddings.
+- Text placement.
+- Card geometry.
+- Image aspect ratios.
+- Image stacking and rotation.
+- Overall visual hierarchy.
+
+**Reference B — Final Design**
+
+`landingpage.png`
+
+This is the PRIMARY visual styling reference.
+
+Use it to determine:
+
+- Exact color palette.
+- Background appearance.
+- Typography.
+- Font sizes and weights.
+- Decorative serif typography.
+- Dark card surfaces.
+- Borders and corner radii.
+- Lime accent usage.
+- Button appearance.
+- Icon styles.
+- Image overlays.
+- Photo collage arrangements.
+- Shadows and layering.
+- Final visual composition.
+
+## REFERENCE PRIORITY
+
+If there are differences between the two images:
+
+1. Use the final design for visual appearance.
+2. Use the wireframe for structural clarity.
+3. Preserve the final design's composition wherever it is visually clear.
+4. Do not invent a third design.
+
+The wireframe and final design represent the SAME website.
+
+They must be treated as complementary references, not separate design alternatives.
+
+---
+
+# 2. MANDATORY FIRST STEP: ANALYZE THE EXISTING PROJECT
+
+Before writing any implementation code, inspect the repository.
+
+Identify:
+
+- Laravel version.
+- Inertia.js version.
+- React version.
+- TypeScript configuration.
+- Tailwind CSS version and configuration.
+- Existing routing structure.
+- Existing frontend entry points.
+- Existing application layouts.
+- Existing React components.
+- Available icon libraries.
+- Existing fonts.
+- Existing CSS architecture.
+- Existing authentication routes.
+- Existing build scripts.
+
+Adapt to the current project architecture.
+
+Do not blindly install or initialize a new frontend application.
+
+Do not replace existing project configuration unnecessarily.
+
+Do not upgrade dependencies unless required.
+
+Do not modify unrelated functionality.
+
+Prefer existing project conventions whenever possible.
+
+The implementation must integrate naturally with the existing Laravel + Inertia.js architecture.
+
+---
+
+# 3. TECHNOLOGY REQUIREMENTS
+
+Use the existing project stack:
+
+- Laravel.
+- Inertia.js.
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Vite.
+
+Use functional React components with TypeScript.
+
+Use Tailwind utilities for general styling.
+
+Use custom CSS where necessary to achieve accurate visual fidelity, particularly for:
+
+- Editorial typography.
+- Overlapping photography.
+- Complex image positioning.
+- Precise section layouts.
+- Decorative details.
+- Custom responsive behavior.
+
+Use `lucide-react` for icons if available, or an appropriate existing icon system.
+
+Do not introduce large UI component libraries unless the project already uses them.
+
+Do not use Bootstrap.
+
+Do not use generic UI template generators.
+
+Do not generate a separate HTML website outside Laravel.
+
+The landing page must render through Inertia.js.
+
+---
+
+# 4. ABSOLUTE DESIGN FIDELITY REQUIREMENTS
+
+The final website must look as close as possible to the final reference image.
+
+This requirement takes priority over personal design preferences or alternative layout suggestions.
+
+## Do not change:
+
+- Navbar structure.
+- Hero composition.
+- Text placement.
+- Photo collage positioning.
+- Section ordering.
+- How It Works layout.
+- Feature card arrangement.
+- Gallery masonry composition.
+- Event category card arrangement.
+- Pricing component layout.
+- FAQ layout.
+- Final CTA composition.
+- Footer structure.
+
+## Do not:
+
+- Redesign components.
+- Introduce new sections.
+- Remove existing sections.
+- Replace existing layouts with generic grids.
+- Simplify complex sections.
+- Reorganize the hero.
+- Change the overall color direction.
+- Change the typography style.
+- Replace editorial elements with generic SaaS components.
+- Add random animations or gradients.
+- Use generic Tailwind UI layouts that differ from the reference.
+
+**The goal is faithful implementation, not creative interpretation.**
+
+---
+
+# 5. DESKTOP VIEWPORT AND PAGE PROPORTIONS
+
+The supplied reference images are scaled full-page screenshots.
+
+They have approximately a 1:3 width-to-height ratio.
+
+Their displayed width does NOT mean that the original website was designed for a 682px viewport.
+
+Implement the design as a proper desktop website.
+
+## Primary visual target
+
+- Desktop viewport: 1440px wide.
+- Maintain the proportional structure of the complete reference image.
+- The approximate target full-page height may be around 4300px at 1440px width, subject to accurate reconstruction of the reference.
+- Use the actual reference composition rather than enforcing an arbitrary fixed height.
+- Maintain consistent horizontal content margins.
+- Preserve the relative proportions between sections.
+- Avoid unnecessary empty space.
+
+The desktop design must not become significantly taller, shorter, denser, or more spacious than the reference without a clear reason.
+
+Do not stretch the entire 682px reference image to 1440px and trace it using distorted dimensions.
+
+Instead, reconstruct the underlying desktop layout using the correct proportions and typography hierarchy.
+
+## Layout principles
+
+- Use a consistent desktop content container.
+- Preserve the edge-to-edge section background treatment.
+- Maintain precise vertical rhythm.
+- Use CSS Grid and Flexbox where appropriate.
+- Use absolute positioning only for elements intentionally layered in the design.
+- Avoid absolute positioning for the entire document layout.
+
+---
+
+# 6. GALERIKITA DESIGN SYSTEM
+
+Implement the color system based on the final reference.
+
+Suggested initial tokens:
+
+```css
+:root {
+  --gk-background: #09090B;
+  --gk-background-secondary: #111113;
+  --gk-surface: #17171B;
+  --gk-surface-elevated: #1C1C20;
+  --gk-border: #27272C;
+
+  --gk-text-primary: #F5F4EF;
+  --gk-text-secondary: #A4A4AD;
+  --gk-text-muted: #73737B;
+
+  --gk-accent: #DDF76A;
+  --gk-accent-hover: #CBE85A;
+}
+```
+
+These are initial values.
+
+Compare them against the final design image and adjust where necessary.
+
+Do not use these tokens as an excuse to ignore subtle visual differences.
+
+## Main appearance
+
+- Near-black page background.
+- Ivory primary typography.
+- Muted gray secondary text.
+- Soft lime accent.
+- Very subtle dark card borders.
+- Restrained, elegant shadows.
+- Premium dark editorial visual language.
+
+The website must remain visually dark even when photo assets are placeholders.
+
+Do not use the wireframe's white background in the final implementation.
+
+---
+
+# 7. TYPOGRAPHY — HIGH PRIORITY
+
+The typography is a major part of the GaleriKita visual identity.
+
+Use:
+
+**Primary UI font:** Plus Jakarta Sans.
+
+**Editorial display font:** Instrument Serif.
+
+Load fonts properly using the project's existing font-loading conventions, with appropriate fallbacks.
+
+Match:
+
+- Headline size.
+- Line height.
+- Letter spacing.
+- Weight.
+- Word wrapping.
+- Italic appearance.
+- Text alignment.
+- Text color.
+- Position relative to surrounding elements.
+
+## Important headline treatment
+
+The hero contains:
+
+"Satu acara."
+
+"Sejuta cerita."
+
+The first line should use a bold modern sans-serif style.
+
+The second line should use expressive editorial serif typography.
+
+Apply the lime color only to the accented portion shown in the final reference.
+
+Do not render all text using a single generic font.
+
+## Other editorial headlines
+
+Preserve the visual hierarchy for:
+
+"Semua momen, dalam tiga langkah."
+
+"Lebih dari sekadar galeri foto."
+
+"Setiap orang punya sudut pandangnya."
+
+"Untuk setiap momen yang berarti."
+
+"Setiap acara berbeda. Sesuaikan kebutuhanmu."
+
+"Pertanyaan yang sering ditanyakan."
+
+"Momen berlalu. Cerita tetap bersama."
+
+Match the original line breaks wherever they are intentional.
+
+Use responsive font sizing without compromising desktop fidelity.
+
+---
+
+# 8. PHOTO ASSETS — IMPORTANT PLACEHOLDER REQUIREMENT
+
+I will provide the final photo assets myself later.
+
+For now, **DO NOT search for, download, or generate real event photographs.**
+
+Do not use Unsplash, Pexels, random remote image URLs, or external image APIs.
+
+Instead, create a well-organized local placeholder system.
+
+## Placeholder requirements
+
+Create a local neutral placeholder SVG such as:
+
+`public/images/galerikita/placeholders/photo-placeholder.svg`
+
+The placeholder should be:
+
+- Simple.
+- Neutral gray.
+- Minimalistic.
+- Visually distinguishable from the dark website background.
+- Free from unrelated decorative elements.
+- Easy to replace with a real photograph.
+
+A simple image symbol or diagonal placeholder lines are acceptable.
+
+However, the placeholder graphic must never distort the intended photo container.
+
+## Preserve actual image geometry
+
+Every image container must preserve:
+
+- Width.
+- Height.
+- Aspect ratio.
+- Border radius.
+- Border styling.
+- Rotation.
+- Layering.
+- Object-fit behavior.
+- Object-position behavior.
+- Position inside its parent.
+- Overlay components.
+
+This is extremely important.
+
+**Only the image content should be temporary. The visual structure of the images must already match the final design.**
+
+For the hero collage, placeholders must maintain the exact overlapping composition shown in the final design.
+
+For the masonry gallery, placeholders must maintain the same image-grid structure and different aspect ratios.
+
+For category cards, placeholders must preserve the background-image composition and text overlays.
+
+Do not replace a complex photo collage with one large placeholder rectangle.
+
+## Centralized asset management
+
+Create a typed asset configuration file, for example:
+
+`resources/js/lib/galerikita-assets.ts`
+
+Use a centralized mapping resembling:
+
+```ts
+export const galerikitaAssets = {
+  hero: {
+    graduation: "/images/galerikita/placeholders/photo-placeholder.svg",
+    birthday: "/images/galerikita/placeholders/photo-placeholder.svg",
+    wedding: "/images/galerikita/placeholders/photo-placeholder.svg",
+    vacation: "/images/galerikita/placeholders/photo-placeholder.svg",
+    friends: "/images/galerikita/placeholders/photo-placeholder.svg",
+  },
+
+  howItWorks: {
+    eventCover: "/images/galerikita/placeholders/photo-placeholder.svg",
+    cameraPreview: "/images/galerikita/placeholders/photo-placeholder.svg",
+  },
+
+  gallery: {
+    photo01: "/images/galerikita/placeholders/photo-placeholder.svg",
+    photo02: "/images/galerikita/placeholders/photo-placeholder.svg",
+    photo03: "/images/galerikita/placeholders/photo-placeholder.svg",
+    photo04: "/images/galerikita/placeholders/photo-placeholder.svg",
+    photo05: "/images/galerikita/placeholders/photo-placeholder.svg",
+    photo06: "/images/galerikita/placeholders/photo-placeholder.svg",
+  },
+
+  categories: {
+    wedding: "/images/galerikita/placeholders/photo-placeholder.svg",
+    birthday: "/images/galerikita/placeholders/photo-placeholder.svg",
+    graduation: "/images/galerikita/placeholders/photo-placeholder.svg",
+    gathering: "/images/galerikita/placeholders/photo-placeholder.svg",
+    vacation: "/images/galerikita/placeholders/photo-placeholder.svg",
+    other: "/images/galerikita/placeholders/photo-placeholder.svg",
+  },
+} as const;
+```
+
+Extend this asset map to include EVERY photo slot visible in the reference.
+
+Do not limit the gallery to the six examples above if the design contains more photographs.
+
+Never scatter hardcoded image URLs across unrelated React components.
+
+Make it possible for me to replace each placeholder independently later.
+
+Use reusable image components if useful.
+
+Use `object-fit: cover` for real image containers and appropriate object positioning.
+
+Avoid layout shifts when replacing placeholders with real photographs.
+
+---
+
+# 9. LANDING PAGE SECTION IMPLEMENTATION
+
+Build the following sections in the exact order shown in the reference.
+
+## SECTION 01 — NAVBAR
+
+Reproduce the header from the design.
+
+Left:
+
+- GaleriKita aperture-style logo.
+- GaleriKita wordmark.
+
+Center:
+
+- Beranda.
+- Cara Kerja.
+- Fitur.
+- Harga.
+- FAQ.
+
+Right:
+
+- Masuk.
+- Lime "Buat Event" button with arrow icon.
+
+Match the exact:
+
+- Header height.
+- Logo size.
+- Navigation spacing.
+- Horizontal padding.
+- Button dimensions.
+- Typography.
+- Thin bottom separator.
+
+Do not replace this with a different navbar.
+
+Use a responsive mobile navigation implementation without changing the desktop design.
+
+## SECTION 02 — HERO
+
+This section requires the highest level of visual accuracy.
+
+The hero is arranged as:
+
+**Left:**
+
+- Eyebrow label.
+- Oversized headline.
+- Description.
+- Primary CTA.
+- Secondary CTA.
+- Small supporting note.
+
+**Right:**
+
+- Overlapping photography collage.
+- Rotated photographic frames.
+- Floating album information card.
+- Floating QR code invitation card.
+
+### Hero text
+
+Eyebrow:
+
+"EVERY MOMENT. EVERY PERSPECTIVE."
+
+Headline:
+
+"Satu acara."
+
+"Sejuta cerita."
+
+Description:
+
+"Abadikan setiap sudut pandang. Kumpulkan foto dari semua orang dalam satu galeri, cukup dengan satu QR code."
+
+Primary CTA:
+
+"Buat Event Sekarang"
+
+Secondary CTA:
+
+"Lihat Cara Kerja"
+
+Supporting note:
+
+"Tanpa perlu akun untuk peserta."
+
+### Hero collage implementation
+
+The collage must match the reference.
+
+Use individual positioned image frames.
+
+Preserve:
+
+- Large graduation image near the top.
+- Birthday image toward the top-right.
+- Wedding image overlapping the center.
+- Vacation image toward the lower-left.
+- Group photo near the lower-right.
+- Additional supporting image layers shown in the design.
+- Small dark album summary overlay.
+- QR invitation panel on the right.
+
+Each photographic frame should be implemented separately.
+
+Use CSS transforms for precise rotation and stacking.
+
+Do not use a generic auto-generated photo grid.
+
+Do not flatten the collage into a single image.
+
+Do not use the reference screenshot itself as the hero artwork.
+
+The hero must be made from real HTML/CSS components and independent placeholder images.
+
+## SECTION 03 — HOW IT WORKS
+
+Headline:
+
+"Semua momen, dalam tiga langkah."
+
+Use the exact three-step desktop arrangement.
+
+### Step 01
+
+Number:
+
+01
+
+Title:
+
+"Buat Event"
+
+Show a dark event-creation UI preview containing:
+
+- Event cover image placeholder.
+- Event title.
+- Schedule.
+- Public/Private controls.
+- Photographer capacity information.
+
+### Step 02
+
+Number:
+
+02
+
+Title:
+
+"Bagikan QR Code"
+
+Show:
+
+- Event invitation card.
+- QR code representation.
+- Overlapping smartphone guest-join interface.
+
+### Step 03
+
+Number:
+
+03
+
+Title:
+
+"Abadikan Momen"
+
+Show:
+
+- Smartphone camera interface.
+- Camera preview placeholder.
+- Shutter controls.
+- Gallery interface beside the camera.
+
+Match the reference layout, including:
+
+- Large editorial step numbers.
+- Thin decorative horizontal rules.
+- Label placement.
+- UI preview proportions.
+- Spacing between columns.
+
+Use actual HTML/CSS to construct the mockup interfaces.
+
+Do not use screenshot crops as UI mockups.
+
+## SECTION 04 — FEATURES BENTO GRID
+
+Section label:
+
+"BUILT FOR EVERY MOMENT"
+
+Headline:
+
+"Lebih dari sekadar galeri foto."
+
+Recreate the reference's exact five-card bento arrangement.
+
+### Top row
+
+Three cards:
+
+1. "Scan QR, Langsung Gabung"
+2. "Kamera dengan Filter & Bingkai"
+3. "Galeri Sesuai Keinginan"
+
+### Bottom row
+
+Two wider cards:
+
+4. "24 Jam Penuh Cerita"
+5. "Simpan ke Google Drive"
+
+Preserve the reference's unequal card sizes and proportions.
+
+### Feature 1 — QR
+
+Display:
+
+- QR preview.
+- Guest-join mobile interface.
+- Small lime UI highlights.
+
+### Feature 2 — Camera
+
+Display:
+
+- Camera preview placeholder.
+- Filter selection thumbnails.
+- Camera controls.
+- Floating photo prints.
+
+### Feature 3 — Gallery Privacy
+
+Display:
+
+- Private option.
+- Public option.
+- Instant option.
+- After Event option.
+
+Match the original card UI.
+
+### Feature 4 — 24 Hours
+
+Display:
+
+"24 JAM"
+
+Include a clock-like visual indicator.
+
+Recreate the collage of small photo placeholders.
+
+### Feature 5 — Google Drive
+
+Display:
+
+- Google Drive-related icon.
+- Photo placeholders on both sides.
+- Subtle connection line.
+- Synchronization illustration.
+
+Use HTML/CSS/SVG for these elements.
+
+Do not replace them with generic icons or unrelated illustrations.
+
+---
+
+# 10. SECTION 05 — COLLABORATIVE PHOTO GALLERY
+
+Headline:
+
+"Setiap orang punya sudut pandangnya."
+
+Supporting text:
+
+"Dan setiap sudut pandang menyimpan cerita yang berbeda."
+
+Reproduce the original editorial masonry gallery.
+
+This is NOT a uniform card grid.
+
+Pay special attention to:
+
+- The wide horizontal gallery composition.
+- Different image heights.
+- Larger outer photographs.
+- Smaller stacked photographs in the middle.
+- Unequal card sizes.
+- Narrow gaps between photos.
+- Photographer username overlays.
+- Heart icons and example like counters.
+- Rounded image corners.
+
+Use CSS Grid with deliberate spans or nested columns to reproduce the layout.
+
+Do not use an automatically generated masonry arrangement that changes the reference composition.
+
+Create a local data array for gallery cards.
+
+Example data fields:
+
+- id.
+- image asset key.
+- photographer display name.
+- example like count.
+- grid placement.
+- aspect ratio.
+- image object position.
+
+All photos must use independently replaceable placeholder assets.
+
+---
+
+# 11. SECTION 06 — EVENT CATEGORIES
+
+Headline:
+
+"Untuk setiap momen yang berarti."
+
+Create six photographic category cards displayed horizontally on desktop.
+
+Categories:
+
+1. Pernikahan.
+2. Ulang Tahun.
+3. Wisuda.
+4. Gathering.
+5. Liburan.
+6. Acara Lainnya.
+
+Each card should preserve:
+
+- Original width.
+- Original height.
+- Image crop.
+- Rounded corners.
+- Bottom text overlay.
+- Arrow icon.
+- Subtle border.
+
+Use temporary image placeholders.
+
+Do not alter the arrangement or introduce additional cards.
+
+---
+
+# 12. SECTION 07 — PRICING CONFIGURATION
+
+Headline:
+
+"Setiap acara berbeda. Sesuaikan kebutuhanmu."
+
+Supporting text:
+
+"Harga menyesuaikan kapasitas."
+
+Match the reference's horizontal desktop composition.
+
+Left:
+
+- Editorial heading.
+- Small description.
+
+Right:
+
+- Pricing configuration panel.
+
+Include:
+
+- Jumlah Fotografer.
+- Minus button.
+- Current photographer count.
+- Plus button.
+- Foto per Fotografer.
+- Minus button.
+- Current photo count.
+- Plus button.
+- Estimasi Kapasitas.
+- Lanjutkan button.
+
+Initial example values can follow the reference:
+
+- 50 photographers.
+- 100 photos per photographer.
+- 5,000 maximum photos.
+
+Compute the estimated photo capacity from the selected values.
+
+Do not invent actual package prices.
+
+Use React state for the configuration controls.
+
+The visual appearance must still match the static reference when the initial values are displayed.
+
+---
+
+# 13. SECTION 08 — FAQ
+
+Create the exact two-column FAQ composition.
+
+Left:
+
+"Pertanyaan yang sering ditanyakan."
+
+Right:
+
+Five accordion rows:
+
+1. Apakah peserta harus membuat akun?
+2. Berapa lama event berlangsung?
+3. Apakah foto masih bisa dilihat setelah acara selesai?
+4. Bisakah saya mengatur privasi galeri?
+5. Bagaimana cara membagikan event?
+
+Use clean horizontal separators and plus icons.
+
+Implement accessible accordion interaction.
+
+Preserve the reference's collapsed state by default.
+
+Do not replace this layout with large FAQ cards.
+
+---
+
+# 14. SECTION 09 — FINAL CTA
+
+Create the dramatic closing section exactly like the reference.
+
+Centered headline:
+
+"Momen berlalu."
+
+"Cerita tetap bersama."
+
+Use expressive editorial serif typography.
+
+Apply lime accent to the appropriate headline words.
+
+Supporting description:
+
+"Mulai kumpulkan setiap sudut pandang dalam satu galeri bersama GaleriKita."
+
+Primary CTA:
+
+"Buat Event Sekarang"
+
+Place several overlapping image placeholders on both the left and right sides of the CTA area.
+
+Preserve their:
+
+- Rotation.
+- Relative sizes.
+- Position.
+- Cropping.
+- Depth and stacking.
+
+Use black overlays or masks where needed.
+
+Do not create a plain CTA section without the photo collage.
+
+---
+
+# 15. SECTION 10 — FOOTER
+
+Recreate the exact footer.
+
+Include:
+
+- GaleriKita logo and wordmark.
+- Short brand description.
+- Footer navigation.
+- Kebijakan Privasi.
+- Syarat & Ketentuan.
+- Social media icons.
+- Copyright text.
+- Small handwritten/editorial note.
+- Oversized decorative "GaleriKita." typography near the bottom-right.
+
+The large background brand typography is an important part of the reference.
+
+Do not omit it.
+
+Preserve the dark background and subtle borders.
+
+---
+
+# 16. COMPONENT ARCHITECTURE
+
+Build the landing page with reusable React components.
+
+Use a structure consistent with the existing repository.
+
+A suggested organization, if compatible:
+
+```text
+resources/
+└── js/
+    ├── pages/
+    │   └── landing/
+    │       └── index.tsx
+    │
+    ├── components/
+    │   └── landing/
+    │       ├── navbar.tsx
+    │       ├── hero-section.tsx
+    │       ├── hero-photo-collage.tsx
+    │       ├── how-it-works.tsx
+    │       ├── features-section.tsx
+    │       ├── feature-card.tsx
+    │       ├── gallery-section.tsx
+    │       ├── category-section.tsx
+    │       ├── pricing-section.tsx
+    │       ├── faq-section.tsx
+    │       ├── final-cta.tsx
+    │       └── footer.tsx
+    │
+    └── lib/
+        └── galerikita-assets.ts
+```
+
+Use the repository's existing naming conventions if they differ.
+
+The structure above is a suggestion, not permission to duplicate existing patterns.
+
+## Component expectations
+
+- Use TypeScript types for props and data.
+- Use reusable shared primitives where helpful.
+- Keep large section components separate.
+- Avoid duplicated content structures.
+- Do not over-abstract simple visual elements.
+- Do not combine everything into one huge React component.
+- Keep configuration data separate from rendering logic when useful.
+
+Most importantly:
+
+**Component reusability must not compromise visual precision.**
+
+---
+
+# 17. RESPONSIVE DESIGN
+
+The provided references depict the desktop layout.
+
+Desktop fidelity is the highest priority.
+
+However, the implementation must also be responsive.
+
+Test at:
+
+- 1440px.
+- 1280px.
+- 1024px.
+- 768px.
+- 390px.
+- 375px.
+
+For desktop:
+
+Reproduce the visual reference as closely as possible.
+
+For tablet and mobile:
+
+Create a logical responsive adaptation that preserves the original design language.
+
+Mobile guidelines:
+
+- Preserve the black background.
+- Preserve ivory typography and lime accents.
+- Maintain editorial typography.
+- Stack the hero content appropriately.
+- Keep the hero photo collage visually recognizable.
+- Transform navigation into an accessible mobile menu.
+- Stack How It Works steps vertically when necessary.
+- Reflow feature bento cards.
+- Adapt masonry gallery without breaking its composition.
+- Make event category cards responsive.
+- Stack pricing controls.
+- Preserve readable FAQ interaction.
+- Prevent horizontal overflow.
+
+Do not use desktop-only fixed widths that break smaller viewports.
+
+Do not shrink the entire desktop website to fit mobile.
+
+Do not claim the mobile version is pixel-perfect to the supplied desktop references; it is a responsive interpretation of the same design system.
+
+---
+
+# 18. INTERACTIVITY AND NAVIGATION
+
+This is primarily a landing page implementation.
+
+Implement basic frontend interactions where appropriate:
+
+- Smooth scroll for section navigation.
+- Responsive navbar menu.
+- FAQ expand/collapse.
+- Pricing increment/decrement.
+- Derived photo capacity calculation.
+- Subtle button hover states.
+- Appropriate focus states.
+
+For the main CTA buttons:
+
+- Inspect existing Laravel routes.
+- Use existing authentication or event-creation routes when appropriate.
+- Do not invent backend endpoints.
+- If the required destination is not implemented, keep the behavior clearly isolated and document the missing integration.
+
+Do not implement unnecessary backend features.
+
+Do not create payment functionality, upload APIs, or event-management systems as part of this landing page task.
+
+Do not add decorative interactions that cause visual differences from the reference.
+
+---
+
+# 19. ACCESSIBILITY AND PERFORMANCE
+
+Implement the website using good production practices.
+
+Requirements:
+
+- Semantic HTML.
+- Proper heading hierarchy.
+- Accessible interactive elements.
+- Keyboard-accessible navigation.
+- Visible focus indicators.
+- Sufficient text contrast.
+- Useful image alt text.
+- Decorative images marked appropriately.
+- Responsive image sizing.
+- Lazy loading for below-the-fold images.
+- Avoid layout shifts.
+- Minimize unnecessary JavaScript.
+- Avoid excessive animation.
+
+Use `prefers-reduced-motion` when adding motion effects.
+
+Performance optimizations must not alter the intended design.
+
+---
+
+# 20. STRICT VISUAL VALIDATION WORKFLOW
+
+Do not stop after generating the first working implementation.
+
+You MUST perform an iterative visual review.
+
+## Step 1 — Implement
+
+Build the landing page from the provided references.
+
+## Step 2 — Run the application
+
+Use the existing Laravel and Vite setup.
+
+Identify and fix build/runtime issues.
+
+## Step 3 — Capture screenshots
+
+If browser automation, Playwright, or an equivalent browser tool is available, capture:
+
+- Full-page desktop screenshot at 1440px width.
+- Hero screenshot.
+- Feature-section screenshot.
+- Gallery-section screenshot.
+- Mobile screenshot at 390px width.
+
+Do not install an unrelated browser automation framework if an equivalent tool is already available.
+
+## Step 4 — Compare against references
+
+Compare the implementation screenshot with the supplied design images.
+
+Because the reference screenshots are scaled, normalize both images to the same effective dimensions or compare their proportions before evaluating differences.
+
+Check:
+
+- Navbar height and alignment.
+- Hero headline position.
+- Hero font size and line wrapping.
+- Hero collage position.
+- Photo frame rotations.
+- Section heights.
+- Grid column proportions.
+- Bento card arrangement.
+- Card radius and borders.
+- Masonry gallery structure.
+- Category layout.
+- Pricing panel alignment.
+- FAQ spacing.
+- CTA positioning.
+- Footer proportions.
+- Overall document height and vertical rhythm.
+
+## Step 5 — Fix visual differences
+
+If there are noticeable differences, refine the CSS.
+
+Do not accept a result merely because the implementation looks aesthetically pleasing.
+
+The objective is visual similarity to the provided references.
+
+Fix:
+
+- Missing elements.
+- Incorrect spacing.
+- Wrong font styles.
+- Incorrect sizes.
+- Wrong section heights.
+- Misaligned components.
+- Incorrect grid structure.
+- Unexpected line wrapping.
+- Incorrect stacking.
+- Incorrect background or border colors.
+
+## Step 6 — Repeat
+
+Repeat screenshot comparison and refinement until no major visible structural or styling differences remain.
+
+Do not claim to have performed screenshot comparison unless it was actually completed.
+
+For image-content differences, remember that placeholder photos are intentional.
+
+Do not count the absence of real photographs as an implementation failure.
+
+Evaluate the dimensions, placements, and styling of those photo containers instead.
+
+---
+
+# 21. IMPLEMENTATION COMPLETENESS
+
+The task is not complete if:
+
+- Only the hero is implemented.
+- Sections are missing.
+- Photo collages are simplified.
+- Bento cards have a different layout.
+- The gallery uses a uniform grid.
+- The mobile page overflows horizontally.
+- Fonts do not match the intended hierarchy.
+- Hardcoded positioning breaks responsiveness.
+- Images are not replaceable individually.
+- The final page only vaguely resembles the reference.
+
+All ten sections must be implemented.
+
+Ensure all necessary imports, files, components, styles, and routes are correctly integrated.
+
+---
+
+# 22. FINAL VERIFICATION
+
+Before finishing:
+
+1. Verify that the landing page renders through Laravel and Inertia.
+2. Verify that TypeScript checks pass.
+3. Verify that the production build succeeds.
+4. Verify that the page does not produce browser console errors.
+5. Verify that no unrelated code was modified.
+6. Verify that every photo uses the centralized placeholder asset system.
+7. Verify that the complete desktop page follows the reference composition.
+8. Verify that responsive breakpoints work.
+9. Verify that important interactions work.
+10. Perform the final screenshot comparison if available.
+
+Document any checks you could not perform.
+
+Do not fabricate successful validation results.
+
+---
+
+# 23. FINAL REPORT
+
+After implementation, provide:
+
+### A. Implementation Summary
+
+Explain which sections were built and how they integrate with Laravel/Inertia.
+
+### B. Files Created or Modified
+
+List the main files.
+
+### C. Asset Replacement Guide
+
+Provide a mapping of every photo placeholder to the asset configuration entry I should replace later.
+
+### D. Validation Results
+
+Include actual build, TypeScript, and screenshot validation results.
+
+### E. Remaining Differences
+
+If any visual elements still differ from the reference, clearly identify them.
+
+Do not simply state "pixel-perfect" without visual verification.
+
+---
+
+# 24. NON-NEGOTIABLE FINAL INSTRUCTION
+
+Your responsibility is to **RECONSTRUCT THE EXACT GALERIKITA DESIGN PROVIDED IN THE TWO REFERENCE IMAGES**, using real React components, Tailwind CSS, and properly structured frontend code.
+
+The wireframe defines the layout.
+
+The final design defines the appearance.
+
+Both images must guide every implementation decision.
+
+All real event photographs must remain replaceable dummy placeholders for now.
+
+Do not make creative design changes.
+
+Do not simplify the composition.
+
+Do not substitute the references with generic design patterns.
+
+Prioritize, in this order:
+
+1. **Visual fidelity to the supplied references.**
+2. Correct page structure and layout.
+3. Accurate typography and spacing.
+4. Accurate photo-placeholder geometry.
+5. Clean, maintainable React/TypeScript code.
+6. Responsiveness.
+7. Functional frontend interactions.
+8. Accessibility and performance.
+
+**SUCCESS CRITERION:**
+
+When I open the GaleriKita landing page at the target desktop viewport, its appearance should match the supplied final design as closely as possible, with the only intentional major visual difference being the replacement of real photographs with neutral placeholders.
+
+Begin by analyzing the two reference images and inspecting the existing repository, then implement the complete landing page. Do not stop at a plan or a partial implementation.
