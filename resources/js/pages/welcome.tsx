@@ -1,4 +1,8 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
+import HostEventWizard from '@/components/galerikita/host-event-wizard';
+import { Button } from '@/components/ui/button';
+import { getEventEntry } from '@/lib/host-event-wizard';
+import { home, login, register } from '@/routes';
 import {
     CategoriesSection,
     ClosingSection,
@@ -13,6 +17,49 @@ import {
 import { Footer, Navbar } from '@/components/galerikita/shell';
 
 export default function Welcome() {
+    const {
+        url,
+        props: { auth },
+    } = usePage();
+    const entry = getEventEntry(url, !!auth.user);
+
+    if (entry === 'wizard') {
+        return (
+            <>
+                <Head title="Buat Event - GaleriKita" />
+                <HostEventWizard />
+            </>
+        );
+    }
+
+    if (entry === 'auth') {
+        return (
+            <main className="flex min-h-svh items-center justify-center bg-background px-5 py-10">
+                <Head title="Masuk untuk membuat event" />
+                <div className="w-full max-w-sm space-y-6 text-center">
+                    <p className="font-serif text-2xl">GaleriKita.</p>
+                    <h1 className="font-serif text-4xl">
+                        Momenmu dimulai di sini.
+                    </h1>
+                    <p className="text-sm leading-6 text-muted-foreground">
+                        Masuk atau buat akun Host sebelum mengisi detail event.
+                    </p>
+                    <div className="grid gap-3">
+                        <Button asChild className="min-h-12">
+                            <Link href={login()}>Masuk</Link>
+                        </Button>
+                        <Button asChild variant="outline" className="min-h-12">
+                            <Link href={register()}>Buat akun</Link>
+                        </Button>
+                        <Button asChild variant="ghost" className="min-h-12">
+                            <Link href={home()}>Kembali ke beranda</Link>
+                        </Button>
+                    </div>
+                </div>
+            </main>
+        );
+    }
+
     return (
         <div
             data-landing

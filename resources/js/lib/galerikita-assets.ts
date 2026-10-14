@@ -83,3 +83,12 @@ export const galerikitaAssets = {
 } as const;
 
 export type AssetGroup = keyof typeof galerikitaAssets;
+
+export const wizardAssets: Record<string, string> = {
+    Pernikahan: '/images/galerikita/wizard/wedding.jpg',
+    'Ulang Tahun': '/images/galerikita/wizard/birthday.jpg',
+    Perjalanan: '/images/galerikita/wizard/travel.jpg',
+    Gathering: '/images/galerikita/wizard/gathering.jpg',
+    Wisuda: '/images/galerikita/wizard/graduation.jpg',
+    Lainnya: '/images/galerikita/wizard/other.jpg',
+};

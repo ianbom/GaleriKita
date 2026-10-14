@@ -11,7 +11,7 @@ import {
     Wifi,
 } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { dashboard, register } from '@/routes';
+import { home, register } from '@/routes';
 
 export function Brand() {
     return (
@@ -42,7 +42,9 @@ export function EventLink({
     return (
         <Link
             data-create-event
-            href={auth.user ? dashboard() : register()}
+            href={
+                auth.user ? home({ query: { 'create-event': 1 } }) : register()
+            }
             className={cn(
                 'inline-flex min-h-13.5 items-center justify-center gap-2 rounded-full border border-transparent bg-primary px-7 py-3.5 text-[15px] font-bold whitespace-nowrap text-primary-foreground transition-[background,border-color] duration-150 ease-[ease] hover:bg-[#cbe85a]',
                 className,
