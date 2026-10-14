@@ -34,7 +34,7 @@ export default function Welcome() {
             <main
                 id="main-content"
                 tabIndex={-1}
-                className="space-y-12 md:space-y-20"
+                className="space-y-32 pb-24 md:space-y-48 md:pb-32"
             >
                 <HeroSection />
                 <HowItWorksSection />

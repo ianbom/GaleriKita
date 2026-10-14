@@ -1,7 +1,10 @@
 """Run through browser-harness; GK_VISUAL_MODE=capture records the baseline.
 
 Default mode compares against that baseline. GK_VISUAL_MODE=spacing permits
-only the planned 48/80px section spacing. GK_URL defaults to port 8013.
+only the additional 80/112px spacing (128/192px total gaps).
+Capture a fresh 48/80px baseline first. GK_URL defaults to port 8013.
+GK_VISUAL_MODE=footer permits only footer redesign against a fresh baseline.
+GK_VISUAL_MODE=borderless checks section borders and spacing without a baseline.
 Requires Pillow in the browser-harness environment and production Vite assets.
 """
 import base64
@@ -71,6 +74,37 @@ def compare_spacing(original, snapshot, spacing):
                 assert after['style'][property] == before['style'][property], f'Style changed: {index} {property}'
             assert after['pseudo'] == before['pseudo'], f'Pseudo-element changed: {index}'
 
+def compare_footer(original, snapshot):
+    before_index = next(index for index, node in enumerate(original['nodes']) if node['tag'] == 'FOOTER')
+    after_index = next(index for index, node in enumerate(snapshot['nodes']) if node['tag'] == 'FOOTER')
+    assert before_index == after_index, 'Content outside footer changed'
+    assert original['nodes'][1:before_index] == snapshot['nodes'][1:after_index], 'Navbar or sections changed'
+    assert original['nodes'][0]['rect'][:3] == snapshot['nodes'][0]['rect'][:3], 'Landing width or position changed'
+    assert original['nodes'][before_index]['rect'][1] == snapshot['nodes'][after_index]['rect'][1], 'Footer position changed'
+
+def check_section_borders(document_expression='document'):
+    assert js('''(() => {
+        const doc = DOCUMENT, view = doc.defaultView;
+        const sections = [...doc.querySelectorAll('#main-content > section')];
+        const footer = doc.querySelector('footer');
+        const desktop = view.matchMedia('(min-width:48rem)').matches;
+        const gap = desktop ? 192 : 128, faqGap = desktop ? 96 : 64;
+        const footerGap = desktop ? 128 : 96, faqPadding = desktop ? '32px' : '24px';
+        const faq = view.getComputedStyle(doc.querySelector('#faq'));
+        return sections.length === 8
+            && sections.every(section => view.getComputedStyle(section).borderBottomWidth === '0px')
+            && sections.slice(0, -1).every((section, index) => {
+                const expected = ['harga', 'faq'].includes(section.id) ? faqGap : gap;
+                return Math.abs(sections[index + 1].getBoundingClientRect().top - section.getBoundingClientRect().bottom - expected) < .01;
+            })
+            && faq.paddingTop === faqPadding && faq.paddingBottom === faqPadding
+            && Math.abs(footer.getBoundingClientRect().top - sections.at(-1).getBoundingClientRect().bottom - footerGap) < .01
+            && view.getComputedStyle(footer).borderTopWidth === '0px'
+            && view.getComputedStyle(footer.firstElementChild.lastElementChild).borderTopWidth === '1px'
+            && view.getComputedStyle(doc.querySelector('header')).borderBottomWidth === '1px'
+            && doc.documentElement.scrollWidth <= view.innerWidth;
+    })()'''.replace('DOCUMENT', document_expression)), 'Section borders, spacing, or footer separator changed'
+
 def capture(name):
     js('document.querySelectorAll("img").forEach(image=>image.loading="eager")')
     js('(async()=>{await document.fonts.ready;await Promise.all(Array.from(document.images).map(image=>image.decode().catch(()=>{})));return true})()')
@@ -91,10 +125,26 @@ def capture(name):
     (output / f'{name}.json').write_text(json.dumps(snapshot), encoding='utf8')
     image = cdp('Page.captureScreenshot', format='png', captureBeyondViewport=True, clip={'x':0,'y':0,'width':snapshot['width'],'height':snapshot['height'],'scale':1})['data']
     (output / f'{name}.png').write_bytes(base64.b64decode(image))
-    if mode != 'capture':
+    if mode == 'borderless':
+        check_section_borders()
+    if mode not in ('capture', 'borderless'):
         original = json.loads((baseline / f'{name}.json').read_text())
+        if mode == 'footer':
+            compare_footer(original, snapshot)
+            assert js('document.documentElement.scrollWidth <= innerWidth'), 'Horizontal overflow'
+            assert js('document.querySelector("footer nav") === null'), 'Footer section navigation remains'
+            assert js('''(() => {
+                const footer = document.querySelector('footer'), bottom = footer.firstElementChild.lastElementChild;
+                const legal = [...bottom.querySelectorAll('[aria-disabled="true"]')];
+                return legal.length === 2 && legal.map(node => node.textContent.trim()).join('|') === 'Kebijakan Privasi|Syarat & Ketentuan'
+                    && bottom.querySelectorAll('[aria-label$="belum tersedia"] span').length === 3
+                    && !bottom.querySelector('a, button')
+                    && footer.querySelector('span[aria-hidden="true"]').textContent.trim() === 'GaleriKita.';
+            })()'''), 'Footer bottom content changed'
+            print(mode, name, snapshot['height'])
+            return
         if mode == 'spacing':
-            compare_spacing(original, snapshot, js('matchMedia("(min-width:48rem)").matches ? 80 : 48'))
+            compare_spacing(original, snapshot, js('matchMedia("(min-width:48rem)").matches ? 112 : 80'))
             print(mode, name, snapshot['height'])
             return
         geometry = lambda data: [(node['tag'], node['text'], node['rect']) for node in data['nodes']]
@@ -139,11 +189,16 @@ for width in [549.5,550,550.5,767.5,768,768.5,768.99,769,769.5,1099.5,1100,1100.
     })()''')
     name=f'fractional-{width}'
     (output / f'{name}.json').write_text(json.dumps(snapshot),encoding='utf8')
-    if mode != 'capture':
+    if mode == 'borderless':
+        check_section_borders('document.querySelector("#breakpoint-check").contentDocument')
+    if mode not in ('capture', 'borderless'):
         original=json.loads((baseline / f'{name}.json').read_text())
         if mode == 'spacing':
             assert (snapshot['width'], snapshot['matches']) == (original['width'], original['matches'])
-            compare_spacing(original, snapshot, js('document.querySelector("#breakpoint-check").contentWindow.matchMedia("(min-width:48rem)").matches ? 80 : 48'))
+            compare_spacing(original, snapshot, js('document.querySelector("#breakpoint-check").contentWindow.matchMedia("(min-width:48rem)").matches ? 112 : 80'))
+        elif mode == 'footer':
+            assert (snapshot['width'], snapshot['matches']) == (original['width'], original['matches'])
+            compare_footer(original, snapshot)
         else:
             assert snapshot == original, f'Fractional breakpoint changed: {name}'
     print(mode,name,snapshot['height'])

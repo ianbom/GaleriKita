@@ -37,7 +37,7 @@ export function CommunitySection() {
     return (
         <section
             id="galeri"
-            className="relative min-h-145 scroll-mt-6 border-b border-b-[#ffffff0b] pt-7 pb-3 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:pt-8.5 [@media(width<=768px)]:pb-6.5"
+            className="relative min-h-145 scroll-mt-20 pt-7 pb-3 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:pt-8.5 [@media(width<=768px)]:pb-6.5"
         >
             <div className="relative mx-auto w-[min(100%_-_40px,_1400px)] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_32px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
                 <div className="mb-4 flex items-end justify-between gap-6 px-11 min-[769px]:[@media(width<=1300px)]:px-6 [@media(width<=768px)]:mb-5 [@media(width<=768px)]:flex-col [@media(width<=768px)]:items-start [@media(width<=768px)]:gap-5 [@media(width<=768px)]:px-0">
@@ -127,7 +127,7 @@ export function CategoriesSection() {
     return (
         <section
             id="momen"
-            className="relative min-h-95 scroll-mt-6 border-b border-b-[#ffffff0b] pt-6 pb-4.25 min-[769px]:[@media(width<=1100px)]:min-h-82.5 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:py-7.5"
+            className="relative min-h-95 scroll-mt-20 pt-6 pb-4.25 min-[769px]:[@media(width<=1100px)]:min-h-82.5 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:py-7.5"
         >
             <div className="relative mx-auto w-[min(100%_-_88px,_1352px)] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_48px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
                 <div className="flex items-end justify-between gap-6 px-5 [@media(width<=768px)]:flex-col [@media(width<=768px)]:items-start [@media(width<=768px)]:gap-5 [@media(width<=768px)]:px-0">
@@ -176,7 +176,7 @@ export function ClosingSection() {
     return (
         <section
             id="mulai"
-            className="relative grid min-h-79.5 scroll-mt-6 place-items-center overflow-hidden border-b border-b-[#ffffff0b] [@media(width<=768px)]:min-h-82.5"
+            className="relative grid min-h-79.5 scroll-mt-20 place-items-center overflow-hidden [@media(width<=768px)]:min-h-82.5"
         >
             <div
                 className="absolute inset-0 after:absolute after:inset-0 after:z-1 after:bg-[image:linear-gradient(_90deg,_#09090b20,_#09090bf5_38%,_#09090bf5_62%,_#09090b20_),_linear-gradient(#09090b50,_transparent_60%,_#09090b40)] after:content-[''] [@media(width<=768px)]:after:bg-[linear-gradient(_90deg,_#09090b20,_#09090bbb_30%,_#09090bbb_70%,_#09090b20_)]"

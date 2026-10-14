@@ -18,6 +18,8 @@ assert js('document.querySelector("[data-landing]") !== null'), 'Landing page mi
 assert js('Array.from(document.querySelectorAll("link[rel=stylesheet]")).every(link=>new URL(link.href).pathname.startsWith("/build/"))'), 'Production assets required'
 assert js('document.querySelectorAll("[data-landing] header, [data-landing] main > section, [data-landing] footer").length') == 10
 
+assert js('getComputedStyle(document.querySelector("header")).position') == 'sticky'
+
 def click_named(name, repeats=1):
     nodes = cdp('Accessibility.getFullAXTree')['nodes']
     node = next(item for item in nodes if item.get('role', {}).get('value') == 'button' and item.get('name', {}).get('value') == name)
@@ -61,6 +63,15 @@ for width in [1440, 1280, 1024, 768, 390, 375, 549, 550, 551, 767, 769, 770, 109
     js('window.scrollTo(0,0)')
     time.sleep(.4)
     assert js('document.documentElement.scrollWidth <= window.innerWidth'), f'Overflow at {width}'
+    assert js('window.scrollTo({top:1200,behavior:"instant"});document.querySelector("header").getBoundingClientRect().top') == 0, f'Sticky navbar failed at {width}'
+    assert js('''(() => {
+        const section=document.querySelector('#faq'), header=document.querySelector('header');
+        section.scrollIntoView({block:'start',behavior:'instant'});
+        return section.getBoundingClientRect().top >= header.getBoundingClientRect().bottom
+            && parseFloat(getComputedStyle(section).scrollMarginTop) === 80
+            && section.querySelector('button').getBoundingClientRect().height >= 80;
+    })()'''), f'FAQ anchor or sizing failed at {width}'
+    js('window.scrollTo({top:0,behavior:"instant"})')
     if width == 390:
         click_named('Buka navigasi')
         assert js('document.querySelector("#mobile-navigation") !== null')

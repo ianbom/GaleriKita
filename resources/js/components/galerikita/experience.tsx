@@ -28,7 +28,7 @@ export function HeroSection() {
     return (
         <section
             id="beranda"
-            className="relative min-h-145 scroll-mt-6 border-b border-b-[#ffffff0b] min-[769px]:[@media(width<=1100px)]:min-h-132.5 [@media(width<=768px)]:min-h-0"
+            className="relative min-h-145 scroll-mt-20 min-[769px]:[@media(width<=1100px)]:min-h-132.5 [@media(width<=768px)]:min-h-0"
         >
             <div className="relative mx-auto min-h-145 w-[min(100%_-_128px,_1312px)] min-[769px]:[@media(width<=1100px)]:min-h-132.5 min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:w-[calc(100%_-_40px)]">
                 <div className="relative z-3 w-137.5 pt-20 min-[769px]:[@media(width<=1300px)]:w-[47%] [@media(width<=768px)]:w-full [@media(width<=768px)]:pt-12.5">
@@ -198,7 +198,7 @@ export function HowItWorksSection() {
     return (
         <section
             id="cara-kerja"
-            className="relative min-h-205 scroll-mt-6 border-b border-b-[#ffffff0b] pt-11.5 [@media(1100px<width<=1300px)]:min-h-190 min-[769px]:[@media(width<=1100px)]:min-h-177.5 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:p-0 [@media(width<=768px)]:pt-11.5"
+            className="relative min-h-205 scroll-mt-20 pt-11.5 [@media(1100px<width<=1300px)]:min-h-190 min-[769px]:[@media(width<=1100px)]:min-h-177.5 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:p-0 [@media(width<=768px)]:pt-11.5"
         >
             <div className="relative mx-auto w-[min(100%_-_128px,_1312px)] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
                 <div className="relative z-1 flex items-end justify-between gap-6 [@media(width<=768px)]:flex-col [@media(width<=768px)]:items-start [@media(width<=768px)]:gap-5">
@@ -392,7 +392,7 @@ export function FeaturesSection() {
     return (
         <section
             id="fitur"
-            className="relative min-h-214.5 scroll-mt-6 border-b border-b-[#ffffff0b] pt-7.75 pb-3.5 min-[769px]:[@media(width<=1100px)]:min-h-195 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:pt-9.5 [@media(width<=768px)]:pb-6"
+            className="relative min-h-214.5 scroll-mt-20 pt-7.75 pb-3.5 min-[769px]:[@media(width<=1100px)]:min-h-195 [@media(width<=768px)]:min-h-0 [@media(width<=768px)]:pt-9.5 [@media(width<=768px)]:pb-6"
         >
             <div className="relative mx-auto w-[min(100%_-_88px,_1352px)] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_48px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
                 <div className="mb-3.5 flex items-end justify-between gap-6 px-5 [@media(width<=768px)]:flex-col [@media(width<=768px)]:items-start [@media(width<=768px)]:gap-5 [@media(width<=768px)]:px-0">

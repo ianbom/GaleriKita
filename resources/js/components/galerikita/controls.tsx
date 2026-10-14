@@ -54,7 +54,7 @@ export function PricingSection() {
     return (
         <section
             id="harga"
-            className="relative min-h-53.5 scroll-mt-6 border-b border-b-[#ffffff0b] pt-5.5 pb-4.5 [@media(width<=768px)]:py-8"
+            className="relative mb-16 min-h-53.5 scroll-mt-20 pt-5.5 pb-4.5 md:mb-24 [@media(width<=768px)]:py-8"
         >
             <div className="relative mx-auto grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.78fr_1fr] items-center gap-10.75 [@media(1100px<width<=1300px)]:grid-cols-[0.8fr_1fr] min-[769px]:[@media(width<=1100px)]:grid-cols-[0.72fr_1fr] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] min-[769px]:[@media(width<=1300px)]:gap-6.25 [@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width<=768px)]:grid-cols-1 [@media(width<=768px)]:gap-6.25">
                 <SectionHeading
@@ -132,19 +132,21 @@ export function FaqSection() {
     return (
         <section
             id="faq"
-            className="relative min-h-57.5 scroll-mt-6 border-b border-b-[#ffffff0b] py-5.5 [@media(width<=768px)]:py-8.25"
+            className="relative mb-16 scroll-mt-20 py-6 md:mb-24 md:py-8"
         >
-            <div className="relative mx-auto grid w-[min(100%_-_128px,_1312px)] grid-cols-[0.88fr_1fr] gap-19 min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width<=768px)]:grid-cols-1 [@media(width<=768px)]:gap-7.5">
-                <SectionHeading
-                    headingClassName="text-[58px] leading-[0.88] [@media(width<=768px)]:text-[47px]"
-                    label="FAQ"
-                >
-                    Pertanyaan yang
-                    <br />
-                    {'sering '}
-                    <em className="font-serif font-normal">ditanyakan.</em>
-                </SectionHeading>
-                <div className="-mt-1.75">
+            <div className="relative mx-auto grid w-[min(100%_-_128px,_1312px)] gap-10 sm:gap-12 lg:gap-16 min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
+                <div>
+                    <p className="mb-4 text-xs font-bold tracking-widest text-muted-foreground">
+                        FAQ
+                    </p>
+                    <h2 className="max-w-5xl font-serif text-5xl leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl">
+                        Pertanyaan yang
+                        <br />
+                        {'sering '}
+                        <em className="font-normal">ditanyakan.</em>
+                    </h2>
+                </div>
+                <div className="max-w-5xl">
                     {questions.map(([question, answer], index) => (
                         <div
                             key={question}
@@ -152,7 +154,7 @@ export function FaqSection() {
                         >
                             <h3>
                                 <button
-                                    className="flex w-full cursor-pointer items-center justify-between gap-4.5 px-0 py-2.25 text-left text-[14px] text-muted-foreground hover:text-foreground disabled:cursor-default disabled:opacity-35 [@media(width<=768px)]:min-h-12 [@media(width<=768px)]:py-3.25 [@media(width<=768px)]:text-[12px]"
+                                    className="flex min-h-20 w-full cursor-pointer items-center justify-between gap-6 px-1 py-6 text-left text-base font-medium text-foreground transition-colors hover:text-primary disabled:cursor-default disabled:opacity-35 sm:min-h-24 sm:px-2 sm:py-8 sm:text-xl"
                                     id={`faq-question-${index}`}
                                     type="button"
                                     aria-expanded={opened === index}
@@ -164,15 +166,16 @@ export function FaqSection() {
                                     }
                                 >
                                     {question}
-                                    {opened === index ? (
-                                        <Minus size={16} aria-hidden="true" />
-                                    ) : (
-                                        <Plus
-                                            className="shrink-0"
-                                            size={16}
-                                            aria-hidden="true"
-                                        />
-                                    )}
+                                    <span
+                                        className="grid size-11 shrink-0 place-items-center rounded-full bg-muted text-primary"
+                                        aria-hidden="true"
+                                    >
+                                        {opened === index ? (
+                                            <Minus size={20} />
+                                        ) : (
+                                            <Plus size={20} />
+                                        )}
+                                    </span>
                                 </button>
                             </h3>
                             <div
@@ -181,7 +184,7 @@ export function FaqSection() {
                                 aria-labelledby={`faq-question-${index}`}
                                 hidden={opened !== index}
                             >
-                                <p className="pt-0 pr-6 pb-4.25 pl-0 text-[14px] leading-[1.6] text-muted-foreground [@media(width<=768px)]:text-[13px]">
+                                <p className="max-w-3xl px-1 pt-0 pb-7 text-base leading-7 text-muted-foreground sm:px-2 sm:pb-9 sm:text-lg sm:leading-8">
                                     {answer}
                                 </p>
                             </div>

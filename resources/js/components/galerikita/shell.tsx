@@ -30,7 +30,7 @@ export function Navbar() {
         return () => document.removeEventListener('keydown', handleKey);
     }, [opened]);
     return (
-        <header className="relative z-20 h-17 border-b border-b-[#ffffff10] bg-[#09090bbf]">
+        <header className="sticky top-0 z-20 h-17 border-b border-b-[#ffffff10] bg-[#09090bbf]">
             <div className="relative mx-auto flex h-full w-[min(100%_-_128px,_1312px)] items-center justify-between gap-7.5 min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)] [@media(width<=768px)]:gap-3">
                 <Brand />
                 <nav
@@ -101,79 +101,62 @@ export function Navbar() {
 
 export function Footer() {
     return (
-        <footer className="min-h-68.75 bg-[linear-gradient(#10101266,_#09090b)] pt-7 [@media(width<=768px)]:px-0 [@media(width<=768px)]:py-7">
-            <div className="relative mx-auto w-[min(100%_-_128px,_1312px)] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
-                <div className="flex justify-between gap-7.5 [@media(width<=768px)]:flex-wrap [@media(width<=768px)]:gap-6.25">
-                    <div className="[@media(width<=768px)]:first:w-full">
-                        <Brand />
-                        <p className="mt-3 text-[12px] leading-[1.6] text-muted-foreground min-[769px]:[@media(width<=1100px)]:text-[10px]">
-                            Platform galeri foto bersama untuk setiap momen yang
-                            berarti.
-                            <br />
-                            Lebih dari sekadar foto, ini tentang cerita kita.
-                        </p>
-                    </div>
-                    <div className="pt-1.5 text-[12px] text-muted-foreground [@media(width<=768px)]:w-full [@media(width<=768px)]:text-[11px]">
-                        <nav
-                            className="flex gap-8.75 min-[769px]:[@media(width<=1100px)]:gap-4.5 [@media(width<=768px)]:flex-wrap [@media(width<=768px)]:gap-4"
-                            aria-label="Navigasi footer"
-                        >
-                            {navigation.map(([title, id]) => (
-                                <a
-                                    className="hover:text-primary [@media(width<=768px)]:inline-flex [@media(width<=768px)]:min-h-11 [@media(width<=768px)]:items-center"
-                                    key={id}
-                                    href={`#${id}`}
-                                >
-                                    {title}
-                                </a>
-                            ))}
-                        </nav>
-                        <div className="mt-3 flex gap-8 [@media(width<=768px)]:mt-0.75 [@media(width<=768px)]:gap-5">
-                            <span
-                                aria-disabled="true"
-                                title="Halaman belum tersedia"
-                            >
-                                Kebijakan Privasi
-                            </span>
-                            <span
-                                aria-disabled="true"
-                                title="Halaman belum tersedia"
-                            >
-                                Syarat &amp; Ketentuan
-                            </span>
-                        </div>
-                    </div>
-                    <div
-                        className="flex gap-6 pt-1.75 text-[#c6c6cb]"
-                        aria-label="Media sosial belum tersedia"
-                    >
-                        <span aria-label="Instagram belum tersedia">
-                            <Instagram size={19} />
-                        </span>
-                        <span aria-label="TikTok belum tersedia">
-                            <Music2 size={19} />
-                        </span>
-                        <span aria-label="YouTube belum tersedia">
-                            <Youtube size={20} />
-                        </span>
-                    </div>
-                </div>
-                <div className="relative flex items-end gap-7.5 pt-7.5 [@media(width<=768px)]:grid [@media(width<=768px)]:grid-cols-1 [@media(width<=768px)]:gap-6 [@media(width<=768px)]:pt-9">
-                    <p className="w-35 shrink-0 transform-[rotate(-8deg)] pb-1.75 font-serif text-[26px] leading-tight tracking-[1px] text-[#949498] italic [@media(width<=768px)]:text-[24px]">
-                        Setiap foto,
-                        <br />
-                        punya cerita.
+        <footer className="bg-muted/30 py-16 lg:py-24">
+            <div className="mx-auto w-[min(100%_-_128px,_1312px)] min-[769px]:[@media(width<=1300px)]:w-[calc(100%_-_80px)] [@media(width<=768px)]:w-[calc(100%_-_40px)]">
+                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                    <Brand />
+                    <p className="max-w-sm text-sm leading-7 text-muted-foreground">
+                        Platform galeri foto bersama untuk setiap momen yang
+                        berarti. Lebih dari sekadar foto, ini tentang cerita
+                        kita.
                     </p>
-                    <div className="flex-[1] pb-4 text-center text-[12px] text-muted-foreground [@media(width<=768px)]:row-[3] [@media(width<=768px)]:pb-0 [@media(width<=768px)]:text-[10px]">
-                        <span className="mb-5.75 block h-px bg-[#ffffff0c] [@media(width<=768px)]:mb-5" />
-                        © 2025 GaleriKita. Semua hak dilindungi.
-                    </div>
+                </div>
+                <div className="mt-12 flex flex-col gap-8 lg:mt-20 lg:flex-row lg:items-end lg:justify-between">
                     <span
-                        className="font-serif text-[145px] leading-[0.95] tracking-[-7px] text-[#3b3b3e] [@media(1100px<width<=1300px)]:text-[125px] min-[769px]:[@media(width<=1100px)]:text-[100px] [@media(width<=768px)]:row-[1] [@media(width<=768px)]:text-right [@media(width<=768px)]:text-[clamp(90px,_20vw,_145px)] [@media(width<=768px)]:tracking-[-5px]"
+                        className="block font-serif text-6xl leading-none tracking-tight whitespace-nowrap text-foreground sm:text-8xl lg:text-9xl"
                         aria-hidden="true"
                     >
                         GaleriKita.
                     </span>
+                    <p className="font-serif text-3xl leading-tight text-muted-foreground italic lg:pb-2 lg:text-right">
+                        Setiap foto,
+                        <br />
+                        punya cerita.
+                    </p>
+                </div>
+                <p className="mt-10 text-xs leading-6 text-muted-foreground lg:mt-16">
+                    © 2025 GaleriKita. Semua hak dilindungi.
+                </p>
+                <div className="mt-6 flex flex-col gap-6 border-t border-border pt-6 md:flex-row md:items-center md:justify-between">
+                    <div className="flex flex-wrap gap-x-6 gap-y-3 text-xs leading-6 text-muted-foreground sm:text-sm">
+                        <span
+                            aria-disabled="true"
+                            title="Halaman belum tersedia"
+                        >
+                            Kebijakan Privasi
+                        </span>
+                        <span
+                            aria-disabled="true"
+                            title="Halaman belum tersedia"
+                        >
+                            Syarat &amp; Ketentuan
+                        </span>
+                    </div>
+                    <div
+                        className="flex items-center gap-6 text-muted-foreground"
+                        role="group"
+                        aria-label="Media sosial belum tersedia"
+                    >
+                        <span role="img" aria-label="Instagram belum tersedia">
+                            <Instagram size={20} aria-hidden="true" />
+                        </span>
+                        <span role="img" aria-label="TikTok belum tersedia">
+                            <Music2 size={20} aria-hidden="true" />
+                        </span>
+                        <span role="img" aria-label="YouTube belum tersedia">
+                            <Youtube size={20} aria-hidden="true" />
+                        </span>
+                    </div>
                 </div>
             </div>
         </footer>
