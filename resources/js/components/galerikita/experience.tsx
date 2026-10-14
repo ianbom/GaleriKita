@@ -127,7 +127,7 @@ export function HeroSection() {
                         </div>
                         <p className="flex-[1] text-[12px] [@media(width<=768px)]:text-[7px]">
                             <strong className="block font-semibold">
-                                Galeri Reuni 2026
+                                Contoh Galeri Reuni
                             </strong>
                             <span className="mt-1.5 block text-[11px] text-muted-foreground [@media(width<=768px)]:mt-0.75 [@media(width<=768px)]:text-[6px]">
                                 <b className="text-primary">129</b> Foto

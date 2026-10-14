@@ -57,6 +57,12 @@
     --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@keyframes galerikita-gallery-scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 :root {
     --background: #09090b;
     --foreground: #f5f4ef;

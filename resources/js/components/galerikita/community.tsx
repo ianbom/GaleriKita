@@ -10,23 +10,23 @@ import {
 } from './primitives';
 
 const galleryColumns = [
-    [{ key: 'wedding', user: '@dindaptr', likes: 124 }],
+    [{ key: 'wedding', user: '@contoh01', likes: 124 }],
     [
-        { key: 'concert', user: '@rafnidiyat', likes: 86 },
+        { key: 'concert', user: '@contoh02', likes: 86 },
         { key: 'couple' },
         { key: 'dinner' },
     ],
     [
-        { key: 'friends', user: '@salsabila', likes: 221 },
+        { key: 'friends', user: '@contoh03', likes: 221 },
         { key: 'picnic' },
         { key: 'sunset' },
     ],
     [
-        { key: 'vacation', user: '@adityaram', likes: 98 },
+        { key: 'vacation', user: '@contoh04', likes: 98 },
         { key: 'traveler' },
         { key: 'photographer' },
     ],
-    [{ key: 'graduation', user: '@rabiirawan', likes: 176 }],
+    [{ key: 'graduation', user: '@contoh05', likes: 176 }],
 ] satisfies {
     key: keyof typeof assets.gallery;
     user?: string;
@@ -56,9 +56,9 @@ export function CommunitySection() {
                     </SectionHeading>
                     <div className="flex items-center gap-14 pb-3 text-[16px] text-muted-foreground min-[769px]:[@media(width<=1300px)]:gap-7 min-[769px]:[@media(width<=1300px)]:text-[14px] [@media(width<=768px)]:w-full [@media(width<=768px)]:justify-between [@media(width<=768px)]:gap-3.75 [@media(width<=768px)]:p-0 [@media(width<=768px)]:text-[13px]">
                         <p>
-                            Momen nyata
+                            Contoh momen
                             <br className="[@media(width<=768px)]:hidden" />
-                            dari pengguna
+                            bersama dalam
                             <br className="[@media(width<=768px)]:hidden" />
                             GaleriKita.
                         </p>
@@ -66,48 +66,73 @@ export function CommunitySection() {
                     </div>
                 </div>
                 <div
-                    className="grid h-95 grid-cols-[1.25fr_0.88fr_1.06fr_0.99fr_1.13fr] gap-3 max-[550px]:grid-cols-2 [@media(width<=768px)]:h-auto [@media(width<=768px)]:gap-2.5 min-[550px]:[@media(width<=768px)]:grid-cols-3"
-                    aria-label="Contoh komposisi galeri, foto masih placeholder"
+                    role="region"
+                    aria-label="Contoh galeri dengan foto stok; akun dan jumlah suka merupakan ilustrasi. Foto bergerak ke kiri; fokuskan untuk menjeda."
+                    tabIndex={0}
+                    className="group/gallery overflow-hidden [--gallery-gap:--spacing(3)] focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary [@media(width<=768px)]:[--gallery-gap:--spacing(2.5)]"
                 >
-                    {galleryColumns.map((column, index) => (
-                        <div
-                            key={index}
-                            className={cn(
-                                'grid min-w-0 grid-cols-2 grid-rows-[58%_1fr] gap-2.5 first:block last:block max-[550px]:first:row-span-2 max-[550px]:first:h-147.5 max-[550px]:last:col-[2] [@media(width<=768px)]:h-72.5 [@media(width<=768px)]:gap-1.75 [@media(width<=768px)]:last:h-67.5 min-[550px]:[@media(width<=768px)]:first:row-auto min-[550px]:[@media(width<=768px)]:first:h-72.5 min-[550px]:[@media(width<=768px)]:last:col-[3]',
-                                index === 1 && 'grid-rows-[49%_1fr]',
-                                index === 2 && 'grid-rows-[70%_1fr]',
-                                index === 3 &&
-                                    'grid-rows-[54%_1fr] [@media(width<=768px)]:col-[1] [@media(width<=768px)]:h-67.5',
-                            )}
-                        >
-                            {column.map((photo) => (
-                                <figure
-                                    key={photo.key}
-                                    className={cn(
-                                        'relative h-full min-h-0 overflow-hidden rounded-[5px]',
-                                        photo.user && 'col-span-2',
-                                    )}
-                                >
-                                    <Photo
-                                        src={assets.gallery[photo.key]}
-                                        name={`gallery.${photo.key}`}
-                                    />
-                                    {'user' in photo && (
-                                        <figcaption className="absolute right-0 bottom-0 left-0 flex items-end justify-between bg-[linear-gradient(transparent,_#050506d9)] p-2.5 pt-7.5 text-[11px] [@media(width<=768px)]:px-2 [@media(width<=768px)]:text-[9px]">
-                                            <span>{photo.user}</span>
-                                            <span className="last:flex last:items-center last:gap-2 last:text-[#ddd]">
-                                                <Heart
-                                                    size={15}
-                                                    aria-hidden="true"
+                    <div
+                        data-gallery-track
+                        className="flex w-[200%] animate-[galerikita-gallery-scroll_40s_linear_infinite] gap-(--gallery-gap) group-hover/gallery:[animation-play-state:paused] group-focus-visible/gallery:[animation-play-state:paused] motion-reduce:animate-none"
+                    >
+                        {[false, true].map((isDuplicate) => (
+                            <div
+                                key={String(isDuplicate)}
+                                data-gallery-clone={isDuplicate || undefined}
+                                aria-hidden={isDuplicate || undefined}
+                                className="grid h-95 w-[calc(50%_-_var(--gallery-gap))] shrink-0 grid-cols-[1.25fr_0.88fr_1.06fr_0.99fr_1.13fr] gap-3 max-[550px]:grid-cols-2 [@media(width<=768px)]:h-auto [@media(width<=768px)]:gap-2.5 min-[550px]:[@media(width<=768px)]:grid-cols-3"
+                            >
+                                {galleryColumns.map((column, index) => (
+                                    <div
+                                        key={index}
+                                        className={cn(
+                                            'grid min-w-0 grid-cols-2 grid-rows-[58%_1fr] gap-2.5 first:block last:block max-[550px]:first:row-span-2 max-[550px]:first:h-147.5 max-[550px]:last:col-[2] [@media(width<=768px)]:h-72.5 [@media(width<=768px)]:gap-1.75 [@media(width<=768px)]:last:h-67.5 min-[550px]:[@media(width<=768px)]:first:row-auto min-[550px]:[@media(width<=768px)]:first:h-72.5 min-[550px]:[@media(width<=768px)]:last:col-[3]',
+                                            index === 1 &&
+                                                'grid-rows-[49%_1fr]',
+                                            index === 2 &&
+                                                'grid-rows-[70%_1fr]',
+                                            index === 3 &&
+                                                'grid-rows-[54%_1fr] [@media(width<=768px)]:col-[1] [@media(width<=768px)]:h-67.5',
+                                        )}
+                                    >
+                                        {column.map((photo) => (
+                                            <figure
+                                                key={photo.key}
+                                                className={cn(
+                                                    'relative h-full min-h-0 overflow-hidden rounded-[5px]',
+                                                    photo.user && 'col-span-2',
+                                                )}
+                                            >
+                                                <Photo
+                                                    src={
+                                                        assets.gallery[
+                                                            photo.key
+                                                        ]
+                                                    }
+                                                    name={`gallery.${photo.key}`}
+                                                    eager={isDuplicate}
                                                 />
-                                                {photo.likes}
-                                            </span>
-                                        </figcaption>
-                                    )}
-                                </figure>
-                            ))}
-                        </div>
-                    ))}
+                                                {'user' in photo && (
+                                                    <figcaption className="absolute right-0 bottom-0 left-0 flex items-end justify-between bg-[linear-gradient(transparent,_#050506d9)] p-2.5 pt-7.5 text-[11px] [@media(width<=768px)]:px-2 [@media(width<=768px)]:text-[9px]">
+                                                        <span>
+                                                            {photo.user}
+                                                        </span>
+                                                        <span className="last:flex last:items-center last:gap-2 last:text-[#ddd]">
+                                                            <Heart
+                                                                size={15}
+                                                                aria-hidden="true"
+                                                            />
+                                                            {photo.likes}
+                                                        </span>
+                                                    </figcaption>
+                                                )}
+                                            </figure>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
