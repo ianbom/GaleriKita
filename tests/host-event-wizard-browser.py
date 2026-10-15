@@ -45,7 +45,17 @@ def set_value(selector, value):
 
 
 def assert_step(number):
-    assert js('document.querySelector("progress").value') == number
+    titles = [
+        'Acara apa yang kamu rencanakan?',
+        'Beri nama untuk momenmu.',
+        'Kapan acaranya dimulai?',
+        'Siapa yang bisa melihat foto?',
+        'Kapan foto dibagikan?',
+        'Siapkan ruang untuk semua momen.',
+        'Periksa sekali lagi.',
+        'Semua detail di satu tempat.',
+    ]
+    assert js('document.querySelector("#event-wizard-title").textContent') == titles[number - 1]
 
 def click_selector(selector):
     js('document.querySelector(%s).scrollIntoView({block:"center",behavior:"instant"})' % json.dumps(selector))
@@ -110,11 +120,62 @@ assert js('document.querySelector("#event-visibility").getAttribute("aria-checke
 click_named('Lanjutkan')
 click_named('After Event', 'radio')
 click_named('Lanjutkan')
-click_named('100 fotografer', 'radio')
+assert_step(6)
+assert js('document.querySelector("#event-plan").getAttribute("aria-valuetext")') == 'Belum memilih plan'
+click_named('Lanjutkan')
+assert_step(6)
+assert js('document.activeElement.id') == 'event-plan'
+assert 'Pilih plan event.' in js('document.querySelector("#event-plan-error").textContent')
+
+def range_key(key, code):
+    js('document.querySelector("#event-plan").focus()')
+    cdp('Input.dispatchKeyEvent', type='keyDown', key=key, code=key, windowsVirtualKeyCode=code)
+    cdp('Input.dispatchKeyEvent', type='keyUp', key=key, code=key, windowsVirtualKeyCode=code)
+    time.sleep(.15)
+
+range_key('Home', 36)
+assert js('document.querySelector("#event-plan").getAttribute("aria-valuetext")').startswith('Mini,')
+assert js('document.querySelector("#event-plan-error") === null')
+plans = [
+    ('Mini', 10, 200, '29.000'),
+    ('Intimate', 25, 500, '49.000'),
+    ('Celebration', 50, 1000, '79.000'),
+    ('Grand', 100, 2000, '129.000'),
+    ('Festival', 200, 4000, '219.000'),
+    ('Big Event', 400, 8000, '349.000'),
+]
+for index, (name, photographers, total, price) in enumerate(plans):
+    click_named(f'Plan {name}, {photographers} fotografer')
+    assert js('document.querySelector("#event-plan").value') == str(index)
+    assert js('document.querySelector("#event-plan").getAttribute("aria-valuetext")').startswith(name + ',')
+    content = js('document.querySelector("[data-event-wizard]").textContent')
+    assert price in content
+    assert f'{total:,}'.replace(',', '.') + ' foto' in content
+    assert '20 foto per fotografer' in content
+
+range_key('Home', 36)
+for name, _, _, _ in plans[1:]:
+    range_key('ArrowRight', 39)
+    assert js('document.querySelector("#event-plan").getAttribute("aria-valuetext")').startswith(name + ',')
+range_key('End', 35)
+assert js('document.querySelector("#event-plan").value') == '5'
+click_named('Plan Grand, 100 fotografer')
+for width in [320, 375, 390, 430, 1440]:
+    cdp('Emulation.setDeviceMetricsOverride', width=width, height=844, deviceScaleFactor=1, mobile=False)
+    time.sleep(.2)
+    assert js('document.documentElement.scrollWidth <= window.innerWidth'), f'Plan overflow at {width}'
+    (output / f'plan-{width}.png').write_bytes(base64.b64decode(cdp('Page.captureScreenshot', captureBeyondViewport=True)['data']))
+cdp('Emulation.setDeviceMetricsOverride', width=390, height=844, deviceScaleFactor=1, mobile=False)
+click_selector('[data-event-wizard] footer button[type=button]')
+assert_step(5)
+click_named('Lanjutkan')
+assert js('document.querySelector("#event-plan").getAttribute("aria-valuetext")').startswith('Grand,')
 click_named('Lanjutkan')
 assert_step(7)
-assert 'Acara QA' in js('document.querySelector("section[aria-label=\"Ringkasan event\"]").textContent')
-assert '10.000 foto' in js('document.querySelector("[data-event-wizard]").textContent')
+assert 'Acara QA' in js("document.querySelector('section[aria-label=\"Ringkasan event\"]').textContent")
+assert 'Grand' in js("document.querySelector('section[aria-label=\"Ringkasan event\"]').textContent")
+assert '2.000 foto' in js('document.querySelector("[data-event-wizard]").textContent')
+assert '129.000' in js('document.querySelector("[data-event-wizard]").textContent')
 
 for result in ['failed', 'pending', 'expired', 'success']:
     set_value('#payment-result', result)

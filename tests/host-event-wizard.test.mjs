@@ -6,6 +6,7 @@ import {
     getEventEntry,
     getEventEnd,
     hostEventDraft,
+    eventPlans,
     toEventDate,
     validateEventStep,
 } from '../resources/js/lib/host-event-wizard.ts';
@@ -18,8 +19,7 @@ const validDraft = {
     startTime: '13:30',
     visibility: 'private',
     revealMode: 'instant',
-    photographers: 10,
-    photosPerPhotographer: 100,
+    planId: 'mini',
 };
 
 test('home wizard requires authentication without changing the normal landing', () => {
@@ -156,29 +156,63 @@ test('rejects missing, invalid, and equal-to-now start times', () => {
     );
 });
 
-test('validates mock plan quotas without defining production prices', () => {
-    assert.deepEqual(validateEventStep(5, validDraft), {});
+test('fixed plans contain the requested photographer, quota, and price values', () => {
     assert.deepEqual(
-        validateEventStep(5, { ...validDraft, photographers: 100 }),
-        {},
+        eventPlans.map(
+            ({
+                id,
+                name,
+                photographers,
+                photosPerPhotographer,
+                totalPhotos,
+                price,
+            }) => [
+                id,
+                name,
+                photographers,
+                photosPerPhotographer,
+                totalPhotos,
+                price,
+            ],
+        ),
+        [
+            ['mini', 'Mini', 10, 20, 200, 29_000],
+            ['intimate', 'Intimate', 25, 20, 500, 49_000],
+            ['celebration', 'Celebration', 50, 20, 1_000, 79_000],
+            ['grand', 'Grand', 100, 20, 2_000, 129_000],
+            ['festival', 'Festival', 200, 20, 4_000, 219_000],
+            ['big-event', 'Big Event', 400, 20, 8_000, 349_000],
+        ],
     );
-    for (const photographers of [0, -1, 1.5, NaN, Infinity]) {
+    assert.deepEqual(validateEventStep(5, validDraft), {});
+    assert.equal(
+        validateEventStep(5, { ...validDraft, planId: '' }).planId,
+        'Pilih plan event.',
+    );
+    assert.equal(
+        validateEventStep(5, { ...validDraft, planId: 'unknown' }).planId,
+        'Pilih plan event.',
+    );
+});
+
+test('plan selection starts empty and accepts only the six fixed plans', () => {
+    assert.equal(hostEventDraft.planId, '');
+    assert.equal('photographers' in hostEventDraft, false);
+    assert.equal('photosPerPhotographer' in hostEventDraft, false);
+    assert.deepEqual(validateEventStep(5, hostEventDraft), {
+        planId: 'Pilih plan event.',
+    });
+    for (const plan of eventPlans) {
         assert.equal(
-            validateEventStep(5, { ...validDraft, photographers })
-                .photographers,
-            'Pilih kuota fotografer.',
+            plan.totalPhotos,
+            plan.photographers * plan.photosPerPhotographer,
+        );
+        assert.deepEqual(
+            validateEventStep(5, { ...validDraft, planId: plan.id }),
+            {},
         );
     }
-    assert.equal(
-        validateEventStep(5, { ...validDraft, photosPerPhotographer: 0 })
-            .photosPerPhotographer,
-        'Pilih kuota foto.',
-    );
-    assert.equal(
-        validateEventStep(5, { ...validDraft, photographers: 12 })
-            .photographers,
-        'Pilih salah satu pilihan plan.',
-    );
+    assert.deepEqual(validateEventStep(0, { ...validDraft, planId: '' }), {});
 });
 
 test('validation never mutates the chosen fields', () => {

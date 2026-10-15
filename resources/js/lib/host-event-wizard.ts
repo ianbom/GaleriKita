@@ -6,8 +6,7 @@ export type HostEventDraft = {
     startTime: string;
     visibility: 'private' | 'public' | '';
     revealMode: 'instant' | 'after-event' | '';
-    photographers: number;
-    photosPerPhotographer: number;
+    planId: string;
 };
 
 export type HostEventFieldErrors = Partial<
@@ -23,10 +22,53 @@ export const eventCategories = [
     'Lainnya',
 ];
 
-export const previewPlans = [
-    { photographers: 10, photosPerPhotographer: 100, price: 50_000 },
-    { photographers: 100, photosPerPhotographer: 100, price: 500_000 },
-];
+export const eventPlans = [
+    {
+        id: 'mini',
+        name: 'Mini',
+        photographers: 10,
+        photosPerPhotographer: 20,
+        price: 29_000,
+    },
+    {
+        id: 'intimate',
+        name: 'Intimate',
+        photographers: 25,
+        photosPerPhotographer: 20,
+        price: 49_000,
+    },
+    {
+        id: 'celebration',
+        name: 'Celebration',
+        photographers: 50,
+        photosPerPhotographer: 20,
+        price: 79_000,
+    },
+    {
+        id: 'grand',
+        name: 'Grand',
+        photographers: 100,
+        photosPerPhotographer: 20,
+        price: 129_000,
+    },
+    {
+        id: 'festival',
+        name: 'Festival',
+        photographers: 200,
+        photosPerPhotographer: 20,
+        price: 219_000,
+    },
+    {
+        id: 'big-event',
+        name: 'Big Event',
+        photographers: 400,
+        photosPerPhotographer: 20,
+        price: 349_000,
+    },
+].map((plan) => ({
+    ...plan,
+    totalPhotos: plan.photographers * plan.photosPerPhotographer,
+}));
 
 export const hostEventDraft: HostEventDraft = {
     category: '',
@@ -36,8 +78,7 @@ export const hostEventDraft: HostEventDraft = {
     startTime: '',
     visibility: 'private',
     revealMode: '',
-    photographers: 10,
-    photosPerPhotographer: 100,
+    planId: '',
 };
 
 export function getEventEnd(date: string, time: string): Date {
@@ -119,30 +160,8 @@ export function validateEventStep(
         errors.revealMode = 'Pilih aturan reveal foto.';
     }
 
-    if (step === 5) {
-        if (
-            !Number.isSafeInteger(draft.photographers) ||
-            draft.photographers < 1
-        ) {
-            errors.photographers = 'Pilih kuota fotografer.';
-        }
-        if (
-            !Number.isSafeInteger(draft.photosPerPhotographer) ||
-            draft.photosPerPhotographer < 1
-        ) {
-            errors.photosPerPhotographer = 'Pilih kuota foto.';
-        }
-        if (
-            !errors.photographers &&
-            !errors.photosPerPhotographer &&
-            !previewPlans.some(
-                (plan) =>
-                    plan.photographers === draft.photographers &&
-                    plan.photosPerPhotographer === draft.photosPerPhotographer,
-            )
-        ) {
-            errors.photographers = 'Pilih salah satu pilihan plan.';
-        }
+    if (step === 5 && !eventPlans.some((plan) => plan.id === draft.planId)) {
+        errors.planId = 'Pilih plan event.';
     }
 
     return errors;

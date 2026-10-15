@@ -20,14 +20,14 @@ import {
     getEventEnd,
     toEventDate,
     hostEventDraft,
-    previewPlans,
+    eventPlans,
     validateEventStep,
 } from '@/lib/host-event-wizard';
 import type {
     HostEventDraft,
     HostEventFieldErrors,
 } from '@/lib/host-event-wizard';
-import { dashboard, home } from '@/routes';
+import { dashboard } from '@/routes';
 
 const steps = [
     {
@@ -60,7 +60,7 @@ const steps = [
     {
         label: 'Plan',
         title: 'Siapkan ruang untuk semua momen.',
-        description: 'Pilih kapasitas fotografer dan foto untuk acara kamu.',
+        description: 'Pilih plan sesuai jumlah fotografer di acara kamu.',
     },
     {
         label: 'Checkout',
@@ -155,10 +155,9 @@ export default function HostEventWizard() {
     const paymentTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
     const busy = useRef(false);
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const plan = previewPlans.find(
-        (option) =>
-            option.photographers === draft.photographers &&
-            option.photosPerPhotographer === draft.photosPerPhotographer,
+    const plan = eventPlans.find((option) => option.id === draft.planId);
+    const planIndex = eventPlans.findIndex(
+        (option) => option.id === draft.planId,
     );
     const money = (value: number) =>
         new Intl.NumberFormat('id-ID', {
@@ -270,14 +269,15 @@ export default function HostEventWizard() {
             'Reveal foto',
             draft.revealMode === 'instant' ? 'Instant' : 'After Event',
         ],
-        ['Fotografer', draft.photographers.toLocaleString('id-ID')],
+        ['Plan', plan?.name ?? '-'],
+        ['Fotografer', plan?.photographers.toLocaleString('id-ID') ?? '-'],
         [
             'Foto per fotografer',
-            draft.photosPerPhotographer.toLocaleString('id-ID'),
+            plan?.photosPerPhotographer.toLocaleString('id-ID') ?? '-',
         ],
         [
             'Kapasitas total',
-            `${(draft.photographers * draft.photosPerPhotographer).toLocaleString('id-ID')} foto`,
+            plan ? `${plan.totalPhotos.toLocaleString('id-ID')} foto` : '-',
         ],
     ];
 
@@ -288,7 +288,6 @@ export default function HostEventWizard() {
             className="min-h-svh bg-background px-5 py-6 text-foreground sm:py-10"
         >
             <div className="mx-auto w-full max-w-120">
-               
                 <header className="mb-8 text-center">
                     <h1
                         id="event-wizard-title"
@@ -820,53 +819,177 @@ export default function HostEventWizard() {
                         )}
                         {step === 5 && (
                             <>
-                                <Choices
-                                    id="event-plan"
-                                    label="Pilihan kapasitas"
-                                    value={String(draft.photographers)}
-                                    options={previewPlans.map((option) => ({
-                                        value: String(option.photographers),
-                                        label: `${option.photographers} fotografer`,
-                                        description: `${option.photosPerPhotographer} foto per fotografer. Estimasi ${money(option.price)}.`,
-                                    }))}
-                                    error={
-                                        errors.photographers ??
-                                        errors.photosPerPhotographer
-                                    }
-                                    onChange={(value) => {
-                                        const option = previewPlans.find(
-                                            (item) =>
-                                                item.photographers ===
-                                                Number(value),
-                                        );
-                                        if (option)
-                                            update({
-                                                photographers:
-                                                    option.photographers,
-                                                photosPerPhotographer:
-                                                    option.photosPerPhotographer,
-                                            });
-                                    }}
-                                />
-                                <div className="rounded-xl bg-card p-5">
-                                    <p className="text-sm text-muted-foreground">
-                                        Kapasitas foto maksimum
-                                    </p>
+                                <div className="space-y-6">
                                     <output
-                                        className="mt-2 block text-2xl font-semibold"
                                         aria-live="polite"
+                                        className="flex items-end justify-between gap-4"
                                     >
-                                        {(
-                                            draft.photographers *
-                                            draft.photosPerPhotographer
-                                        ).toLocaleString('id-ID')}{' '}
-                                        foto
+                                        <span>
+                                            <span className="block font-serif text-6xl leading-none tracking-tight">
+                                                {plan?.photographers ?? '-'}
+                                            </span>
+                                            <span className="mt-2 block text-sm text-muted-foreground">
+                                                fotografer
+                                            </span>
+                                            <span className="mt-3 block text-lg font-semibold">
+                                                {plan?.name ?? 'Pilih plan'}
+                                            </span>
+                                        </span>
+                                        <span className="pb-1 text-right">
+                                            <span className="block text-xl font-semibold sm:text-2xl">
+                                                {plan ? money(plan.price) : '-'}
+                                            </span>
+                                            <span className="mt-1 block text-sm text-muted-foreground">
+                                                {plan
+                                                    ? 'per event'
+                                                    : 'Belum dipilih'}
+                                            </span>
+                                        </span>
                                     </output>
+                                    <div>
+                                        <Label htmlFor="event-plan">
+                                            Jumlah fotografer
+                                        </Label>
+                                        <input
+                                            id="event-plan"
+                                            type="range"
+                                            min={0}
+                                            max={eventPlans.length - 1}
+                                            step={1}
+                                            value={Math.max(0, planIndex)}
+                                            aria-valuetext={
+                                                plan
+                                                    ? `${plan.name}, ${plan.photographers} fotografer, ${money(plan.price)}`
+                                                    : 'Belum memilih plan'
+                                            }
+                                            aria-invalid={!!errors.planId}
+                                            aria-describedby={
+                                                errors.planId
+                                                    ? 'event-plan-hint event-plan-error'
+                                                    : 'event-plan-hint'
+                                            }
+                                            className="mt-2 h-11 w-full cursor-pointer accent-primary focus-visible:rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                                            onChange={(event) =>
+                                                update({
+                                                    planId: eventPlans[
+                                                        Number(
+                                                            event.target.value,
+                                                        )
+                                                    ].id,
+                                                })
+                                            }
+                                            onPointerUp={(event) =>
+                                                update({
+                                                    planId: eventPlans[
+                                                        Number(
+                                                            event.currentTarget
+                                                                .value,
+                                                        )
+                                                    ].id,
+                                                })
+                                            }
+                                            onKeyUp={(event) => {
+                                                if (
+                                                    [
+                                                        'ArrowLeft',
+                                                        'ArrowRight',
+                                                        'ArrowUp',
+                                                        'ArrowDown',
+                                                        'Home',
+                                                        'End',
+                                                        'PageUp',
+                                                        'PageDown',
+                                                    ].includes(event.key)
+                                                ) {
+                                                    update({
+                                                        planId: eventPlans[
+                                                            Number(
+                                                                event
+                                                                    .currentTarget
+                                                                    .value,
+                                                            )
+                                                        ].id,
+                                                    });
+                                                }
+                                            }}
+                                        />
+                                        <div
+                                            className="grid grid-cols-6 gap-1"
+                                            aria-label="Pilihan plan"
+                                        >
+                                            {eventPlans.map((option) => (
+                                                <button
+                                                    key={option.id}
+                                                    type="button"
+                                                    aria-label={`Plan ${option.name}, ${option.photographers} fotografer`}
+                                                    aria-pressed={
+                                                        draft.planId ===
+                                                        option.id
+                                                    }
+                                                    onClick={() =>
+                                                        update({
+                                                            planId: option.id,
+                                                        })
+                                                    }
+                                                    className="flex min-h-11 flex-col items-center justify-center gap-1 rounded-md text-xs text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring aria-pressed:bg-primary/10 aria-pressed:text-primary"
+                                                >
+                                                    <span
+                                                        className="h-2 w-px bg-current"
+                                                        aria-hidden="true"
+                                                    />
+                                                    {option.photographers}
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <p
+                                            id="event-plan-hint"
+                                            className="mt-3 text-sm leading-6 text-muted-foreground"
+                                        >
+                                            Geser untuk memilih plan, atau ketuk
+                                            jumlah fotografer.
+                                        </p>
+                                        {errors.planId && (
+                                            <p
+                                                id="event-plan-error"
+                                                role="alert"
+                                                className="mt-3 text-sm text-destructive-foreground"
+                                            >
+                                                {errors.planId}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5">
+                                        <ImagePlus
+                                            size={24}
+                                            className="mt-1 shrink-0 text-primary"
+                                            aria-hidden="true"
+                                        />
+                                        <div className="min-w-0">
+                                            <p className="font-semibold">
+                                                20 foto per fotografer
+                                            </p>
+                                            <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                                                Kuota foto tetap untuk setiap
+                                                plan.
+                                            </p>
+                                            <p className="mt-4 text-sm text-muted-foreground">
+                                                Kapasitas album
+                                            </p>
+                                            <output
+                                                className="mt-1 block text-2xl font-semibold"
+                                                aria-live="polite"
+                                            >
+                                                {plan
+                                                    ? `${plan.totalPhotos.toLocaleString('id-ID')} foto`
+                                                    : 'Pilih plan dahulu'}
+                                            </output>
+                                        </div>
+                                    </div>
                                 </div>
                                 <p className="text-sm leading-6 text-muted-foreground">
-                                    Kuota dan harga belum terhubung ke katalog
-                                    server. Pilihan ini tidak menetapkan harga
-                                    produksi.
+                                    Plan dan harga ditampilkan untuk pratinjau.
+                                    Checkout belum terhubung ke server
+                                    pembayaran.
                                 </p>
                             </>
                         )}
